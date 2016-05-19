@@ -1,0 +1,31 @@
+<h1>Listing Trade Events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Trade Event</th>
+      <th>Address</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trade_events.each do |trade_event| %>
+      <tr>
+        <td><%#= trade_event.question_id.question_asked %></td>
+        <td><%#= trade_event.possible_trade_event %></td>
+        <td><%#= trade_event.is_correct %></td>
+        <td><%#= trade_event.question_id %></td>
+        <td><%#= link_to 'Show', trade_event %></td>
+        <td><%#= link_to 'Edit', edit_trade_event_path(trade_event) %></td>
+        <td><%#= link_to 'Destroy', trade_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%#= link_to 'New Trade Event', new_trade_event_path %>

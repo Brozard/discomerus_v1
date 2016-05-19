@@ -11,10 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160518222233) do
+ActiveRecord::Schema.define(version: 20160519191125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "country"
+    t.string   "street_address_1"
+    t.string   "street_address_2"
+    t.string   "street_address_3"
+    t.string   "city"
+    t.string   "district"
+    t.string   "state"
+    t.string   "postal_code"
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "addresses", ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id", using: :btree
+
+  create_table "addtending_manufacturers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "attending_manufacturers", force: :cascade do |t|
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "trade_event_id"
+    t.integer  "manufacturer_id"
+  end
 
   create_table "buyers", force: :cascade do |t|
     t.string   "company_name"
@@ -43,6 +72,22 @@ ActiveRecord::Schema.define(version: 20160518222233) do
     t.integer  "min_order_quantity"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "manufacturer_id"
   end
 
+  add_index "products", ["manufacturer_id"], name: "index_products_on_manufacturer_id", using: :btree
+
+  create_table "trade_events", force: :cascade do |t|
+    t.string   "event_name"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "buyer_id"
+  end
+
+  add_index "trade_events", ["buyer_id"], name: "index_trade_events_on_buyer_id", using: :btree
+
+  add_foreign_key "products", "manufacturers"
+  add_foreign_key "trade_events", "buyers"
 end
