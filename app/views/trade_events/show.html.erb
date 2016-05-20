@@ -1,0 +1,48 @@
+<p>
+  <strong>Event Name</strong>
+  <%= @trade_event.event_name %>
+</p>
+<p>
+  <strong>Start Date</strong>
+  <%= @trade_event.start_date %>
+</p>
+<p>
+  <strong>End Date</strong>
+  <%= @trade_event.end_date %>
+</p>
+<p>
+  <strong>Country</strong>
+  <%= @trade_event.address.country %>
+</p>
+<p>
+  <strong>Street Address 1</strong>
+  <%= @trade_event.address.street_address_1 %>
+</p>
+<p>
+  <strong>Street Address 2</strong>
+  <%= @trade_event.address.street_address_2 %>
+</p>
+<p>
+  <strong>Street Address 3</strong>
+  <%= @trade_event.address.street_address_3 %>
+</p>
+<p>
+  <strong>City</strong>
+  <%= @trade_event.address.city %>
+</p>
+<p>
+  <strong>State</strong>
+  <%= @trade_event.address.state %>
+</p>
+<p>
+  <strong>District</strong>
+  <%= @trade_event.address.district %>
+</p>
+<p>
+  <strong>Postal Code</strong>
+  <%= @trade_event.address.postal_code %>
+</p>
+
+
+<%= link_to 'Edit', edit_trade_event_path(@trade_event) %> |
+<%= link_to 'Back', trade_events_path %>

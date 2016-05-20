@@ -1,0 +1,75 @@
+<%= form_for(setup_addressable(@manufacturer)) do |f| %>
+  <% if @manufacturer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@manufacturer.errors.count, "error") %> prohibited this manufacturer from being saved:</h2>
+
+      <ul>
+      <% @manufacturer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :comapny_name %><br>
+    <%= f.text_field :comapny_name %>
+  </div>
+  <div class="field">
+    <%= f.label :shipping_port %><br>
+    <%= f.text_field :shipping_port %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_name %><br>
+    <%= f.text_field :contact_name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :phone_number %><br>
+    <%= f.text_field :phone_number %>
+  </div>
+  <%#= render template: "addresses/_form" %>
+  <%#= render partial: "addresses/form", :locals => {:address => @address} %>
+  <%= f.fields_for :address do |ff| %>
+    <div class="field">
+      <%= ff.label :country %><br>
+      <%= ff.text_field :country %>
+    </div>
+    <div class="field">
+      <%= ff.label :street_address_1 %><br>
+      <%= ff.text_field :street_address_1 %>
+    </div>
+    <div class="field">
+      <%= ff.label :street_address_2 %><br>
+      <%= ff.text_field :street_address_2 %>
+    </div>
+    <div class="field">
+      <%= ff.label :street_address_3 %><br>
+      <%= ff.text_field :street_address_3 %>
+    </div>
+    <div class="field">
+      <%= ff.label :city %><br>
+      <%= ff.text_field :city %>
+    </div>
+    <div class="field">
+      <%= ff.label :state %><br>
+      <%= ff.text_field :state %>
+    </div>
+    <div class="field">
+      <%= ff.label :district %><br>
+      <%= ff.text_field :district %>
+    </div>
+    <div class="field">
+      <%= ff.label :postal_code %><br>
+      <%= ff.text_field :postal_code %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

@@ -1,0 +1,67 @@
+<%= form_for(setup_addressable(@trade_event)) do |f| %>
+  <% if @trade_event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trade_event.errors.count, "error") %> prohibited this trade_event from being saved:</h2>
+
+      <ul>
+      <% @trade_event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :event_name %><br>
+    <%= f.text_field :event_name %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br>
+    <%= f.date_select :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br>
+    <%= f.date_select :end_date %>
+  </div>
+  <%#= render template: "addresses/_form" %>
+  <%#= render partial: "addresses/form", :locals => {:address => @address} %>
+  <%= f.fields_for :address do |ff| %>
+    <div class="field">
+      <%= ff.label :country %><br>
+      <%= ff.text_field :country %>
+    </div>
+    <div class="field">
+      <%= ff.label :street_address_1 %><br>
+      <%= ff.text_field :street_address_1 %>
+    </div>
+    <div class="field">
+      <%= ff.label :street_address_2 %><br>
+      <%= ff.text_field :street_address_2 %>
+    </div>
+    <div class="field">
+      <%= ff.label :street_address_3 %><br>
+      <%= ff.text_field :street_address_3 %>
+    </div>
+    <div class="field">
+      <%= ff.label :city %><br>
+      <%= ff.text_field :city %>
+    </div>
+    <div class="field">
+      <%= ff.label :state %><br>
+      <%= ff.text_field :state %>
+    </div>
+    <div class="field">
+      <%= ff.label :district %><br>
+      <%= ff.text_field :district %>
+    </div>
+    <div class="field">
+      <%= ff.label :postal_code %><br>
+      <%= ff.text_field :postal_code %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

@@ -1,0 +1,56 @@
+<p>
+  <strong>Company Name</strong>
+  <%= @manufacturer.event_name %>
+</p>
+<p>
+  <strong>Shipping Port</strong>
+  <%= @manufacturer.start_date %>
+</p>
+<p>
+  <strong>Contact Name</strong>
+  <%= @manufacturer.end_date %>
+</p>
+<p>
+  <strong>Contact Email</strong>
+  <%= @manufacturer.end_date %>
+</p>
+<p>
+  <strong>Contact Phone Number</strong>
+  <%= @manufacturer.end_date %>
+</p>
+<p>
+  <strong>Country</strong>
+  <%= @manufacturer.address.country %>
+</p>
+<p>
+  <strong>Street Address 1</strong>
+  <%= @manufacturer.address.street_address_1 %>
+</p>
+<p>
+  <strong>Street Address 2</strong>
+  <%= @manufacturer.address.street_address_2 %>
+</p>
+<p>
+  <strong>Street Address 3</strong>
+  <%= @manufacturer.address.street_address_3 %>
+</p>
+<p>
+  <strong>City</strong>
+  <%= @manufacturer.address.city %>
+</p>
+<p>
+  <strong>State</strong>
+  <%= @manufacturer.address.state %>
+</p>
+<p>
+  <strong>District</strong>
+  <%= @manufacturer.address.district %>
+</p>
+<p>
+  <strong>Postal Code</strong>
+  <%= @manufacturer.address.postal_code %>
+</p>
+
+
+<%= link_to 'Edit', edit_manufacturer_path(@manufacturer) %> |
+<%= link_to 'Back', manufacturers_path %>

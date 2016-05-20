@@ -69,6 +69,6 @@ class TradeEventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trade_event_params
-      params.require(:trade_event).permit(:possible_trade_event, :is_correct, :question_id)
+      params.require(:trade_event).permit(:event_name, :start_date, :end_date, :address_attributes => [:street_address_1, :street_address_2, :street_address_3, :city, :district, :state, :postal_code, :country])
     end
 end
