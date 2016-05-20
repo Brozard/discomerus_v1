@@ -16,9 +16,11 @@
   <tbody>
     <% @manufacturers.each do |manufacturer| %>
       <tr>
-        <td><%= manufacturer.event_name %></td>
-        <td><%= manufacturer.start_date %></td>
-        <td><%= manufacturer.end_date %></td>
+        <td><%= manufacturer.company_name %></td>
+        <td><%= manufacturer.shipping_port %></td>
+        <td><%= manufacturer.contact_name %></td>
+        <td><%= manufacturer.email %></td>
+        <td><%= manufacturer.phone_number %></td>
         <td><%= manufacturer.address.street_address_1 %> <%= manufacturer.address.street_address_2 %> <%= manufacturer.address.street_address_3 %></td>
         <td><%= link_to 'Show', manufacturer %></td>
         <td><%= link_to 'Edit', edit_manufacturer_path(manufacturer) %></td>

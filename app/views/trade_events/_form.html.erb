@@ -23,8 +23,8 @@
     <%= f.label :end_date %><br>
     <%= f.date_select :end_date %>
   </div>
-  <%#= render template: "addresses/_form" %>
-  <%#= render partial: "addresses/form", :locals => {:address => @address} %>
+  
+  <!-- beginning of address fields -->
   <%= f.fields_for :address do |ff| %>
     <div class="field">
       <%= ff.label :country %><br>
@@ -58,7 +58,7 @@
       <%= ff.label :postal_code %><br>
       <%= ff.text_field :postal_code %>
     </div>
-  <% end %>
+  <% end %> <!-- end of address fields -->
 
   <div class="actions">
     <%= f.submit %>
