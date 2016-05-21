@@ -1,6 +1,6 @@
-<h1>Log In</h1>
 
-<%= form_tag sessions_path do %>
+
+<!-- <%= form_tag sessions_path do %>
   <div class="field center">
     <%= label_tag :email %><br>
     <%= text_field_tag :email %>
@@ -15,3 +15,82 @@
     </div>
   </div>
 <% end %>
+ -->
+
+
+        <!-- Top content -->
+        <!-- <div class="top-content"> -->
+
+
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                            <h1><strong>D I S C O M E R - U S</h1>
+                            <div class="description">
+                            	<p>
+	                            	<strong>Data Management Application</strong>
+                            	</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 form-box">
+                        	<div class="form-top">
+                        		<div class="form-top-left">
+                        			<h3>WELCOME</h3>
+                            		<p>Enter your username and password to log on:</p>
+                        		</div>
+                              <div class="form-top-right">
+                        			     <i class="fa fa-lock"></i>
+                        		  </div>
+                          </div>
+                            <div class="form-bottom">
+			                    <%= form_tag sessions_path do %>
+			                    	<div class="form-group">
+			                    		<% label_tag :email %><br>
+			                        	<%= text_field_tag :email, placeholder="Username...", class: "form-username form-control" %>
+			                      </div>
+			                        <div class="form-group">
+			                        <% label_tag :password %><br>
+			                        	<%= password_field_tag :password, placeholder="password...", class: "form-password form-control" %>
+			                        </div>
+                              <button type="submit" class="btn">Log in!</button>
+
+			                           <% end %>
+		                      </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 social-login">
+                        	<h3>Or login with:</h3>
+                        	<div class="social-login-buttons">
+	                        	<a class="btn btn-link-2" href="#">
+	                        		<i class="fa fa-facebook"></i> Facebook
+	                        	</a>
+	                        	<a class="btn btn-link-2" href="#">
+	                        		<i class="fa fa-twitter"></i> Twitter
+	                        	</a>
+	                        	<a class="btn btn-link-2" href="#">
+	                        		<i class="fa fa-google-plus"></i> Google Plus
+	                        	</a>
+                        	</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <!-- <script src="assets/js/jquery.backstretch.min.js"></script> -->
+        <!-- <script src="assets/js/scripts.js"></script> -->
+
+        <!--[if lt IE 10]>
+            <script src="assets/js/placeholder.js"></script>
+        <![endif]-->
