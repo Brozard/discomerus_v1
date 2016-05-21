@@ -1,6 +1,6 @@
 class TradeEventsController < ApplicationController
   before_action :set_trade_event, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, except: [:index]
+  before_action :authorize
 
   # GET /trade_events
   # GET /trade_events.json

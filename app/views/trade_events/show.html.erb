@@ -1,47 +1,74 @@
-<p>
-  <strong>Event Name</strong>
-  <%= @trade_event.event_name %>
-</p>
-<p>
-  <strong>Start Date</strong>
-  <%= @trade_event.start_date %>
-</p>
-<p>
-  <strong>End Date</strong>
-  <%= @trade_event.end_date %>
-</p>
-<p>
-  <strong>Country</strong>
-  <%= @trade_event.address.country %>
-</p>
-<p>
-  <strong>Street Address 1</strong>
-  <%= @trade_event.address.street_address_1 %>
-</p>
-<p>
-  <strong>Street Address 2</strong>
-  <%= @trade_event.address.street_address_2 %>
-</p>
-<p>
-  <strong>Street Address 3</strong>
-  <%= @trade_event.address.street_address_3 %>
-</p>
-<p>
-  <strong>City</strong>
-  <%= @trade_event.address.city %>
-</p>
-<p>
-  <strong>State</strong>
-  <%= @trade_event.address.state %>
-</p>
-<p>
-  <strong>District</strong>
-  <%= @trade_event.address.district %>
-</p>
-<p>
-  <strong>Postal Code</strong>
-  <%= @trade_event.address.postal_code %>
-</p>
+<div>
+  <div>
+    <p>
+      <strong>Event:</strong>
+      <%= @trade_event.event_name %>
+    </p>
+    <p>
+      <strong>Held Between:</strong>
+      <%= @trade_event.start_date %> and <%= @trade_event.end_date %>
+    </p>
+  </div>
+  <div>
+    <strong>Event Address:</strong>
+    <br><%= @trade_event.address.street_address_1 %>
+    <% if @trade_event.address.street_address_2 %>
+      <br><%= @trade_event.address.street_address_2 %>
+      <% if @trade_event.address.street_address_3 %>
+        <br><%= @trade_event.address.street_address_3 %>
+      <% end %>
+    <% end %>
+    <br><%= @trade_event.address.city %>, <%= @trade_event.address.state %> <%= @trade_event.address.postal_code %>
+    <br><%= @trade_event.address.country %>
+    <%#= @trade_event.address.district %>
+  </div>
+</div>
+
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+      <th>Manufacturer Name</th>
+      <th>Contact Name</th>
+      <th>Contact Email Address</th>
+      <th>Contact Phone Number</th>
+      <th>Shipping Port</th>
+      <th>Street Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Country</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trade_event.manufacturers.each do |manufacturer| %>
+      <tr>
+        <td><%= link_to 'Edit', edit_manufacturer_path(manufacturer) %></td>
+        <td><%= link_to manufacturer.company_name, manufacturer %></td>
+        <td><%= manufacturer.contact_name %></td>
+        <td><%= manufacturer.email %></td>
+        <td><%= manufacturer.phone_number %></td>
+        <td><%= manufacturer.shipping_port %></td>
+        <td><%= manufacturer.address.street_address_1 %>
+          <% if @trade_event.address.street_address_2 %>
+             <%= @trade_event.address.street_address_2 %>
+            <% if @trade_event.address.street_address_3 %>
+               <%= @trade_event.address.street_address_3 %>
+            <% end %>
+          <% end %>
+        </td>
+        <td><%= manufacturer.address.city %></td>
+        <td><%= manufacturer.address.state %></td>
+        <td><%= manufacturer.address.postal_code %></td>
+        <td><%= manufacturer.address.country %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 
 
 <%= link_to 'Edit', edit_trade_event_path(@trade_event) %> |

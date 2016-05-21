@@ -1,10 +1,13 @@
 class ManufacturersController < ApplicationController
   before_action :set_manufacturer, only: [:show, :edit, :update, :destroy]
+  before_action :authorize
 
   # GET /manufacturers
   # GET /manufacturers.json
   def index
-    @manufacturers = Manufacturer.all
+    # @trade_events = TradeEvent.where(buyer_id: current_user.id)
+    @manufacturers = Manufacturer.joins(:trade_events, :buyer).where(buyer_id: current_user.id)
+
   end
 
   # GET /manufacturers/1
@@ -70,5 +73,15 @@ class ManufacturersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def manufacturer_params
       params.require(:manufacturer).permit(:company_name, :shipping_port, :contact_name, :email, :phone_number, :address_attributes => [:street_address_1, :street_address_2, :street_address_3, :city, :district, :state, :postal_code, :country])
+    end
+
+    def authorize
+      if current_user.nil?
+        redirect_to login_url, alert: "Not authorized! Please log in."
+      else
+        if @manufacturer && @manufacturer.trade_events.first.buyer != current_user
+          redirect_to root_path, alert: "You are not authorized to access this trade event."
+        end
+      end
     end
 end
