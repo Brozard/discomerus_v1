@@ -1,10 +1,11 @@
 class TradeEventsController < ApplicationController
   before_action :set_trade_event, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, except: [:index]
 
   # GET /trade_events
   # GET /trade_events.json
   def index
-    @trade_events = TradeEvent.all
+    @trade_events = TradeEvent.where(buyer_id: current_user.id)
   end
 
   # GET /trade_events/1
@@ -24,7 +25,7 @@ class TradeEventsController < ApplicationController
   # POST /trade_events
   # POST /trade_events.json
   def create
-    @trade_event = TradeEvent.new(trade_event_params)
+    @trade_event = current_user.trade_events.build(trade_event_params)
 
     respond_to do |format|
       if @trade_event.save
@@ -70,5 +71,15 @@ class TradeEventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def trade_event_params
       params.require(:trade_event).permit(:event_name, :start_date, :end_date, :address_attributes => [:street_address_1, :street_address_2, :street_address_3, :city, :district, :state, :postal_code, :country])
+    end
+
+    def authorize
+      if current_user.nil?
+        redirect_to login_url, alert: "Not authorized! Please log in."
+      else
+        if @trade_event && @trade_event.buyer != current_user
+          redirect_to root_path, alert: "You are not authorized to access this trade event."
+        end
+      end
     end
 end

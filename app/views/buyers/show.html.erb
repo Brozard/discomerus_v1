@@ -1,0 +1,16 @@
+<p>
+  <strong>Company Name</strong>
+  <%= @buyer.company_name %>
+</p>
+<p>
+  <strong>Agent Name</strong>
+  <%= @buyer.agent_name %>
+</p>
+<p>
+  <strong>Contact Email</strong>
+  <%= @buyer.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_buyer_path(@buyer) %> |
+<%= link_to 'Back', root_path %>

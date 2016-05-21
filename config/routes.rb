@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+
+  root 'static#welcome'
+
+  resources :sessions, only: [:new, :create, :destroy]
+
+  get 'signup', to: 'buyers#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+
+  get 'static/signup'
+
+  get 'static/signin'
+
+  get 'static/about'
+
+
+  resources :static
+
+  resources :buyers
   resources :trade_events
   resources :manufacturers
   # The priority is based upon order of creation: first created -> highest priority.
