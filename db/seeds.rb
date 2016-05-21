@@ -8,7 +8,7 @@
 
 
 Buyer.create(company_name: "Test Company", agent_name: "Brian Nickerson", email: "eatgamecode@gmail.com", password: "abcd1234")
-Buyer.create(company_name: "Testing Industries", agent_name: "Jaime Garcia", email: "jaimiho@gmail.com", password: "abcd1234")
+Buyer.create(company_name: "Testing Industries", agent_name: "Jaime Garcia", email: "jaimiho@gmail.com", password: "1234")
 
 10.times do |n|
   te = TradeEvent.new(event_name: Faker::App.name, start_date: (Date.new(2016,3,28) + (7 * n)), end_date: (Date.new(2016,3,31) + (7 * n)), buyer_id: ((n % 2) + 1))

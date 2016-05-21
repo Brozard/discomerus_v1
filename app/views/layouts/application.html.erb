@@ -2,8 +2,19 @@
 <html>
 <head>
   <title>DiscomerusV1</title>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -21,13 +32,13 @@
   <% end %>
 </div>
 
-<% flash.each do |key, value| %>
-  <%= content_tag(:div, class: "alert alert#{key}") do %>
-    <p><%= value %></p>
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, class: "alert alert#{key}") do %>
+      <p><%= value %></p>
+    <% end %>
   <% end %>
-<% end %>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>
