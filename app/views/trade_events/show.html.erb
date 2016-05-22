@@ -1,15 +1,16 @@
-<div>
+<!-- <div> -->
   <div>
     <p>
-      <strong>Event:</strong>
-      <%= @trade_event.event_name %>
+
+      <strong><h5 class="search-list">SEARCH LIST</h5></strong>
+      <!-- <%= @trade_event.event_name %> -->
     </p>
-    <p>
+    <!-- <p>
       <strong>Held Between:</strong>
       <%= @trade_event.start_date %> and <%= @trade_event.end_date %>
-    </p>
+    </p> -->
   </div>
-  <div>
+  <!-- <div>
     <strong>Event Address:</strong>
     <br><%= @trade_event.address.street_address_1 %>
     <% if @trade_event.address.street_address_2 %>
@@ -21,15 +22,16 @@
     <br><%= @trade_event.address.city %>, <%= @trade_event.address.state %> <%= @trade_event.address.postal_code %>
     <br><%= @trade_event.address.country %>
     <%#= @trade_event.address.district %>
-  </div>
-</div>
+  </div> -->
+<!-- </div> -->
 
-<br>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="1"></th>
+<!-- <br> -->
+<section id='wrap'>
+  <div  class="tbl-header">
+  <table cellpadding="0" cellspacing="0" border="0">
+    <thead class='tbl-header'>
+    <tr><strong>
+      <!-- <th colspan="1"></th> -->
       <th>Manufacturer Name</th>
       <th>Contact Name</th>
       <th>Contact Email Address</th>
@@ -37,16 +39,20 @@
       <th>Shipping Port</th>
       <th>Street Address</th>
       <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
+      <!-- <th>State</th> -->
+      <!-- <th>Zip</th> -->
       <th>Country</th>
-    </tr>
+    </strong></tr>
   </thead>
+</table>
+</div>
 
-  <tbody>
+<div  class="tbl-content">
+<table cellpadding="0" cellspacing="0" border="0">
+<tbody>
     <% @trade_event.manufacturers.each do |manufacturer| %>
       <tr>
-        <td><%= link_to 'Edit', edit_manufacturer_path(manufacturer) %></td>
+        <!-- <td><%= link_to 'Edit', edit_manufacturer_path(manufacturer) %></td> -->
         <td><%= link_to manufacturer.company_name, manufacturer %></td>
         <td><%= manufacturer.contact_name %></td>
         <td><%= manufacturer.email %></td>
@@ -61,13 +67,25 @@
           <% end %>
         </td>
         <td><%= manufacturer.address.city %></td>
-        <td><%= manufacturer.address.state %></td>
-        <td><%= manufacturer.address.postal_code %></td>
+        <!-- <td><%= manufacturer.address.state %></td> -->
+        <!-- <td><%= manufacturer.address.postal_code %></td> -->
         <td><%= manufacturer.address.country %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
+</section>
+
+<script>
+$(window).on("load resize ", function() {
+  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+  $('.tbl-header').css({'padding-right':scrollWidth});
+}).resize();
+</script>
+
+
+
 
 
 
