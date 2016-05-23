@@ -1,96 +1,79 @@
+
+
+
+
 <% if current_user %>
-              <nav class="container navbar navbar-default">
-                <div class="container-fluid">
-                  <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="http://wyncode.co/"><img src="http://www.discomerus.com/wp-content/themes/discomer/images/logo.jpg" alt="Company Logo">
-                    </a>
-                  </div>
-                  <div id="navbar2" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
+  <nav class="container navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://wyncode.co/"><img src="http://www.discomerus.com/wp-content/themes/discomer/images/logo.jpg" alt="Company Logo">
+        </a>
+      </div>
+      <div id="navbar2" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
+            <%= current_user.agent_name %>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            (<%= current_user.company_name %>)
+          </li>
+          <!-- <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Settings <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Change Email Address</a></li>
+              <li><a href="#">Change Password</a></li>
+              <li><a href="#">Change Company Name</a></li>
+                <li><a href="#">Change Name</a></li>
+            </ul>
+          </li> -->
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+  </nav>
 
-                      <li><a href="#">Juan <i class="fa fa-user" aria-hidden="true"></i></a></li>
-                      <li class="list-centered">Logged in as <%= current_user.agent_name %> (<%= current_user.company_name %>).</li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Settings <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Change Email Address</a></li>
-                          <li><a href="#">Change Password</a></li>
-                          <li><a href="#">Change Company Name</a></li>
-                            <li><a href="#">Change Name</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                  <!--/.nav-collapse -->
-                </div>
-                <!--/.container-fluid -->
-              </nav>
-
+  <section class="enter-site">
+    <div class="container">
+      <button class="btn btn-primary shoose" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        FIND
+      </button>
+      <div class="collapse" id="collapseExample">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="list-group select">
+              <a href="/trade_events" class="list-group-item">FIND SHOW</a>
+              <a href="#" class="list-group-item">FIND MANUFACTURER</a>
+              <a href="#" class="list-group-item">FIND PRODUCT</a>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-
-
-
-            <section class="enter-site">
-            <div class="container">
-              <button class="btn btn-primary shoose" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                  FIND
-                </button>
-                <div class="collapse" id="collapseExample">
-                    <div class="row">
-                      <div class="col-md-6 col-md-offset-3">
-                          <div class="list-group select">
-                              <a href="#" class="list-group-item">FIND SHOW</a>
-                              <a href="#" class="list-group-item">FIND MANUFACTURER</a>
-                              <a href="#" class="list-group-item">FIND PRODUCT</a>
-                            </div>
-                      </div>
-                    </div>
-
-
-                </div>
+    <div class="container">
+      <button class="btn btn-primary shoose" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+        CREATE
+      </button>
+      <div class="collapse" id="collapseExample2">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="list-group select">
+              <a href="#" class="list-group-item">CREATE SHOW</a>
+              <a href="#" class="list-group-item">CREATE MANUFACTURER</a>
+              <a href="#" class="list-group-item">CREATE PRODUCT</a>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <div class="container">
-              <button class="btn btn-primary shoose" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
-                CREATE
-                </button>
-                <div class="collapse" id="collapseExample2">
-                    <div class="row">
-                      <div class="col-md-6 col-md-offset-3">
-                          <div class="list-group select">
-                              <a href="#" class="list-group-item">CREATE SHOW</a>
-                              <a href="#" class="list-group-item">CREATE MANUFACTURER</a>
-                              <a href="#" class="list-group-item">CREATE PRODUCT</a>
-
-                            </div>
-                      </div>
-                    </div>
-
-
-                </div>
-            </div>
-            </section>
-             </div>
 <% else %>
-Please log in
+  Please log in
 <% end %>
-
-
-
-
-        <!-- Javascript -->
-        <script src="assets/js/jquery-1.11.1.min.js"></script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <!-- <script src="assets/js/jquery.backstretch.min.js"></script> -->
-        <!-- <script src="assets/js/scripts.js"></script> -->
-
-        <!--[if lt IE 10]>
-            <script src="assets/js/placeholder.js"></script>
-        <![endif]-->

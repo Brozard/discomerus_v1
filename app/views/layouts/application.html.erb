@@ -4,6 +4,7 @@
   <title>DiscomerusV1</title>
   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -20,12 +21,12 @@
 <body>
 
 <div id="user_header">
-  <%= link_to "Home", root_path %> | 
-  <%= link_to "Trade Events", trade_events_path %> | 
-  <%= link_to "Manufacturers", manufacturers_path %> | 
+  <%= link_to "Home", root_path %> |
+  <%= link_to "Trade Events", trade_events_path %> |
+  <%= link_to "Manufacturers", manufacturers_path %> |
   <% if current_user %>
     Logged in as <%#= current_user.email %>
-    <%= current_user.agent_name %> (<%= current_user.company_name %>). 
+    <%= current_user.agent_name %> (<%= current_user.company_name %>).
     <%= link_to "Log Out", logout_path %>
   <% else %>
     <%= link_to "Sign Up", signup_path %> or <%= link_to "Log In", login_path %>
