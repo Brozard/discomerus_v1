@@ -11,25 +11,71 @@
     </div>
   <% end %>
 
-  <div class="field center">
-    <%= f.label :company_name %><br>
-    <%= f.text_field :company_name %>
-  </div>
-  <div class="field center">
-    <%= f.label :agent_name %><br>
-    <%= f.text_field :agent_name %>
-  </div>
-  <div class="field center">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field center">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div class="center">
-    <div class="actions center">
-      <%= f.submit %>
+  <!-- <div class="inner-bg"> -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 text">
+          <h1><strong>D I S C O M E R - U S</h1>
+            <div class="description">
+              <p>
+                <strong>Data Management Application</strong>
+              </p>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 form-box">
+          <div class="form-top">
+            <div class="form-top-left">
+              <h3>Welcome Please Signin</h3>
+
+          </div>
+            <div class="form-top-right">
+                 <i class="fa fa-lock"></i>
+            </div>
+            <div class="field center">
+              <%= f.label :company_name %><br>
+              <%= f.text_field :company_name, :class => 'company-name' %>
+            </div>
+            <div class="field center">
+              <%= f.label :agent_name %><br>
+              <%= f.text_field :agent_name, :class => 'agent-name' %>
+            </div>
+            <div class="field center">
+              <%= f.label :email %><br>
+              <%= f.text_field :email, :class => 'email-address-please' %>
+            </div>
+            <div class="field center">
+              <%= f.label :password %><br>
+              <%= f.password_field :password, :class => 'password-please' %>
+            </div>
+            <div>
+              <br>
+              <%= f.submit 'Signin', :class => 'btnx' %>
+
+            </div>
+            <br>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-<% end %>
+  <!-- </div> -->
+
+        <div class="col-sm-6 col-sm-offset-3 social-login">
+          <h3>or Signin with:</h3>
+          <div class="social-login-buttons">
+            <a class="btn btn-link-2" href="#">
+              <i class="fa fa-facebook"></i> Facebook
+            </a>
+            <a class="btn btn-link-2" href="#">
+              <i class="fa fa-twitter"></i> Twitter
+            </a>
+            <a class="btn btn-link-2" href="#">
+              <i class="fa fa-google-plus"></i> Google Plus
+            </a>
+          </div>
+        </div>
+
+
+
+    <% end %>
