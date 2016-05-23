@@ -2,16 +2,20 @@
   <div>
     <p>
 
-      <strong><h5 class="search-list">SEARCHED LIST</h5></strong>
-      <!-- <%= @trade_event.event_name %> -->
+      <strong><h5 class="search-list">
+        <%= @trade_event.event_name %> SHOW</h5></strong>
+          <strong><h4><%= @trade_event.address.country %></h4></strong>
+          <strong><h4><%= @trade_event.start_date%></h4></strong>
+
+
     </p>
     <!-- <p>
       <strong>Held Between:</strong>
       <%= @trade_event.start_date %> and <%= @trade_event.end_date %>
     </p> -->
-  </div>
-  <!-- <div>
-    <strong>Event Address:</strong>
+  <!-- </div>
+  <div> -->
+    <!-- <strong>Event Address:</strong>
     <br><%= @trade_event.address.street_address_1 %>
     <% if @trade_event.address.street_address_2 %>
       <br><%= @trade_event.address.street_address_2 %>
@@ -19,11 +23,11 @@
         <br><%= @trade_event.address.street_address_3 %>
       <% end %>
     <% end %>
-    <br><%= @trade_event.address.city %>, <%= @trade_event.address.state %> <%= @trade_event.address.postal_code %>
-    <br><%= @trade_event.address.country %>
+    <br><%= @trade_event.address.city %>, <%= @trade_event.address.state %> <%= @trade_event.address.postal_code %> -->
+
     <%#= @trade_event.address.district %>
-  </div> -->
-<!-- </div> -->
+  </div>
+<!-- </div>
 
 <!-- <br> -->
 <section id='wrap'>
