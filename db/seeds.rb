@@ -16,16 +16,21 @@ Buyer.create(company_name: "Testing Industries", agent_name: "Jaime Garcia", ema
   te.save
 end
 
-100.times do |n|
-  fn = Faker::Name.first_name
-  ln = Faker::Name.last_name
-  m = Manufacturer.new(company_name: Faker::Company.name, shipping_port: Faker::Address.city, contact_name: "#{fn} #{ln}", email: Faker::Internet.email(fn), phone_number: (Random.rand(5550000000..5559999999)).to_s)
-  m.address = Address.new(street_address_1: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state_abbr, country: Faker::Address.country, postal_code: Faker::Address.postcode)
-  m.save
+10.times do |i|
+  10.times do |j|
+    fn = Faker::Name.first_name
+    ln = Faker::Name.last_name
+    m = Manufacturer.new(company_name: Faker::Company.name, shipping_port: Faker::Address.city, contact_name: "#{fn} #{ln}", email: Faker::Internet.email(fn), phone_number: (Random.rand(5550000000..5559999999)).to_s)
+    m.address = Address.new(street_address_1: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state_abbr, country: Faker::Address.country, postal_code: Faker::Address.postcode)
+    m.save
+    10.times do |x|
+      Product.create(name: Faker::Commerce.product_name, item_number: Faker::Number.hexadecimal(Random.rand(4..10)).upcase, min_order_quantity: (Random.rand(1..100) * 5000), price: (Random.rand(1..500) * 50), description: Faker::Lorem.paragraph, buyer_id: ((i % 2) + 1), manufacturer_id: ((i * 10) + (j + 1)))
+    end
+  end
 end
 
 10.times do |i|
   10.times do |j|
-    AttendingManufacturer.create(trade_event_id: (i+1), manufacturer_id: ((i*10)+(j+1)))
+    AttendingManufacturer.create(trade_event_id: (i + 1), manufacturer_id: ((i * 10) + (j + 1)))
   end
 end

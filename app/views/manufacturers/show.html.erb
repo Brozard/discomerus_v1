@@ -1,55 +1,72 @@
-<p>
-  <strong>Company Name</strong>
-  <%= @manufacturer.company_name %>
-</p>
-<p>
-  <strong>Shipping Port</strong>
-  <%= @manufacturer.shipping_port %>
-</p>
-<p>
-  <strong>Contact Name</strong>
-  <%= @manufacturer.contact_name %>
-</p>
-<p>
-  <strong>Contact Email</strong>
-  <%= @manufacturer.email %>
-</p>
-<p>
-  <strong>Contact Phone Number</strong>
-  <%= @manufacturer.phone_number %>
-</p>
-<p>
-  <strong>Country</strong>
-  <%= @manufacturer.address.country %>
-</p>
-<p>
-  <strong>Street Address 1</strong>
-  <%= @manufacturer.address.street_address_1 %>
-</p>
-<p>
-  <strong>Street Address 2</strong>
-  <%= @manufacturer.address.street_address_2 %>
-</p>
-<p>
-  <strong>Street Address 3</strong>
-  <%= @manufacturer.address.street_address_3 %>
-</p>
-<p>
-  <strong>City</strong>
-  <%= @manufacturer.address.city %>
-</p>
-<p>
-  <strong>State</strong>
-  <%= @manufacturer.address.state %>
-</p>
-<p>
-  <strong>District</strong>
-  <%= @manufacturer.address.district %>
-</p>
-<p>
-  <strong>Postal Code</strong>
-  <%= @manufacturer.address.postal_code %>
-</p>
+<div >
+  <div>
+    <p>
+
+      <strong><h5 class="search-list"><%= @manufacturer.company_name %></h5></strong>
+      
+    </p>
+    <p>
+      <h4>Contact Info:</h4>
+      <%= @manufacturer.contact_name %><br>
+      <%= @manufacturer.phone_number %><br>
+      <%= @manufacturer.email %><br>
+    </p>
+  </div>
+  <br>
+  <div>
+    <h4>Port City:</h4>
+    <%= @manufacturer.shipping_port %>
+  </div>
+  <br>
+  <div>
+    <h4>Manufacturer Address:</h4>
+    <%= @manufacturer.address.street_address_1 %><br>
+    <% if @manufacturer.address.street_address_2 %>
+      <%= @manufacturer.address.street_address_2 %><br>
+      <% if @manufacturer.address.street_address_3 %>
+        <%= @manufacturer.address.street_address_3 %><br>
+      <% end %>
+    <% end %>
+    <%= @manufacturer.address.city %>, <%= @manufacturer.address.state %> <%= @manufacturer.address.postal_code %><br>
+    <%= @manufacturer.address.country %>
+    <%#= @manufacturer.address.district %>
+  </div>
+</div>
+
+<section id='wrap'>
+  <div  class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead class='tbl-header'>
+        <tr><strong>
+          <!-- <th colspan="1"></th> -->
+          <th>Product Name</th>
+          <th>Item Number</th>
+          <th>Minimum Order</th>
+          <th>Price</th>
+          <th class="description-width">Description</th>
+        </strong></tr>
+      </thead>
+    </table>
+  </div>
+
+  <div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        <% @manufacturer.products.each do |product| %>
+          <tr><strong>
+            <!-- <td><%#= link_to 'Edit', edit_product_path(product) %></td> -->
+            <td><%= link_to product.name, product %></td>
+            <td><%= product.item_number %></td>
+            <td><%= product.min_order_quantity %></td>
+            <td>$<%= "%.2f" % Rational(product.price, 100) %></td>
+            <td class="description-width"><%= product.description %></td>
+          </strong></tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 
 
 <%= link_to 'Edit', edit_manufacturer_path(@manufacturer) %> |

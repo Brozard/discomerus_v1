@@ -7,8 +7,10 @@ class ManufacturersController < ApplicationController
   def index
     # @trade_events = TradeEvent.where(buyer_id: current_user.id)
     # @manufacturers = Manufacturer.joins(:trade_events, :buyer).where(buyer_id: current_user.id)
-    @manufacturers = Manufacturer.joins(:trade_events).where(buyer_id: current_user.id)
-
+    # @manufacturers = Manufacturer.joins(:trade_events).where(buyer_id: current_user.id)
+    # @manufacturers = Manufacturer.includes(:trade_events).merge(Buyer.where(trade_events: { id:current_user.trade_events.pluck(:id)})).references(:trade_events)
+    @manufacturers = Manufacturer.includes(:trade_events).where(trade_events: {id: current_user.trade_events.pluck(:id)})
+    # @manufacturers = Manufacturer.includes(:trade_events).where`(:trade_event :` {id: buyer.trade_events.pluck(:id)})
   end
 
   # GET /manufacturers/1
