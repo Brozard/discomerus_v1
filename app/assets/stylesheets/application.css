@@ -347,8 +347,8 @@ button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; bac
 
 /*This css code is related to the Table Trade_events*/
 .search-list{
-  font-size:50pt;
-  color: #5EDE7A;
+  font-size:30pt;
+  color: #fff;
   text-transform: uppercase;
   font-weight: 300;
   text-align: center;

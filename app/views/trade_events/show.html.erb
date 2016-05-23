@@ -2,7 +2,7 @@
   <div>
     <p>
 
-      <strong><h5 class="search-list">SEARCH LIST</h5></strong>
+      <strong><h5 class="search-list">SEARCHED LIST</h5></strong>
       <!-- <%= @trade_event.event_name %> -->
     </p>
     <!-- <p>
@@ -51,7 +51,7 @@
 <table cellpadding="0" cellspacing="0" border="0">
 <tbody>
     <% @trade_event.manufacturers.each do |manufacturer| %>
-      <tr>
+      <tr><strong>
         <!-- <td><%= link_to 'Edit', edit_manufacturer_path(manufacturer) %></td> -->
         <td><%= link_to manufacturer.company_name, manufacturer %></td>
         <td><%= manufacturer.contact_name %></td>
@@ -70,7 +70,7 @@
         <!-- <td><%= manufacturer.address.state %></td> -->
         <!-- <td><%= manufacturer.address.postal_code %></td> -->
         <td><%= manufacturer.address.country %></td>
-      </tr>
+      </strong></tr>
     <% end %>
   </tbody>
 </table>

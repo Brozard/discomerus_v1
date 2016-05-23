@@ -1,24 +1,38 @@
-<h1>List of Trade Events</h1>
+<div>
+<p>
+<strong><h5 class="search-list">SHOW INDEX</h5></strong>
+</p>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="1"></th>
-      <th>Trade Event</th>
+
+<section id='wrap'>
+  <div  class="tbl-header">
+  <table cellpadding="0" cellspacing="0" border="0">
+    <thead class='tbl-header'>
+    <tr><strong>
+      <!-- <th colspan="1"></th> -->
+      <th>Shows</th>
       <th>Start Date</th>
       <th>End Date</th>
-      <th>Street Address</th>
-    </tr>
-  </thead>
+      <th>City</th>
+      <th>Country</th>
 
-  <tbody>
+    </strong></tr>
+  </thead>
+</table>
+</div>
+
+<div  class="tbl-content">
+<table cellpadding="0" cellspacing="0" border="0">
+<tbody>
     <% @trade_events.each do |trade_event| %>
       <tr>
-        <td><%= link_to '[Edit]', edit_trade_event_path(trade_event) %></td>
+        <!-- <td><%= link_to '[Edit]', edit_trade_event_path(trade_event) %></td> -->
         <td><%= link_to trade_event.event_name, trade_event %></td>
         <td><%= trade_event.start_date %></td>
         <td><%= trade_event.end_date %></td>
-        <td><%= trade_event.address.street_address_1 %> <%= trade_event.address.street_address_2 %> <%= trade_event.address.street_address_3 %></td>
+        <td><%= trade_event.address.city%></td>
+        <td><%= trade_event.address.country%></td>
         <!-- <td><%#= link_to 'Show', trade_event %></td> -->
         <!-- <td><%#= link_to '[Edit]', edit_trade_event_path(trade_event) %></td> -->
         <!-- <td><%#= link_to 'Destroy', trade_event, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
@@ -26,6 +40,17 @@
     <% end %>
   </tbody>
 </table>
+</div>
+</section>
+
+<script>
+$(window).on("load resize ", function() {
+  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+  $('.tbl-header').css({'padding-right':scrollWidth});
+}).resize();
+</script>
+
+
 
 
 <br>
