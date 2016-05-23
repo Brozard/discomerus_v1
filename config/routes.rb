@@ -10,7 +10,6 @@ Rails.application.routes.draw do
 
   get 'static/about'
 
-
   resources :static
 
   resources :buyers
