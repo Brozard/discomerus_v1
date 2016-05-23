@@ -1,0 +1,1232 @@
+/* line 3, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+body {
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  height: 1000px;
+  font-size: 16px;
+  font-weight: 300;
+  color: #888;
+  line-height: 30px;
+  text-align: center;
+  background: #241b22;
+  background: -moz-linear-gradient(-45deg, #241b22 0%, #241b22 2%, #c74dad 89%, #54033e 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, #241b22), color-stop(2%, #241b22), color-stop(89%, #c74dad), color-stop(100%, #54033e));
+  background: -webkit-linear-gradient(-45deg, #241b22 0%, #241b22 2%, #c74dad 89%, #54033e 100%);
+  background: -o-linear-gradient(-45deg, #241b22 0%, #241b22 2%, #c74dad 89%, #54033e 100%);
+  background: -ms-linear-gradient(-45deg, #241b22 0%, #241b22 2%, #c74dad 89%, #54033e 100%);
+  background: linear-gradient(135deg, #241b22 0%, #241b22 2%, #c74dad 89%, #54033e 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#241b22', endColorstr='#54033e', GradientType=1 );
+}
+
+/* line 22, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+strong {
+  font-weight: 500;
+}
+
+/* line 24, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+a, a:hover, a:focus {
+  color: #de615e;
+  text-decoration: none;
+  -o-transition: all .3s;
+  -moz-transition: all .3s;
+  -webkit-transition: all .3s;
+  -ms-transition: all .3s;
+  transition: all .3s;
+}
+
+/* line 30, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+h1, h2 {
+  margin-top: 10px;
+  font-size: 38px;
+  font-weight: 100;
+  color: #555;
+  line-height: 50px;
+}
+
+/* line 38, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+h3 {
+  font-size: 22px;
+  font-weight: 300;
+  color: #555;
+  line-height: 30px;
+}
+
+/* line 45, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+img {
+  max-width: 100%;
+}
+
+/* line 47, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+::-moz-selection {
+  background: #de615e;
+  color: #fff;
+  text-shadow: none;
+}
+
+/* line 48, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+::selection {
+  background: #de615e;
+  color: #fff;
+  text-shadow: none;
+}
+
+/*nav*/
+/* line 56, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.nav-one .navbar-brand > img {
+  padding: 7px 15px;
+}
+
+/* line 60, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.navbar-brand {
+  padding: 0px;
+}
+
+/* line 63, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.navbar-brand > img {
+  height: 100%;
+  padding: 5px;
+  width: auto;
+}
+
+/* line 71, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.enter-site {
+  margin-top: 150px;
+}
+
+/* line 74, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.enter-site2 {
+  margin-top: 20px;
+}
+
+/* line 78, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.select {
+  margin-top: 10px;
+}
+
+/* line 82, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.enter-site .shoose {
+  border-radius: 0px;
+  width: 49%;
+  margin-top: 15px;
+}
+
+/* line 90, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.list-group-item:first-child {
+  border-radius: 0px;
+}
+
+/* line 95, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.btn-link-1 {
+  display: inline-block;
+  height: 50px;
+  margin: 5px;
+  padding: 16px 20px 0 20px;
+  background: #de615e;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 16px;
+  color: #fff;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* line 107, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.btn-link-1:hover, .btn-link-1:focus, .btn-link-1:active {
+  outline: 0;
+  opacity: 0.6;
+  color: #fff;
+}
+
+/* line 109, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.btn-link-1.btn-link-1-facebook {
+  background: #4862a3;
+}
+
+/* line 110, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.btn-link-1.btn-link-1-twitter {
+  background: #55acee;
+}
+
+/* line 111, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.btn-link-1.btn-link-1-google-plus {
+  background: #dd4b39;
+}
+
+/* line 113, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.btn-link-1 i {
+  padding-right: 5px;
+  vertical-align: middle;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+/* line 120, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.btn-link-2 {
+  display: inline-block;
+  height: 50px;
+  margin: 5px;
+  padding: 15px 20px 0 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #fff;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 16px;
+  color: #fff;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* line 133, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.btn-link-2:hover, .btn-link-2:focus,
+.btn-link-2:active, .btn-link-2:active:focus {
+  outline: 0;
+  opacity: 0.6;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+/***** Top content *****/
+/* line 139, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.inner-bg {
+  padding: 100px 0 170px 0;
+}
+
+/* line 143, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.top-content .text {
+  color: #fff;
+}
+
+/* line 147, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.top-content .text h1 {
+  color: #fff;
+}
+
+/* line 149, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.top-content .description {
+  margin: 20px 0 10px 0;
+}
+
+/* line 153, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.top-content .description p {
+  opacity: 0.8;
+}
+
+/* line 155, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.top-content .description a {
+  color: #fff;
+}
+
+/* line 158, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.top-content .description a:hover,
+.top-content .description a:focus {
+  border-bottom: 1px dotted #fff;
+}
+
+/*inputs*/
+/* line 162, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+input[type="text"],
+input[type="password"],
+textarea,
+textarea.form-control {
+  height: 50px;
+  margin: 0;
+  padding: 0 20px;
+  vertical-align: middle;
+  background: #fff;
+  border: 3px solid #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 50px;
+  color: #888;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -o-transition: all .3s;
+  -moz-transition: all .3s;
+  -webkit-transition: all .3s;
+  -ms-transition: all .3s;
+  transition: all .3s;
+}
+
+/* line 182, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+textarea,
+textarea.form-control {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 30px;
+}
+
+/* line 189, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+textarea.form-control:focus {
+  outline: 0;
+  background: #fff;
+  border: 3px solid #fff;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* line 199, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+input[type="text"]:-moz-placeholder, input[type="password"]:-moz-placeholder,
+textarea:-moz-placeholder, textarea.form-control:-moz-placeholder {
+  color: #888;
+}
+
+/* line 202, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+input[type="text"]:-ms-input-placeholder, input[type="password"]:-ms-input-placeholder,
+textarea:-ms-input-placeholder, textarea.form-control:-ms-input-placeholder {
+  color: #888;
+}
+
+/* line 205, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeholder {
+  color: #888;
+}
+
+/* line 210, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+button.btn {
+  height: 50px;
+  margin: 0;
+  padding: 0 20px;
+  vertical-align: middle;
+  background: #5EDE7A;
+  border: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 50px;
+  color: #fff;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  text-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -o-transition: all .3s;
+  -moz-transition: all .3s;
+  -webkit-transition: all .3s;
+  -ms-transition: all .3s;
+  transition: all .3s;
+}
+
+/* line 228, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+button.btn:hover {
+  opacity: 0.6;
+  color: #fff;
+}
+
+/* line 230, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+button.btn:active {
+  outline: 0;
+  opacity: 0.6;
+  color: #fff;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* line 232, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+button.btn:focus {
+  outline: 0;
+  opacity: 0.6;
+  background: #de615e;
+  color: #fff;
+}
+
+/* line 234, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+button.btn:active:focus, button.btn.active:focus {
+  outline: 0;
+  opacity: 0.6;
+  background: #de615e;
+  color: #fff;
+}
+
+/* line 237, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.form-box {
+  margin-top: 35px;
+}
+
+/* line 241, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.form-top {
+  overflow: hidden;
+  padding: 0 25px 15px 25px;
+  background: #444;
+  background: rgba(0, 0, 0, 0.35);
+  -moz-border-radius: 4px 4px 0 0;
+  -webkit-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+  text-align: left;
+}
+
+/* line 250, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.form-top-left {
+  float: left;
+  width: 75%;
+  padding-top: 25px;
+}
+
+/* line 256, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.form-top-left h3 {
+  margin-top: 0;
+  color: #fff;
+}
+
+/* line 257, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.form-top-left p {
+  opacity: 0.8;
+  color: #fff;
+}
+
+/* line 259, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.form-top-right {
+  float: left;
+  width: 25%;
+  padding-top: 5px;
+  font-size: 66px;
+  color: #fff;
+  line-height: 100px;
+  text-align: right;
+  opacity: 0.3;
+}
+
+/* line 270, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.form-bottom {
+  padding: 25px 25px 30px 25px;
+  background: #444;
+  background: rgba(0, 0, 0, 0.3);
+  -moz-border-radius: 0 0 4px 4px;
+  -webkit-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+  text-align: left;
+}
+
+/* line 278, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.form-bottom form textarea {
+  height: 100px;
+}
+
+/* line 282, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.form-bottom form button.btn {
+  width: 100%;
+}
+
+/* line 286, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.form-bottom form .input-error {
+  border-color: #de615e;
+}
+
+/* line 290, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.social-login {
+  margin-top: 35px;
+}
+
+/* line 294, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.social-login h3 {
+  color: #fff;
+}
+
+/* line 298, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.social-login-buttons {
+  margin-top: 25px;
+}
+
+/* line 302, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+.navbar-default {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+/***** Media queries *****/
+@media (max-width: 767px) {
+  /* line 316, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+  .inner-bg {
+    padding: 60px 0 110px 0;
+  }
+}
+@media (max-width: 415px) {
+  /* line 322, /Users/Jaimiho/Documents/github/final_project/discomerus_v1/app/assets/stylesheets/statics.scss */
+  h1, h2 {
+    font-size: 32px;
+  }
+}
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+	height: 1000px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #888;
+    line-height: 30px;
+    text-align: center;
+    background: rgba(36,27,34,1);
+      background: -moz-linear-gradient(-45deg, rgba(36,27,34,1) 0%, rgba(36,27,34,1) 2%, rgba(199,77,173,1) 89%, rgba(84,3,62,1) 100%);
+      background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(36,27,34,1)), color-stop(2%, rgba(36,27,34,1)), color-stop(89%, rgba(199,77,173,1)), color-stop(100%, rgba(84,3,62,1)));
+      background: -webkit-linear-gradient(-45deg, rgba(36,27,34,1) 0%, rgba(36,27,34,1) 2%, rgba(199,77,173,1) 89%, rgba(84,3,62,1) 100%);
+      background: -o-linear-gradient(-45deg, rgba(36,27,34,1) 0%, rgba(36,27,34,1) 2%, rgba(199,77,173,1) 89%, rgba(84,3,62,1) 100%);
+      background: -ms-linear-gradient(-45deg, rgba(36,27,34,1) 0%, rgba(36,27,34,1) 2%, rgba(199,77,173,1) 89%, rgba(84,3,62,1) 100%);
+      background: linear-gradient(135deg, rgba(36,27,34,1) 0%, rgba(36,27,34,1) 2%, rgba(199,77,173,1) 89%, rgba(84,3,62,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#241b22', endColorstr='#54033e', GradientType=1 );
+}
+
+strong { font-weight: 500; }
+
+a, a:hover, a:focus {
+	color: #de615e;
+	text-decoration: none;
+    -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+
+h1, h2 {
+	margin-top: 10px;
+	font-size: 38px;
+    font-weight: 100;
+    color: #555;
+    line-height: 50px;
+}
+
+h3 {
+	font-size: 22px;
+    font-weight: 300;
+    color: #555;
+    line-height: 30px;
+}
+
+img { max-width: 100%; }
+
+::-moz-selection { background: #de615e; color: #fff; text-shadow: none; }
+::selection { background: #de615e; color: #fff; text-shadow: none; }
+
+
+
+
+
+/*nav*/
+
+.nav-one .navbar-brand>img {
+  padding: 7px 15px;
+}
+
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 5px;
+  width: auto;
+}
+
+
+
+.enter-site{
+	margin-top: 150px;
+}
+.enter-site2{
+	margin-top: 20px;
+}
+
+.select{
+	margin-top: 10px;
+}
+
+.enter-site .shoose{
+	border-radius: 0px;
+	width: 49%;
+	margin-top: 15px;
+
+}
+
+
+.list-group-item:first-child{
+	border-radius: 0px;
+}
+
+
+.btn-link-1 {
+	display: inline-block;
+	height: 50px;
+	margin: 5px;
+	padding: 16px 20px 0 20px;
+	background: #de615e;
+	font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
+    color: #fff;
+    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+}
+.btn-link-1:hover, .btn-link-1:focus, .btn-link-1:active { outline: 0; opacity: 0.6; color: #fff; }
+
+.btn-link-1.btn-link-1-facebook { background: #4862a3; }
+.btn-link-1.btn-link-1-twitter { background: #55acee; }
+.btn-link-1.btn-link-1-google-plus { background: #dd4b39; }
+
+.btn-link-1 i {
+	padding-right: 5px;
+	vertical-align: middle;
+	font-size: 20px;
+	line-height: 20px;
+}
+
+.btn-link-2 {
+	display: inline-block;
+	height: 50px;
+	margin: 5px;
+	padding: 15px 20px 0 20px;
+	background: rgba(0, 0, 0, 0.3);
+	border: 1px solid #fff;
+	font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
+    color: #fff;
+    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+}
+.btn-link-2:hover, .btn-link-2:focus,
+.btn-link-2:active, .btn-link-2:active:focus { outline: 0; opacity: 0.6; background: rgba(0, 0, 0, 0.3); color: #fff; }
+
+
+/***** Top content *****/
+
+.inner-bg {
+    padding: 100px 0 170px 0;
+}
+
+.top-content .text {
+	color: #fff;
+}
+
+.top-content .text h1 { color: #fff; }
+
+.top-content .description {
+	margin: 20px 0 10px 0;
+}
+
+.top-content .description p { opacity: 0.8; }
+
+.top-content .description a {
+	color: #fff;
+}
+.top-content .description a:hover,
+.top-content .description a:focus { border-bottom: 1px dotted #fff; }
+/*inputs*/
+
+input[type="text"],
+input[type="password"],
+textarea,
+textarea.form-control {
+	height: 50px;
+    margin: 0;
+    padding: 0 20px;
+    vertical-align: middle;
+    background: #fff;
+    border: 3px solid #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 50px;
+    color: #888;
+    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+    -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+
+textarea,
+textarea.form-control {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	line-height: 30px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+textarea.form-control:focus {
+	outline: 0;
+	background: #fff;
+    border: 3px solid #fff;
+    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+}
+
+input[type="text"]:-moz-placeholder, input[type="password"]:-moz-placeholder,
+textarea:-moz-placeholder, textarea.form-control:-moz-placeholder { color: #888; }
+
+input[type="text"]:-ms-input-placeholder, input[type="password"]:-ms-input-placeholder,
+textarea:-ms-input-placeholder, textarea.form-control:-ms-input-placeholder { color: #888; }
+
+input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeholder { color: #888; }
+
+
+
+button.btn {
+	  height: 50px;
+    margin: 0;
+    padding: 0 20px;
+    vertical-align: middle;
+    background: #5EDE7A;
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 50px;
+    color: #fff;
+    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+    text-shadow: none;
+    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+    -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+
+button.btn:hover { opacity: 0.6; color: #fff; }
+
+button.btn:active { outline: 0; opacity: 0.6; color: #fff; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
+
+button.btn:focus { outline: 0; opacity: 0.6; background: #de615e; color: #fff; }
+
+button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; background: #de615e; color: #fff; }
+
+
+.form-box {
+	margin-top: 35px;
+}
+
+.form-top {
+	overflow: hidden;
+	padding: 0 25px 15px 25px;
+	background: #444;
+	background: rgba(0, 0, 0, 0.35);
+	-moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; border-radius: 4px 4px 0 0;
+	text-align: left;
+}
+
+.form-top-left {
+	float: left;
+	width: 75%;
+	padding-top: 25px;
+}
+
+.form-top-left h3 { margin-top: 0; color: #fff; }
+.form-top-left p { opacity: 0.8; color: #fff; }
+
+.form-top-right {
+	float: left;
+	width: 25%;
+	padding-top: 5px;
+	font-size: 66px;
+	color: #fff;
+	line-height: 100px;
+	text-align: right;
+	opacity: 0.3;
+}
+
+.form-bottom {
+	padding: 25px 25px 30px 25px;
+	background: #444;
+	background: rgba(0, 0, 0, 0.3);
+	-moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px;
+	text-align: left;
+}
+
+.form-bottom form textarea {
+	height: 100px;
+}
+
+.form-bottom form button.btn {
+	width: 100%;
+}
+
+.form-bottom form .input-error {
+	border-color: #de615e;
+}
+
+.social-login {
+	margin-top: 35px;
+}
+
+.social-login h3 {
+	color: #fff;
+}
+
+.social-login-buttons {
+	margin-top: 25px;
+}
+
+.navbar-default {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+/***** Media queries *****/
+
+@media (min-width: 992px) and (max-width: 1199px) {}
+
+@media (min-width: 768px) and (max-width: 991px) {}
+
+@media (max-width: 767px) {
+
+	.inner-bg { padding: 60px 0 110px 0; }
+
+}
+
+@media (max-width: 415px) {
+
+	h1, h2 { font-size: 32px; }
+
+}
+table{
+  width:100%;
+  table-layout: fixed;
+}
+.tbl-header{
+  background-color: rgba(255,255,255,0.3);
+ }
+.tbl-content{
+  height:300px;
+  overflow-x:auto;
+  margin-top: 0px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+th{
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+}
+td{
+  padding: 15px;
+  text-align: left;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 12px;
+  color: #fff;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+	  height: 1000px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+    background: rgba(36,27,34,1);
+      background: -moz-linear-gradient(-45deg, rgba(36,27,34,1) 0%, rgba(36,27,34,1) 2%, rgba(199,77,173,1) 89%, rgba(84,3,62,1) 100%);
+      background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(36,27,34,1)), color-stop(2%, rgba(36,27,34,1)), color-stop(89%, rgba(199,77,173,1)), color-stop(100%, rgba(84,3,62,1)));
+      background: -webkit-linear-gradient(-45deg, rgba(36,27,34,1) 0%, rgba(36,27,34,1) 2%, rgba(199,77,173,1) 89%, rgba(84,3,62,1) 100%);
+      background: -o-linear-gradient(-45deg, rgba(36,27,34,1) 0%, rgba(36,27,34,1) 2%, rgba(199,77,173,1) 89%, rgba(84,3,62,1) 100%);
+      background: -ms-linear-gradient(-45deg, rgba(36,27,34,1) 0%, rgba(36,27,34,1) 2%, rgba(199,77,173,1) 89%, rgba(84,3,62,1) 100%);
+      background: linear-gradient(135deg, rgba(36,27,34,1) 0%, rgba(36,27,34,1) 2%, rgba(199,77,173,1) 89%, rgba(84,3,62,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#241b22', endColorstr='#54033e', GradientType=1 );
+}
+
+strong { font-weight: 500; }
+
+a, a:hover, a:focus {
+	color: #de615e;
+	text-decoration: none;
+    -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+
+h1, h2 {
+	margin-top: 10px;
+	font-size: 38px;
+    font-weight: 100;
+    color: #fff;
+    line-height: 50px;
+}
+
+h3 {
+	font-size: 22px;
+    font-weight: 300;
+    color: #555;
+    line-height: 30px;
+}
+
+img { max-width: 100%; }
+
+::-moz-selection { background: #de615e; color: #fff; text-shadow: none; }
+::selection { background: #de615e; color: #fff; text-shadow: none; }
+
+
+
+
+
+/*nav*/
+
+.nav-one .navbar-brand>img {
+  padding: 7px 15px;
+}
+
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 5px;
+  width: auto;
+}
+
+
+
+.enter-site{
+	margin-top: 150px;
+}
+.enter-site2{
+	margin-top: 20px;
+}
+
+.select{
+	margin-top: 10px;
+}
+
+.enter-site .shoose{
+	border-radius: 0px;
+	width: 49%;
+	margin-top: 15px;
+
+}
+
+
+.list-group-item:first-child{
+	border-radius: 0px;
+}
+
+
+.btn-link-1 {
+	display: inline-block;
+	height: 50px;
+	margin: 5px;
+	padding: 16px 20px 0 20px;
+	background: #de615e;
+	font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
+    color: #fff;
+    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+}
+.btn-link-1:hover, .btn-link-1:focus, .btn-link-1:active { outline: 0; opacity: 0.6; color: #fff; }
+
+.btn-link-1.btn-link-1-facebook { background: #4862a3; }
+.btn-link-1.btn-link-1-twitter { background: #55acee; }
+.btn-link-1.btn-link-1-google-plus { background: #dd4b39; }
+
+.btn-link-1 i {
+	padding-right: 5px;
+	vertical-align: middle;
+	font-size: 20px;
+	line-height: 20px;
+}
+
+.btn-link-2 {
+	display: inline-block;
+	height: 50px;
+	margin: 5px;
+	padding: 15px 20px 0 20px;
+	background: rgba(0, 0, 0, 0.3);
+	border: 1px solid #fff;
+	font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
+    color: #fff;
+    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+}
+.btn-link-2:hover, .btn-link-2:focus,
+.btn-link-2:active, .btn-link-2:active:focus { outline: 0; opacity: 0.6; background: rgba(0, 0, 0, 0.3); color: #fff; }
+
+
+/***** Top content *****/
+
+.inner-bg {
+    padding: 100px 0 170px 0;
+}
+
+.top-content .text {
+	color: #fff;
+}
+
+.top-content .text h1 { color: #fff; }
+
+.top-content .description {
+	margin: 20px 0 10px 0;
+}
+
+.top-content .description p { opacity: 0.8; }
+
+.top-content .description a {
+	color: #fff;
+}
+.top-content .description a:hover,
+.top-content .description a:focus { border-bottom: 1px dotted #fff; }
+/*inputs*/
+
+input[type="text"],
+input[type="password"],
+textarea,
+textarea.form-control {
+	height: 50px;
+    margin: 0;
+    padding: 0 20px;
+    vertical-align: middle;
+    background: #fff;
+    border: 3px solid #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 50px;
+    color: #888;
+    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+    -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+
+textarea,
+textarea.form-control {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	line-height: 30px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+textarea.form-control:focus {
+	outline: 0;
+	background: #fff;
+    border: 3px solid #fff;
+    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+}
+
+input[type="text"]:-moz-placeholder, input[type="password"]:-moz-placeholder,
+textarea:-moz-placeholder, textarea.form-control:-moz-placeholder { color: #888; }
+
+input[type="text"]:-ms-input-placeholder, input[type="password"]:-ms-input-placeholder,
+textarea:-ms-input-placeholder, textarea.form-control:-ms-input-placeholder { color: #888; }
+
+input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeholder { color: #888; }
+
+
+
+button.btn {
+	height: 50px;
+    margin: 0;
+    padding: 0 20px;
+    vertical-align: middle;
+    background: #5EDE7A;
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 50px;
+    color: #fff;
+    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+    text-shadow: none;
+    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+    -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+
+button.btn:hover { opacity: 0.6; color: #fff; }
+
+button.btn:active { outline: 0; opacity: 0.6; color: #fff; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
+
+button.btn:focus { outline: 0; opacity: 0.6; background: #de615e; color: #fff; }
+
+button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; background: #de615e; color: #fff; }
+
+
+.form-box {
+	margin-top: 35px;
+}
+
+.form-top {
+	overflow: hidden;
+	padding: 0 25px 15px 25px;
+	background: #444;
+	background: rgba(0, 0, 0, 0.35);
+	-moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; border-radius: 4px 4px 0 0;
+	text-align: left;
+}
+
+.form-top-left {
+	float: left;
+	width: 75%;
+	padding-top: 25px;
+}
+
+.form-top-left h3 { margin-top: 0; color: #fff; }
+.form-top-left p { opacity: 0.8; color: #fff; }
+
+.form-top-right {
+	float: left;
+	width: 25%;
+	padding-top: 5px;
+	font-size: 66px;
+	color: #fff;
+	line-height: 100px;
+	text-align: right;
+	opacity: 0.3;
+}
+
+.form-bottom {
+	padding: 25px 25px 30px 25px;
+	background: #444;
+	background: rgba(0, 0, 0, 0.3);
+	-moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px;
+	text-align: left;
+}
+
+.form-bottom form textarea {
+	height: 100px;
+}
+
+.form-bottom form button.btn {
+	width: 100%;
+}
+
+.form-bottom form .input-error {
+	border-color: #de615e;
+}
+
+.social-login {
+	margin-top: 35px;
+}
+
+.social-login h3 {
+	color: #fff;
+}
+
+.social-login-buttons {
+	margin-top: 25px;
+}
+
+.navbar-default {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand>img {
+  padding: 5px;
+}
+.navbar-default .navbar-nav>li>a {
+  color: #fff;
+}
+
+
+
+/***** Media queries *****/
+
+@media (min-width: 992px) and (max-width: 1199px) {}
+
+@media (min-width: 768px) and (max-width: 991px) {}
+
+@media (max-width: 767px) {
+
+	.inner-bg { padding: 60px 0 110px 0; }
+
+}
+
+@media (max-width: 415px) {
+
+	h1, h2 { font-size: 32px; }
+
+}
+
+/*This css code is related to the Table Trade_events*/
+.search-list{
+  font-size:50pt;
+  color: #5EDE7A;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 15px;
+  font-family: 'Roboto', sans-serif;
+}
+
+table{
+  width:100%;
+  table-layout: fixed;
+}
+.tbl-header{
+  background-color: rgba(255,255,255,0.3);
+ }
+ .tbl-header th{
+   text-align: center;
+   font-size: 10pt;
+   color: #5E4848;
+ }
+.tbl-content{
+  height:300px;
+  overflow-x:auto;
+  margin-top: 0px;
+  border: 1px solid rgba(255,255,255,0.3);
+
+}
+.tbl-content td{
+  text-align: center;
+
+}
+th{
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+}
+td{
+  padding: 15px;
+  text-align: left;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 12px;
+  color: #fff;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
+  background: rgba(0, 0, 0, 0.35);
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+#wrap {
+  margin: 50px;
+}
