@@ -365,7 +365,7 @@ textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeh
   padding: 0 5em;
 }
 
-.center {
+.center-nested-divs {
   display: flex;
   justify-content: center;
 }
