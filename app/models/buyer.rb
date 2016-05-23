@@ -1,5 +1,6 @@
 class Buyer < ActiveRecord::Base
   has_many :trade_events
+  has_many :products
 
   has_secure_password
   before_save { self.email = email.downcase }

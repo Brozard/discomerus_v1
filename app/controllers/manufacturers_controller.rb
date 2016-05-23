@@ -6,7 +6,8 @@ class ManufacturersController < ApplicationController
   # GET /manufacturers.json
   def index
     # @trade_events = TradeEvent.where(buyer_id: current_user.id)
-    @manufacturers = Manufacturer.joins(:trade_events, :buyer).where(buyer_id: current_user.id)
+    # @manufacturers = Manufacturer.joins(:trade_events, :buyer).where(buyer_id: current_user.id)
+    @manufacturers = Manufacturer.joins(:trade_events).where(buyer_id: current_user.id)
 
   end
 

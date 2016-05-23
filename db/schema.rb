@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519191125) do
+ActiveRecord::Schema.define(version: 20160523135109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,12 +33,13 @@ ActiveRecord::Schema.define(version: 20160519191125) do
 
   add_index "addresses", ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id", using: :btree
 
-  create_table "attending_manufacturers", force: :cascade do |t|
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.integer  "trade_event_id"
-    t.integer  "manufacturer_id"
+  create_table "attending_manufacturers", id: false, force: :cascade do |t|
+    t.integer "trade_event_id"
+    t.integer "manufacturer_id"
   end
+
+  add_index "attending_manufacturers", ["manufacturer_id"], name: "index_attending_manufacturers_on_manufacturer_id", using: :btree
+  add_index "attending_manufacturers", ["trade_event_id"], name: "index_attending_manufacturers_on_trade_event_id", using: :btree
 
   create_table "buyers", force: :cascade do |t|
     t.string   "company_name"
@@ -68,8 +69,10 @@ ActiveRecord::Schema.define(version: 20160519191125) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "manufacturer_id"
+    t.integer  "buyer_id"
   end
 
+  add_index "products", ["buyer_id"], name: "index_products_on_buyer_id", using: :btree
   add_index "products", ["manufacturer_id"], name: "index_products_on_manufacturer_id", using: :btree
 
   create_table "trade_events", force: :cascade do |t|
@@ -83,6 +86,7 @@ ActiveRecord::Schema.define(version: 20160519191125) do
 
   add_index "trade_events", ["buyer_id"], name: "index_trade_events_on_buyer_id", using: :btree
 
+  add_foreign_key "products", "buyers"
   add_foreign_key "products", "manufacturers"
   add_foreign_key "trade_events", "buyers"
 end
