@@ -1,0 +1,72 @@
+<p>
+  <strong>Procuct Name:</strong>
+  <%= @product.name %>
+</p>
+<p>
+  <strong>Item Number:</strong>
+  <%= @product.item_number %>
+</p>
+<p>
+  <strong>Minimum Order Quantity:</strong>
+  <%= @product.min_order_quantity %> units
+</p>
+<p>
+  <strong>Price:</strong>
+  $<%= "%.2f" % Rational(@product.price, 100) %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+
+
+<div>
+  <div>
+    <p>
+      <strong><h5 class="search-list">Product: <%= @product.name %></h5></strong>
+    </p>
+  </div>
+  <div>
+    <p>
+      <strong>Item Number:</strong>
+      <%= @product.item_number %>
+    </p>
+    <p>
+      <strong>Minimum Order Quantity:</strong>
+      <%= @product.item_number %>
+    </p>
+    <p>
+      <strong>Price:</strong>
+      $<%= "%.2f" % Rational(@product.price, 100) %>
+    </p>
+  </div>
+  <div>
+    <strong>Event Address:</strong>
+    <br><%= @trade_event.address.street_address_1 %>
+    <% if @trade_event.address.street_address_2 %>
+      <br><%= @trade_event.address.street_address_2 %>
+      <% if @trade_event.address.street_address_3 %>
+        <br><%= @trade_event.address.street_address_3 %>
+      <% end %>
+    <% end %>
+    <br>
+    <%= @trade_event.address.city %>, <%= @trade_event.address.state %> <%= @trade_event.address.postal_code %>
+    <br><%#= @trade_event.address.country %>
+    <%#= @trade_event.address.district %>
+  </div>
+</div>
+
+
+<script>
+  $(window).on("load resize ", function() {
+    var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+    $('.tbl-header').css({'padding-right':scrollWidth});
+  }).resize();
+</script>
+
+
+
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

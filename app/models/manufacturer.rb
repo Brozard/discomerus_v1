@@ -5,4 +5,5 @@ class Manufacturer < ActiveRecord::Base
   has_many :trade_events, through: :attending_manufacturers
   accepts_nested_attributes_for :address
   validates_presence_of :company_name
+  default_scope { order('manufacturers.id ASC')}
 end

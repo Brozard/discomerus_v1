@@ -345,6 +345,16 @@ button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; bac
 
 
 
+/***** Added by Brian *****/
+
+.description-width {
+  width: 55%;
+}
+
+/***** end *****/
+
+
+
 /***** Media queries *****/
 
 @media (min-width: 992px) and (max-width: 1199px) {}

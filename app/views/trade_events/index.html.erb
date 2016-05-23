@@ -27,7 +27,7 @@
 <tbody>
     <% @trade_events.each do |trade_event| %>
       <tr>
-        <!-- <td><%= link_to '[Edit]', edit_trade_event_path(trade_event) %></td> -->
+        <!-- <td><%#= link_to '[Edit]', edit_trade_event_path(trade_event) %></td> -->
         <td><%= link_to trade_event.event_name, trade_event %></td>
         <td><%= trade_event.start_date %></td>
         <td><%= trade_event.end_date %></td>
