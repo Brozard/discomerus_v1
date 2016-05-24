@@ -1,35 +1,59 @@
-<h1>Listing Manufacturers</h1>
+<!-- <%= link_to 'New Manufacturer', new_manufacturer_path %>
 
-<table>
-  <thead>
-    <tr>
-      <!-- <th colspan="1"></th> -->
-      <th>Company Name</th>
-      <th>Shipping Port</th>
-      <th>Contact Name</th>
-      <th>Contact Email Address</th>
-      <th>Contact Phone Number</th>
-      <th>Street Address</th>
-      <!-- <th colspan="1"></th> -->
-    </tr>
-  </thead>
+<div> -->
+<p>
+<strong><h5 class="search-list">MANUFACTURERS INDEX</h5></strong>
+</p>
+</div>
 
-  <tbody>
-    <% @manufacturers.each do |manufacturer| %>
-      <tr>
-        <!-- <td><%#= link_to 'Edit', edit_manufacturer_path(manufacturer) %></td> -->
+<section id='wrap'>
+  <div  class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead class='tbl-header'>
+        <tr><strong>
+          <!-- <th colspan="1"></th> -->
+          <th>Company Name</th>
+          <th>Shipping Port</th>
+          <th>Contact Name</th>
+          <th>Contact Email Address</th>
+          <th>Contact Phone Number</th>
+          <th>Street Address</th>
+
+        </strong></tr>
+      </thead>
+    </table>
+  </div>
+
+<div  class="tbl-content">
+<table cellpadding="0" cellspacing="0" border="0">
+<tbody>
+    <%  @manufacturers.each do |manufacturer|  %>
+      <tr><strong>
+        <!-- <td><%#= link_to '[Edit]', edit_trade_event_path(trade_event) %></td> -->
         <td><%= link_to manufacturer.company_name, manufacturer %></td>
         <td><%= manufacturer.shipping_port %></td>
         <td><%= manufacturer.contact_name %></td>
         <td><%= manufacturer.email %></td>
         <td><%= manufacturer.phone_number %></td>
         <td><%= manufacturer.address.street_address_1 %> <%= manufacturer.address.street_address_2 %> <%= manufacturer.address.street_address_3 %></td>
-        <!-- <td><%#= link_to 'Destroy', manufacturer, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-      </tr>
+        <!-- <td><%#= link_to 'Show', trade_event %></td> -->
+        <!-- <td><%#= link_to '[Edit]', edit_trade_event_path(trade_event) %></td> -->
+        <!-- <td><%#= link_to 'Destroy', trade_event, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </strong></tr>
     <% end %>
   </tbody>
 </table>
+</div>
+</section>
+
+<script>
+$(window).on("load resize ", function() {
+  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+  $('.tbl-header').css({'padding-right':scrollWidth});
+}).resize();
+</script>
+
 
 <br>
 
-<%= link_to 'New Manufacturer', new_manufacturer_path %>
+<!-- <%= link_to 'New Manufacturer', new_manufacturer_path %> -->
