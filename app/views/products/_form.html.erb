@@ -1,8 +1,8 @@
 
-<div class="container", style= 'width:200%;'>
+<div class="container">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3 form-box">
-      <div class="form-bottom">
+      <div class="form-bottom", style= 'width:150%;'>
 
 
 <%= form_for(@product) do |f| %>
@@ -23,19 +23,19 @@
       <div>
         <div class="field bottom-buffer">
           <%= f.label :name %><br>
-          <%= f.text_field :name, size:'35px'  %>
+          <%= f.text_field :name, size:'30px'  %>
         </div>
         <div class="field bottom-buffer">
           <%= f.label :item_number %><br>
-          <%= f.text_field :item_number, size:'35px'  %>
+          <%= f.text_field :item_number, size:'30px'  %>
         </div>
         <div class="field bottom-buffer">
           <%= f.label :min_order_quantity %><br>
-          <%= f.text_field :min_order_quantity, size:'35px'  %>
+          <%= f.text_field :min_order_quantity, size:'30px'  %>
         </div>
         <div class="field bottom-buffer">
           <%= f.label :price %><br>
-          <%= f.text_field :price, size:'35px'  %>
+          <%= f.text_field :price, size:'30px'  %>
         </div>
       </div>
       <div class="spacing">
@@ -44,7 +44,7 @@
       <div>
         <div class="field">
           <%= f.label :description %><br>
-          <%= f.text_area :description, class: 'description-entry', size:'35'  %>
+          <%= f.text_area :description, size:'35' %>
         </div>
       </div>
     </div>
