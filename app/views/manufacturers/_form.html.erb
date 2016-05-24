@@ -1,3 +1,9 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3 form-box">
+      <div class="form-bottom">
+          <h1><strong>Create New Manufacturer</h1>
+
 <%= form_for(setup_addressable(@manufacturer)) do |f| %>
   <% if @manufacturer.errors.any? %>
     <div id="error_explanation">
@@ -13,48 +19,48 @@
 
   <div class="field">
     <%= f.label :company_name %><br>
-    <%= f.text_field :company_name %>
+    <%= f.text_field :company_name, size:'35px' %>
   </div>
   <div class="field">
     <%= f.label :shipping_port %><br>
-    <%= f.text_field :shipping_port %>
+    <%= f.text_field :shipping_port, size:'35px' %>
   </div>
   <div class="field">
     <%= f.label :contact_name %><br>
-    <%= f.text_field :contact_name %>
+    <%= f.text_field :contact_name, size:'35px' %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, size:'35px' %>
   </div>
   <div class="field">
     <%= f.label :phone_number %><br>
-    <%= f.text_field :phone_number %>
+    <%= f.text_field :phone_number, size:'35px' %>
   </div>
-  
+
   <!-- beginning of address fields -->
   <%= f.fields_for :address do |ff| %>
     <div class="field">
       <%= ff.label :country %><br>
-      <%= ff.text_field :country %>
+      <%= ff.text_field :country, size:'35px' %>
     </div>
     <div class="field">
       <%= ff.label :street_address_1 %><br>
-      <%= ff.text_field :street_address_1 %>
+      <%= ff.text_field :street_address_1, size:'35px' %>
     </div>
-    <div class="field">
+    <!-- <div class="field">
       <%= ff.label :street_address_2 %><br>
       <%= ff.text_field :street_address_2 %>
     </div>
     <div class="field">
       <%= ff.label :street_address_3 %><br>
-      <%= ff.text_field :street_address_3 %>
-    </div>
+      <%= ff.text_field :street_address_3 %> -->
+    <!-- </div> -->
     <div class="field">
       <%= ff.label :city %><br>
-      <%= ff.text_field :city %>
+      <%= ff.text_field :city, size:'35px' %>
     </div>
-    <div class="field">
+    <!-- <div class="field">
       <%= ff.label :state %><br>
       <%= ff.text_field :state %>
     </div>
@@ -65,11 +71,22 @@
     <div class="field">
       <%= ff.label :postal_code %><br>
       <%= ff.text_field :postal_code %>
-    </div>
-  <% end %> <!-- end of address fields -->
+    </div> -->
+  <% end %> <br> <!-- end of address fields -->
 
-  <div class="actions">
-    <%= f.submit %>
+  <div>
+    <%= f.submit class:'btn btn-lg btn-success' %>
   </div>
 <% end %>
 
+</div>
+
+
+  </div>
+</div>
+
+
+</div>
+</div>
+<br>
+<br>

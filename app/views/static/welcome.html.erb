@@ -2,21 +2,17 @@
   <nav class="container navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+
         <a class="navbar-brand" href="http://wyncode.co/"><img src="http://www.discomerus.com/wp-content/themes/discomer/images/logo.jpg" alt="Company Logo">
         </a>
       </div>
       <div id="navbar2" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
-            <%= current_user.agent_name %>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            (<%= current_user.company_name %>)
+          <li>Welcome &nbsp;&nbsp;
+            <strong style="font-size:16pt;"><%= current_user.agent_name %></strong><br>
+              <!-- &nbsp; -->
+             From:
+            <strong style="font-size:16pt;"><%= current_user.company_name %><strong>
           </li>
           <!-- <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Settings <span class="caret"></span></a>
