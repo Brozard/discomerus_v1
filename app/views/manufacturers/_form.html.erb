@@ -11,6 +11,21 @@
     </div>
   <% end %>
 
+<!-- Experimental for Trade Event selection -->
+
+  <%= f.fields_for :attending_manufacturer do |ff| %>
+
+    <div class="field">
+      <%= ff.label :trade_event_id %><br>
+      <%= ff.collection_select :trade_event_id, TradeEvent.where(buyer_id: current_user.id), :id, :event_name, prompt: true %>
+    </div>
+
+    <%#= ff.hidden_field :manufacturer_id, params[:id] %>
+
+  <% end %>
+
+<!-- End of experimental code -->
+
   <div class="field">
     <%= f.label :company_name %><br>
     <%= f.text_field :company_name %>

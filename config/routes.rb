@@ -14,12 +14,12 @@ Rails.application.routes.draw do
 
   resources :buyers
   resources :trade_events do
-    resources :manufacturers, shallow: true
+    resources :manufacturers, shallow: false
   end
   resources :manufacturers do
-    resources :products, shallow: true
+    resources :products, shallow: false
   end
-  resources :products
+  resources :products#, only: [:index, :show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
