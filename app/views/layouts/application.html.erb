@@ -23,7 +23,8 @@
 <div id="user_header">
   <%= link_to "Home", root_path %> |
   <%= link_to "Trade Events", trade_events_path %> |
-  <%= link_to "Manufacturers", manufacturers_path %> |
+  <%= link_to "Manufacturers", manufacturers_path %> | 
+  <%= link_to "Products", products_path %>
   <% if current_user %>
     Logged in as <%#= current_user.email %>
     <%= current_user.agent_name %> (<%= current_user.company_name %>).

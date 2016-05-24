@@ -77,8 +77,10 @@ $(window).on("load resize ", function() {
 }).resize();
 </script>
 
+<%= link_to 'New Product', new_manufacturer_product_path(@manufacturer) %>
+
+<br>
 
 
-
-<!-- <%= link_to 'Edit', edit_manufacturer_path(@manufacturer) %> |
-<%= link_to 'Back', manufacturers_path %> -->
+<%= link_to 'Edit', edit_manufacturer_path(@manufacturer) %> |
+<%= link_to 'Back', manufacturers_path %>

@@ -28,22 +28,15 @@ class ManufacturersController < ApplicationController
   # POST /manufacturers
   # POST /manufacturers.json
   def create
+    # Creates a new Manufacturer record using the data entered the form fields
     @manufacturer = Manufacturer.new(manufacturer_params)
-    # p @manufacturer.attending_manufacturers
-    # Experimental for Trade Event selection
-    # @manufacturer = current_user.trade_events.build(manufacturer_params)
-    # @attending_manufacturer = AttendingManufacturer.new(manufacturer_params[:trade_event_id], manufacturer_params[:manufacturer_id])
-    # @attending_manufacturer = AttendingManufacturer.new(@manufacturer.attending_manufacturer, @manufacturer.id)
-    # @attending_manufacturer = AttendingManufacturer.new(@manufacturer.attending_manufacturer.attending_manufacturers, @manufacturer.id)
+    
+    # Creates a new Attending Manufacturer join record matching the new Manufacturer record with the selected Trade Event
     @manufacturer.attending_manufacturers.build(manufacturer_id: @manufacturer.id, trade_event_id: params["manufacturer"]["attending_manufacturer"]["trade_event_id"].to_i)
-    # @manufacturer.attending_manufacturers.build(manufacturer_id: @manufacturer.id, trade_event_id: @manufacturer.attending_manufacturers[0])
-    # @manufacturer.attending_manufacturers << @manufacturer
-    # @manufacturer.attending_manufacturers.update(manufacturer_id: @manufacturer.id, trade_event_id: @manufacturer)
     # End of experimental code
 
     respond_to do |format|
       if @manufacturer.save
-        # @attending_manufacturer.save
         format.html { redirect_to @manufacturer, notice: 'Manufacturer was successfully created.' }
         format.json { render :show, status: :created, location: @manufacturer }
       else
