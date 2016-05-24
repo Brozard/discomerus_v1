@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160523135109) do
+ActiveRecord::Schema.define(version: 20160524223512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,18 @@ ActiveRecord::Schema.define(version: 20160523135109) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "pictures", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "product_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
+  add_index "pictures", ["product_id"], name: "index_pictures_on_product_id", using: :btree
+
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.string   "item_number"
@@ -86,6 +98,7 @@ ActiveRecord::Schema.define(version: 20160523135109) do
 
   add_index "trade_events", ["buyer_id"], name: "index_trade_events_on_buyer_id", using: :btree
 
+  add_foreign_key "pictures", "products"
   add_foreign_key "products", "buyers"
   add_foreign_key "products", "manufacturers"
   add_foreign_key "trade_events", "buyers"

@@ -25,23 +25,24 @@
 </div>
 
 <div  class="tbl-content">
-<table cellpadding="0" cellspacing="0" border="0">
-<tbody>
-  <% @products.each do |product| %>
-    <tr>
-      <td><%= product.name %></td>
-      <td><%= product.item_number %></td>
-      <td><%= product.min_order_quantity %></td>
-      <td><%= product.price %></td>
-      <td><%= product.description %></td>
-      <td></td>
-      <td><%= link_to 'Show', product %></td>
-      <td><%= link_to 'Edit', edit_product_path(product) %></td>
-      <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+  <table cellpadding="0" cellspacing="0" border="0">
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= product.name %></td>
+          <td><%= product.item_number %></td>
+          <td><%= product.min_order_quantity %></td>
+          <td><%= product.price %></td>
+          <td><%= product.description %></td>
+          <!-- <td></td> -->
+          <!-- <td><%#= link_to 'Show', product %></td> -->
+          <!-- <td><%#= link_to 'Edit', edit_product_path(product) %></td> -->
+          <!-- <td><%#= link_to 'Edit', edit_manufacturer_product_path(product.manufacturer, product) %></td> -->
+          <!-- <td><%#= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 </section>
 
@@ -58,3 +59,4 @@ $(window).on("load resize ", function() {
 <br>
 
 <%= link_to 'New Product', new_product_path %>
+<%#= link_to 'New Product', new_manufacturer_product_path(product.manufacturer) %> <!-- Doesn't work -->

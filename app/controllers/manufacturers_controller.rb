@@ -16,6 +16,9 @@ class ManufacturersController < ApplicationController
   # GET /manufacturers/new
   def new
     @manufacturer = Manufacturer.new
+    # Experimental for Trade Event selection
+    # @manufacturer.trade_events.build
+    # End of experimental code
   end
 
   # GET /manufacturers/1/edit
@@ -25,7 +28,12 @@ class ManufacturersController < ApplicationController
   # POST /manufacturers
   # POST /manufacturers.json
   def create
+    # Creates a new Manufacturer record using the data entered the form fields
     @manufacturer = Manufacturer.new(manufacturer_params)
+    
+    # Creates a new Attending Manufacturer join record matching the new Manufacturer record with the selected Trade Event
+    @manufacturer.attending_manufacturers.build(manufacturer_id: @manufacturer.id, trade_event_id: params["manufacturer"]["attending_manufacturer"]["trade_event_id"].to_i)
+    # End of experimental code
 
     respond_to do |format|
       if @manufacturer.save
@@ -70,6 +78,7 @@ class ManufacturersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def manufacturer_params
+      # params.require(:manufacturer).permit(:company_name, :shipping_port, :contact_name, :email, :phone_number, :attending_manufacturer => [:trade_event_id], :address_attributes => [:street_address_1, :street_address_2, :street_address_3, :city, :district, :state, :postal_code, :country])
       params.require(:manufacturer).permit(:company_name, :shipping_port, :contact_name, :email, :phone_number, :address_attributes => [:street_address_1, :street_address_2, :street_address_3, :city, :district, :state, :postal_code, :country])
     end
 
