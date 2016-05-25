@@ -1,5 +1,76 @@
-<h1>New Product</h1>
 
-<%= render 'form' %>
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-1 form-box">
+      <div class="form-bottomx", style='border-radius:4px; margin-left:4em;'>
+
+          <strong><h3 style="color:#fff; font-size:38px; margin-left:5em; font-family:inherit;">
+            CREATE NEW PRODUCT</h3></strong><br>
+
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="center-nested-divs">
+    <div class="row-div-display">
+      <div>
+        <div class="field bottom-buffer">
+          <%= f.label :name %><br>
+          <%= f.text_field :name, size:'30px', placeholder:"require field" %>
+        </div>
+        <div class="field bottom-buffer">
+          <%= f.label :price %><br>
+          <%= f.text_field :price, size:'30px', placeholder:"require field"  %>
+        </div>
+        <div class="field bottom-buffer">
+          <%= f.label :item_number %><br>
+          <%= f.text_field :item_number, size:'30px'  %>
+        </div>
+        <div class="field bottom-buffer">
+          <%= f.label :min_order_quantity %><br>
+          <%= f.text_field :min_order_quantity, size:'30px'  %>
+        </div>
+      </div>
+      <div class="spacing">
+
+      </div>
+      <div>
+        <div class="field">
+          <%= f.label :description %><br>
+          <%= f.text_area :description, size:'30px', style:"height:100px;" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<br>
+
+<div>
+  <%= f.submit class:'btn btn-lg btn-success', style:'margin-left:1em; width:25%;'%>
+</div>
+<% end %>
+</div>
+
+
+  </div>
+</div>
+
+
+</div>
+
+
+<br>
 
 <%= link_to 'Back', products_path %>

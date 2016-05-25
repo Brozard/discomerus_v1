@@ -8,25 +8,19 @@
     <p>
       <!-- <h4>Contact Info:</h4> -->
       <%= @manufacturer.contact_name %><br>
-      <!-- <%= @manufacturer.phone_number %><br> -->
+      <!-- <%#= @manufacturer.phone_number %><br> -->
       <%= @manufacturer.email %><br>
     </p>
   </div>
 
-  <!-- <div>
+  <div>
     <h4>Port City:</h4>
     <%= @manufacturer.shipping_port %>
-  </div> -->
+  </div>
 
   <div>
     <!-- <h4>Manufacturer Address:</h4> -->
     <%= @manufacturer.address.street_address_1 %><br>
-    <!-- <% if @manufacturer.address.street_address_2 %>
-      <%= @manufacturer.address.street_address_2 %><br>
-      <% if @manufacturer.address.street_address_3 %>
-        <%= @manufacturer.address.street_address_3 %><br>
-      <% end %> -->
-    <% end %>
 
     <!-- <%= @manufacturer.address.city %>, <%= @manufacturer.address.state %> <%= @manufacturer.address.postal_code %><br> -->
     <%= @manufacturer.address.country %>
@@ -46,7 +40,7 @@
           <th>Item Number</th>
           <th>Minimum Order</th>
           <th>Price</th>
-
+          <th class="description-width">Description</th>
         </strong></tr>
       </thead>
     </table>
@@ -57,7 +51,7 @@
       <tbody>
         <% @manufacturer.products.each do |product| %>
         <tr><strong>
-          <td><%= link_to 'Edit', edit_product_path(product) %></td>
+          <!-- <td><%#= link_to 'Edit', edit_product_path(product) %></td> -->
           <td><%= link_to product.name, product %></td>
           <td><%= product.item_number %></td>
           <td><%= product.min_order_quantity %></td>
