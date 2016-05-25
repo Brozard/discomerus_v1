@@ -5,7 +5,20 @@ class TradeEventsController < ApplicationController
   # GET /trade_events
   # GET /trade_events.json
   def index
-    @trade_events = TradeEvent.where(buyer_id: current_user.id)
+    # Retrieve the Trade Events that are associated with the current user
+    # @trade_events = TradeEvent.where(buyer_id: current_user.id)
+    @trade_events = TradeEvent.user_events(current_user.id)
+  end
+
+  def search
+    @trade_events = TradeEvent.user_events(current_user.id)
+    if params[:event_name]
+      @trade_events = @trade_events.by_event_name(params[:event_name])
+    end
+    if params[:city]
+      @trade_events = @trade_events.by_city(params[:city])
+    end
+    render :action => :index
   end
 
   # GET /trade_events/1

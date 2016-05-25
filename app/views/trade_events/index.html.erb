@@ -5,6 +5,36 @@
 </div>
 
 
+<!-- Begin search functionality -->
+
+
+
+<h1>SEARCH</h1>
+<%= form_tag search_trade_events_path do %>
+  Event Name: <%= search_field_tag :event_name %><br>
+  Event City: <%= search_field_tag :city %> <br>
+  <%= submit_tag "Go!" %>
+<% end %>
+
+You searched for:
+<%= params[:event_name] %> <%= params[:city] %>
+<hr/>
+<% if !@trade_events.empty? %>
+  Here is your result:
+  <ul>
+    <% @trade_events.each do |trade_event| %>
+      <li><%= link_to trade_event.event_name, trade_event %></li>
+    <% end %>
+  </ul>
+<% else %>
+  No trade events found
+<% end %>
+
+
+
+<!-- End search functionality -->
+
+
 <section id='wrap'>
   <div  class="tbl-header">
   <table cellpadding="0" cellspacing="0" border="0">
@@ -55,4 +85,4 @@ $(window).on("load resize ", function() {
 
 <br>
 
-<!-- <%= link_to 'New Trade Event', new_trade_event_path %> -->
+<%= link_to 'New Trade Event', new_trade_event_path %>

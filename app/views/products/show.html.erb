@@ -18,7 +18,7 @@
       $<%= "%.2f" % Rational(@product.price, 100) %>
     </p>
   </div>
-  <div">
+  <div>
     <p>
       <strong>Description:</strong>
       <%= @product.description %>
@@ -26,9 +26,9 @@
   </div>
 </div>
 
-  <%# @product.pictures.each do |picture| %>
-    <%#= image_tag picture.photo.url %>
-  <%# end %>
+  <% @product.pictures.each do |picture| %>
+    <%= image_tag picture.photo.url %>
+  <% end %>
 
 
 <script>

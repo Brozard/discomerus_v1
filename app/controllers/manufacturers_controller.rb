@@ -5,6 +5,7 @@ class ManufacturersController < ApplicationController
   # GET /manufacturers
   # GET /manufacturers.json
   def index
+    # Retrieve only the Manufacturers that are associated with the current user by finding the Trade Events the user interacted with the Manufacturer
     @manufacturers = Manufacturer.includes(:trade_events).where(trade_events: {id: current_user.trade_events.pluck(:id)})
   end
 
@@ -16,9 +17,6 @@ class ManufacturersController < ApplicationController
   # GET /manufacturers/new
   def new
     @manufacturer = Manufacturer.new
-    # Experimental for Trade Event selection
-    # @manufacturer.trade_events.build
-    # End of experimental code
   end
 
   # GET /manufacturers/1/edit

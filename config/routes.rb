@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   resources :buyers
   resources :trade_events do
     resources :manufacturers, shallow: false
+    collection do
+      post :search
+    end
   end
   resources :manufacturers do
     resources :products, shallow: false
