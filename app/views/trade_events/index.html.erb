@@ -1,6 +1,6 @@
 <div>
 <p>
-<strong><h5 class="search-list">SHOW INDEX</h5></strong>
+<strong><h5 class="search-list", style="margin-left:2em;">SHOW INDEX</h5></strong>
 </p>
 </div>
 
@@ -9,26 +9,31 @@
 
 
 
-<h1>SEARCH</h1>
-<%= form_tag search_trade_events_path do %>
-  Event Name: <%= search_field_tag :event_name %><br>
-  Event City: <%= search_field_tag :city %> <br>
-  <%= submit_tag "Go!" %>
-<% end %>
 
-You searched for:
-<%= params[:event_name] %> <%= params[:city] %>
-<hr/>
+<ul id="product-index">
+<%= form_tag search_trade_events_path do %>
+<li><%= search_field_tag :event_name, nil, :placeholder=>"Find Show Name", style:"color:#888;center;text-align:center;width:200px;argin-left:0em;" %>
+</li>
+<li><%= search_field_tag :city,nil, :placeholder=>"Find Show City",style:"color:#888;text-align:center;width:200px;margin-left:0em;" %>
+</li><br><br>
+  <button type="submit" class="btn", style="width:200px;">Search Me!</button>
+<% end %><br>
+
+
+ <%= params[:city] %>
 <% if !@trade_events.empty? %>
-  Here is your result:
-  <ul>
-    <% @trade_events.each do |trade_event| %>
-      <li><%= link_to trade_event.event_name, trade_event %></li>
+
+  <ul id="search-index">
+  <ul style="margin-left:-12em;">
+    <% @trade_events.each do |trade_event| %> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <li><%= link_to trade_event.event_name, trade_event, style:"margin-left:4em;" %></li>
     <% end %>
   </ul>
 <% else %>
   No trade events found
 <% end %>
+</ul>
+
 
 
 
@@ -52,13 +57,13 @@ You searched for:
 </table>
 </div>
 
-<div  class="tbl-content">
+<div  class="tbl-content", style="height:350px;">
 <table cellpadding="0" cellspacing="0" border="0">
 <tbody>
     <% @trade_events.each do |trade_event| %>
-      <tr>
+      <tr >
         <!-- <td><%#= link_to '[Edit]', edit_trade_event_path(trade_event) %></td> -->
-        <td><%= link_to trade_event.event_name, trade_event %></td>
+        <td><%= link_to trade_event.event_name, trade_event%></td>
         <td><%= trade_event.start_date %></td>
         <td><%= trade_event.end_date %></td>
         <td><%= trade_event.address.city%></td>

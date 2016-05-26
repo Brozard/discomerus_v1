@@ -379,6 +379,11 @@ button.btn:active:focus, .btn.active:focus { outline: 0; opacity: 0.6; backgroun
   margin-bottom: 1em;
 }
 
+ul#product-index li {
+display:inline;
+
+}
+
 /***** end *****/
 
 
