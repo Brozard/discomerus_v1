@@ -1,7 +1,9 @@
 class Product < ActiveRecord::Base
   belongs_to :manufacturer
   belongs_to :buyer
+  belongs_to :category
   has_many :pictures
+
   default_scope { order('id ASC')}
 
   scope :user_products, -> (user) { where buyer_id: user }

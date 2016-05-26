@@ -80,8 +80,6 @@ img { max-width: 100%; }
   width: auto;
 }
 
-
-
 .enter-site{
 	margin-top: 150px;
 }
@@ -103,6 +101,10 @@ img { max-width: 100%; }
 
 .list-group-item:first-child{
 	border-radius: 0px;
+}
+
+.list-group-item {
+  text-align: center;
 }
 
 
@@ -176,7 +178,8 @@ img { max-width: 100%; }
 input[type="text"],
 input[type="password"],
 textarea,
-textarea.form-control {
+textarea.form-control,
+.search-field {
 	height: 50px;
     margin: 0;
     padding: 0 20px;
@@ -221,7 +224,7 @@ textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeh
 
 
 
-button.btn {
+button.btn, .btn {
 	height: 50px;
     margin: 0;
     padding: 0 20px;
@@ -239,13 +242,13 @@ button.btn {
     -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
 }
 
-button.btn:hover { opacity: 0.6; color: #fff; }
+button.btn:hover, .btn:hover { opacity: 0.6; color: #fff; }
 
-button.btn:active { outline: 0; opacity: 0.6; color: #fff; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
+button.btn:active, .btn:active { outline: 0; opacity: 0.6; color: #fff; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
 
-button.btn:focus { outline: 0; opacity: 0.6; background: #de615e; color: #fff; }
+button.btn:focus, .btn:focus { outline: 0; opacity: 0.6; background: #de615e; color: #fff; }
 
-button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; background: #de615e; color: #fff; }
+/*button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; background: #de615e; color: #fff; }*/
 
 
 .form-box {
@@ -335,6 +338,23 @@ button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; bac
 }
 
 
+/*** Brian's Edits ***/
+
+
+.a-full-width {
+  width: 100%;
+}
+
+.container-fix {
+  padding: 10px;
+  /*width: 200%;
+  margin: 0 auto;*/
+}
+
+.rowz {
+  margin: 0 15px;
+}
+
 
 /***** Media queries *****/
 
@@ -355,7 +375,7 @@ button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; bac
 }
 
 /*This css code is related to the Table Trade_events*/
-.search-list{
+/*.search-list{
   font-size:30pt;
   color: #fff;
   text-transform: uppercase;
@@ -363,7 +383,7 @@ button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; bac
   text-align: center;
   margin-bottom: 15px;
   font-family: 'Roboto', sans-serif;
-}
+}*/
 
 table{
   width:100%;
@@ -407,15 +427,9 @@ td{
   background: rgba(0, 0, 0, 0.35);
 }
 
-ul#product-index li {
-display:inline;
-
+ul.search-list-render li {
+  display:inline;
 }
-ul#search-index li {
-display:inline;
-
-}
-
 
 ::-webkit-scrollbar {
     width: 6px;

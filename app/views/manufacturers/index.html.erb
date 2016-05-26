@@ -1,42 +1,38 @@
-<!-- <%= link_to 'New Manufacturer', new_manufacturer_path %>
-
-<div> -->
-<p>
-<strong><h5 class="search-list">MANUFACTURERS INDEX</h5></strong>
-</p>
+<div>
+  <p>
+    <strong><h1>MANUFACTURERS INDEX</h1></strong>
+  </p>
 </div>
-
 
 <!-- Begin search functionality -->
 
-
-
-<h1>SEARCH</h1>
 <%= form_tag search_manufacturers_path do %>
-  Company Name: <%= search_field_tag :company_name %><br>
-  Contact Name: <%= search_field_tag :contact_name %><br>
-  Shipping Port: <%= search_field_tag :shipping_port %> <br>
-  <%= submit_tag "Go!" %>
-<% end %>
-
-You searched for:
-<%= params[:company_name] %> <%= params[:contact_name] %> <%= params[:shipping_port] %>
-<hr/>
-<% if !@manufacturers.empty? %>
-  Here is your result:
-  <ul>
-    <% @manufacturers.each do |manufacturer| %>
-      <li><%= link_to manufacturer.company_name, manufacturer %></li>
-    <% end %>
+  <ul class="search-list-render">
+    <li>
+      <%= search_field_tag :company_name, nil, placeholder: "Find Company Name", class: "search-field" %>
+    </li>
+    <li>
+      <%= search_field_tag :contact_name, nil, placeholder: "Find Contact Name", class: "search-field" %>
+    </li>
+    <li>
+      <%= search_field_tag :shipping_port, nil, placeholder: "Find Shipping Port", class: "search-field" %> 
+    </li>
+    <li>
+      <%= submit_tag "Apply Filter", class: "btn" %>
+    </li>
   </ul>
-<% else %>
-  No trade events found
 <% end %>
 
+<hr/>
 
+<% if !@manufacturers.empty? %>
+  <%= pluralize(@manufacturers.count, "manufacturer") %> found
+<% else %>
+  No manufacturers found
+<% end %>  <!-- End search functionality -->
 
-<!-- End search functionality -->
-
+<br>
+<%= link_to 'New Manufacturer', new_manufacturer_path %>
 
 <section id='wrap'>
   <div  class="tbl-header">
@@ -66,7 +62,7 @@ You searched for:
         <td><%= manufacturer.shipping_port %></td>
         <td><%= manufacturer.contact_name %></td>
         <td><%= manufacturer.email %></td>
-        <td><%= manufacturer.phone_number %></td>
+        <td><%= number_to_phone(manufacturer.phone_number, area_code: true) %></td>
         <td><%= manufacturer.address.street_address_1 %> <%= manufacturer.address.street_address_2 %> <%= manufacturer.address.street_address_3 %></td>
         <!-- <td><%#= link_to 'Show', trade_event %></td> -->
         <!-- <td><%#= link_to '[Edit]', edit_trade_event_path(trade_event) %></td> -->
