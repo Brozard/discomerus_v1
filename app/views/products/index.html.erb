@@ -1,6 +1,36 @@
 <h1>PRODUCT INDEX</h1>
 
 
+<!-- Begin search functionality -->
+
+
+<h1>SEARCH</h1>
+<%= form_tag search_products_path do %>
+  Product Name: <%= search_field_tag :name %><br>
+  Unit Price: <%= search_field_tag :price %> <br>
+  <!-- Category: <%#= search_field_tag :category %> <br> -->
+  <%= submit_tag "Go!" %>
+<% end %>
+
+You searched for:
+<%= params[:name] %> <%= params[:price] %> <%#= params[:category] %>
+<hr/>
+<% if !@products.empty? %>
+  Here is your result:
+  <ul>
+    <% @products.each do |product| %>
+      <li><%= link_to product.name, product %></li>
+    <% end %>
+  </ul>
+<% else %>
+  No products found
+<% end %>
+
+
+
+<!-- End search functionality -->
+
+
 <section id='wrap'>
   <div  class="tbl-header">
   <table cellpadding="0" cellspacing="0" border="0">
@@ -11,14 +41,11 @@
       <th>Item Number</th>
       <th>Minimum Order</th>
       <th>Price</th>
-      <th>Description</th>
-      <th>Pictures</th>
+      <th class="description-width">Description</th>
+      <!-- <th>Pictures</th> -->
       <!-- <th>Show</th>
       <th>Edit</th>
       <th>Destroy</th> -->
-      <th colspan="3"></th>
-
-
     </strong></tr>
   </thead>
 </table>
@@ -32,8 +59,8 @@
           <td><%= product.name %></td>
           <td><%= product.item_number %></td>
           <td><%= product.min_order_quantity %></td>
-          <td><%= product.price %></td>
-          <td><%= product.description %></td>
+          <td>$<%= "%.2f" % Rational(product.price, 100) %></td>
+          <td class="description-width"><%= product.description %></td>
           <!-- <td></td> -->
           <!-- <td><%#= link_to 'Show', product %></td> -->
           <!-- <td><%#= link_to 'Edit', edit_product_path(product) %></td> -->

@@ -21,8 +21,15 @@ Rails.application.routes.draw do
   end
   resources :manufacturers do
     resources :products, shallow: false
+    collection do
+      post :search
+    end
   end
-  resources :products#, only: [:index, :show]
+  resources :products do    #, only: [:index, :show]
+    collection do
+      post :search
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

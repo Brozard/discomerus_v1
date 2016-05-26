@@ -6,6 +6,38 @@
 </p>
 </div>
 
+
+<!-- Begin search functionality -->
+
+
+
+<h1>SEARCH</h1>
+<%= form_tag search_manufacturers_path do %>
+  Company Name: <%= search_field_tag :company_name %><br>
+  Contact Name: <%= search_field_tag :contact_name %><br>
+  Shipping Port: <%= search_field_tag :shipping_port %> <br>
+  <%= submit_tag "Go!" %>
+<% end %>
+
+You searched for:
+<%= params[:company_name] %> <%= params[:contact_name] %> <%= params[:shipping_port] %>
+<hr/>
+<% if !@manufacturers.empty? %>
+  Here is your result:
+  <ul>
+    <% @manufacturers.each do |manufacturer| %>
+      <li><%= link_to manufacturer.company_name, manufacturer %></li>
+    <% end %>
+  </ul>
+<% else %>
+  No trade events found
+<% end %>
+
+
+
+<!-- End search functionality -->
+
+
 <section id='wrap'>
   <div  class="tbl-header">
     <table cellpadding="0" cellspacing="0" border="0">

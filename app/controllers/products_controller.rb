@@ -5,7 +5,22 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.where(buyer_id: current_user.id)
+    @products = Product.user_products(current_user.id)
+    # @products = Product.where(buyer_id: current_user.id)
+  end
+
+  def search
+    @products = Product.user_products(current_user.id)
+    if params[:name]
+      @products = @products.by_name(params[:name])
+    end
+    if params[:price]
+      @products = @products.by_price(params[:price])
+    end
+    # if params[:category]
+    #   @products = @products.by_category(params[:category])
+    # end
+    render :action => :index
   end
 
   # GET /products/1
