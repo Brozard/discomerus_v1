@@ -65,6 +65,9 @@ img { max-width: 100%; }
 
 
 
+
+
+
 /*nav*/
 
 .nav-one .navbar-brand>img {
@@ -80,7 +83,10 @@ img { max-width: 100%; }
   width: auto;
 }
 
+.container-fix {
+  width: 50%%;
 
+}
 
 .enter-site{
 	margin-top: 150px;
@@ -246,6 +252,11 @@ button.btn:active { outline: 0; opacity: 0.6; color: #fff; -moz-box-shadow: none
 button.btn:focus { outline: 0; opacity: 0.6; background: #de615e; color: #fff; }
 
 button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; background: #de615e; color: #fff; }
+
+
+
+
+
 
 
 .form-box {

@@ -19,9 +19,10 @@
                     <% end %>
 
                     <div class="field">
-                      <%= f.label :event_name %><br>
-                      <%= f.text_field :event_name, size:'35px' %>
-                    </div><br>
+                      <!-- <%= f.label :event_name %> -->
+
+                      <%= f.text_field :event_name, :placeholder=>"Show Name", size:'35px' %>
+                    </div>
                     <div class="field">
                       <%= f.label :start_date %><br>
                       <%= f.date_select :start_date, size: '35px' %>
@@ -29,14 +30,15 @@
                     <div class="field">
                       <%= f.label :end_date %><br>
                       <%= f.date_select :end_date, size: '35px' %>
-                    </div><br>
+                    </div>
 
                     <!-- beginning of address fields -->
                     <%= f.fields_for :address do |ff| %>
 
                     <div class="field">
-                      <%= ff.label :street_address_1 %><br>
-                      <%= ff.text_field :street_address_1, size: '35px'  %>
+                      <!-- <%= ff.label :street_address_1 %> -->
+                      <br>
+                      <%= ff.text_field :street_address_1, :placeholder=>"Street", size: '35px'  %>
                     </div><br>
                   <!-- <div class="field">
                     <%#= ff.label :street_address_2 %><br>
@@ -47,12 +49,14 @@
                     <%#= ff.text_field :street_address_3 %> -->
                   <!-- </div> -->
                   <div class="field">
-                    <%= ff.label :city %><br>
-                    <%= ff.text_field :city, size: '35px'  %>
+                    <!-- <%= ff.label :city %> -->
+
+                    <%= ff.text_field :city, :placeholder=>"City", size: '35px'  %>
                   </div><br>
                   <div class="field">
-                    <%= ff.label :country %><br>
-                    <%= ff.text_field :country, size: '35px'  %>
+                    <!-- <%= ff.label :country %> -->
+
+                    <%= ff.text_field :country, :placeholder=>"Country", size: '35px'  %>
                   </div><br>
 
                   <!-- <div class="field">

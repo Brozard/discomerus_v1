@@ -25,36 +25,52 @@
             <% end %>
 
             <div class="field">
-              <%= f.label :company_name %><br>
-              <%= f.text_field :company_name, size:'35px' %>
+              <!-- <%= f.label :company_name %> -->
+              <br>
+              <%= f.text_field :company_name, :placeholder=>"Company Name", size:'35px' %>
             </div>
             <div class="field">
-              <%= f.label :shipping_port %><br>
-              <%= f.text_field :shipping_port, size:'35px' %>
+              <!-- <%= f.label :shipping_port %> -->
+              <br>
+              <%= f.text_field :shipping_port, :placeholder=>"Shipping Port", size:'35px' %>
             </div>
             <div class="field">
-              <%= f.label :contact_name %><br>
-              <%= f.text_field :contact_name, size:'35px' %>
+              <!-- <%= f.label :contact_name %> -->
+              <br>
+              <%= f.text_field :contact_name, :placeholder=>"Name", size:'35px' %>
             </div>
             <div class="field">
-              <%= f.label :email %><br>
-              <%= f.text_field :email, size:'35px' %>
+              <!-- <%= f.label :email %> -->
+              <br>
+              <%= f.text_field :email, :placeholder=>"Email", size:'35px' %>
             </div>
             <div class="field">
-              <%= f.label :phone_number %><br>
-              <%= f.text_field :phone_number, size:'35px' %>
+              <!-- <%= f.label :phone_number %> -->
+              <br>
+              <%= f.text_field :phone_number, :placeholder=>"Phone Number", size:'35px' %>
             </div>
 
             <!-- beginning of address fields -->
             <%= f.fields_for :address do |ff| %>
+            <div class="field">
+              <!-- <%= ff.label :street_address_1 %> -->
+              <br>
+              <%= ff.text_field :street_address_1, :placeholder=>"Address",size:'35px' %>
+            </div>
+            <div class="field">
+              <!-- <%= ff.label :city %> -->
+              <br>
+              <%= ff.text_field :city, :placeholder=>"City", size:'35px' %>
+            </div>
               <div class="field">
-                <%= ff.label :country %><br>
-                <%= ff.text_field :country, size:'35px' %>
+                <!-- <%= ff.label :country %> -->
+                <br>
+                <%= ff.text_field :country, :placeholder=>"Country", size:'35px' %>
               </div>
-              <div class="field">
-                <%= ff.label :street_address_1 %><br>
-                <%= ff.text_field :street_address_1, size:'35px' %>
-              </div>
+
+
+
+
               <!-- <div class="field">
                 <%#= ff.label :street_address_2 %><br>
                 <%#= ff.text_field :street_address_2 %>
@@ -63,10 +79,7 @@
                 <%#= ff.label :street_address_3 %><br>
                 <%#= ff.text_field :street_address_3 %> -->
               <!-- </div> -->
-              <div class="field">
-                <%= ff.label :city %><br>
-                <%= ff.text_field :city, size:'35px' %>
-              </div>
+
               <!-- <div class="field">
                 <%#= ff.label :state %><br>
                 <%#= ff.text_field :state %>

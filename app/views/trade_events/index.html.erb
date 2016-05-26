@@ -1,91 +1,83 @@
 <div>
-<p>
-<strong><h5 class="search-list", style="margin-left:2em;">SHOW INDEX</h5></strong>
-</p>
+  <p>
+    <strong><h5 class="search-list", style="margin-left:2em;">SHOW INDEX</h5></strong>
+  </p>
 </div>
-
-
 <!-- Begin search functionality -->
-
-
-
-
-<ul id="product-index">
-<%= form_tag search_trade_events_path do %>
-<li><%= search_field_tag :event_name, nil, :placeholder=>"Find Show Name", style:"color:#888;center;text-align:center;width:200px;argin-left:0em;" %>
-</li>
-<li><%= search_field_tag :city,nil, :placeholder=>"Find Show City",style:"color:#888;text-align:center;width:200px;margin-left:0em;" %>
-</li><br><br>
-  <button type="submit" class="btn", style="width:200px;">Search Me!</button>
-<% end %><br>
-
-
- <%= params[:city] %>
-<% if !@trade_events.empty? %>
-
-  <ul id="search-index">
-  <ul style="margin-left:-12em;">
-    <% @trade_events.each do |trade_event| %> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-      <li><%= link_to trade_event.event_name, trade_event, style:"margin-left:4em;" %></li>
+  <ul id="product-index">
+    <%= form_tag search_trade_events_path do %>
+      <li><%= search_field_tag :event_name, nil, :placeholder=>"Find Show Name", style:"color:#888;center;text-align:center;width:200px;argin-left:0em;" %>
+      </li>
+      <li><%= search_field_tag :city,nil, :placeholder=>"Find Show City",style:"color:#888;text-align:center;width:200px;margin-left:0em;" %>
+      </li><br><br>
+    <button type="submit" class="btn", style="width:200px;">Search Me!</button>
     <% end %>
-  </ul>
-<% else %>
-  No trade events found
-<% end %>
-</ul>
+    <!-- Search Funtionality Starts -->
+    <% if !@trade_events.empty? %>
+    <ul>
+      <% @trade_events.each do |trade_event| %> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <% end %>
+    </ul>
+    <% else %>
+      No trade events found
+    <% end %>
 
-
-
-
-<!-- End search functionality -->
-
-
-<section id='wrap'>
-  <div  class="tbl-header">
-  <table cellpadding="0" cellspacing="0" border="0">
-    <thead class='tbl-header'>
-    <tr><strong>
+  <!--Table Starts here -->
+  <section id='wrap'>
+    <div  class="tbl-header">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <thead class='tbl-header'>
+          <tr><strong>
       <!-- <th colspan="1"></th> -->
-      <th>Shows</th>
-      <th>Start Date</th>
-      <th>End Date</th>
-      <th>City</th>
-      <th>Country</th>
+          <th>Shows</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>City</th>
+          <th>Country</th>
 
-    </strong></tr>
-  </thead>
-</table>
-</div>
+        </strong></tr>
+      </thead>
+    </table>
+  </div>
 
-<div  class="tbl-content", style="height:350px;">
-<table cellpadding="0" cellspacing="0" border="0">
-<tbody>
-    <% @trade_events.each do |trade_event| %>
-      <tr >
+  <div  class="tbl-content", style="height:350px;">
+  <table cellpadding="0" cellspacing="0" border="0">
+  <tbody>
+      <% @trade_events.each do |trade_event| %>
+        <tr>
         <!-- <td><%#= link_to '[Edit]', edit_trade_event_path(trade_event) %></td> -->
-        <td><%= link_to trade_event.event_name, trade_event%></td>
-        <td><%= trade_event.start_date %></td>
-        <td><%= trade_event.end_date %></td>
-        <td><%= trade_event.address.city%></td>
-        <td><%= trade_event.address.country%></td>
+          <td><%= link_to trade_event.event_name, trade_event%></td>
+          <td><%= trade_event.start_date %></td>
+          <td><%= trade_event.end_date %></td>
+          <td><%= trade_event.address.city%></td>
+          <td><%= trade_event.address.country%></td>
         <!-- <td><%#= link_to 'Show', trade_event %></td> -->
         <!-- <td><%#= link_to '[Edit]', edit_trade_event_path(trade_event) %></td> -->
         <!-- <td><%#= link_to 'Destroy', trade_event, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
 </section>
 
+
+<!--Internal table scrolling jquery script--> 
 <script>
-$(window).on("load resize ", function() {
-  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
-  $('.tbl-header').css({'padding-right':scrollWidth});
-}).resize();
+  $(window).on("load resize ", function() {
+    var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+    $('.tbl-header').css({'padding-right':scrollWidth});
+  }).resize();
 </script>
 
-
+<!-- Testing script for pagination -->
+<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "pagingType": "full_numbers"
+    } );
+} );
+</script>
 
 
 <br>
