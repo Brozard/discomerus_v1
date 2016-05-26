@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524223512) do
+ActiveRecord::Schema.define(version: 20160526192040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,12 @@ ActiveRecord::Schema.define(version: 20160524223512) do
     t.datetime "updated_at",      null: false
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string   "category_name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "manufacturers", force: :cascade do |t|
     t.string   "company_name"
     t.string   "contact_name"
@@ -82,9 +88,11 @@ ActiveRecord::Schema.define(version: 20160524223512) do
     t.datetime "updated_at",         null: false
     t.integer  "manufacturer_id"
     t.integer  "buyer_id"
+    t.integer  "category_id"
   end
 
   add_index "products", ["buyer_id"], name: "index_products_on_buyer_id", using: :btree
+  add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
   add_index "products", ["manufacturer_id"], name: "index_products_on_manufacturer_id", using: :btree
 
   create_table "trade_events", force: :cascade do |t|
@@ -100,6 +108,7 @@ ActiveRecord::Schema.define(version: 20160524223512) do
 
   add_foreign_key "pictures", "products"
   add_foreign_key "products", "buyers"
+  add_foreign_key "products", "categories"
   add_foreign_key "products", "manufacturers"
   add_foreign_key "trade_events", "buyers"
 end

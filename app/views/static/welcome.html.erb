@@ -13,7 +13,7 @@
             <strong style="font-size:16pt;"><%= current_user.agent_name %></strong><br>
               <!-- &nbsp; -->
              From:&nbsp;&nbsp;&nbsp;&nbsp;
-            <strong style="font-size:16pt;"><%= current_user.company_name %><strong>
+            <strong style="font-size:16pt;"><%= current_user.company_name %></strong>
           </li>
           <!-- <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Settings <span class="caret"></span></a>
@@ -33,15 +33,16 @@
 
 
   <section class="enter-site">
-      <div class="form-bottom col-md-6 col-md-offset-3" >
-    <div class="container">
-      <button class="btn btn-primary shoose" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        FIND
-      </button>
-      <div class="collapse" id="collapseExample">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="list-group select" >
+
+    <div class="form-bottom col-md-6 col-md-offset-3">
+      <div class="container-fix">
+        <button class="a-full-width btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          FIND
+        </button>
+        <div class="collapse" id="collapseExample">
+          <div class="rowz">
+            <div class="select">
+
               <a href="/trade_events" class="list-group-item">FIND SHOW</a>
               <a href="/manufacturers" class="list-group-item">FIND MANUFACTURER</a>
               <a href="/products" class="list-group-item">FIND PRODUCT</a>
@@ -49,16 +50,14 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="container">
-      <button class="btn btn-primary shoose" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
-        CREATE
-      </button>
-      <div class="collapse" id="collapseExample2">
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-            <div class="list-group select" style="margin-left:-13em; width:525px;text-align:center;">
+      <div class="container-fix">
+        <button class="a-full-width btn" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+          CREATE
+        </button>
+        <div class="collapse" id="collapseExample2">
+          <div class="rowz">
+            <div class="select">
               <a href="/trade_events/new" class="list-group-item">CREATE SHOW</a>
               <a href="/manufacturers/new" class="list-group-item">CREATE MANUFACTURER</a>
               <a href="/products/new" class="list-group-item">CREATE PRODUCT</a>
@@ -66,7 +65,6 @@
           </div>
         </div>
       </div>
-    </div>
     </div>
   </section>
 

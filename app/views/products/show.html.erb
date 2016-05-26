@@ -15,7 +15,7 @@
     </p>
     <p>
       <strong>Price:</strong>
-      $<%= "%.2f" % Rational(@product.price, 100) %>
+      <%= number_to_currency((product.price * 0.01), precision: 2) %>
     </p>
   </div>
   <div>

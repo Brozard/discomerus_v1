@@ -1,10 +1,38 @@
-<!-- <%= link_to 'New Manufacturer', new_manufacturer_path %>
-
-<div> -->
-<p>
-<strong><h5 class="search-list">MANUFACTURERS INDEX</h5></strong>
-</p>
+<div>
+  <p>
+    <strong><h1>MANUFACTURERS INDEX</h1></strong>
+  </p>
 </div>
+
+<!-- Begin search functionality -->
+
+<%= form_tag search_manufacturers_path do %>
+  <ul class="search-list-render">
+    <li>
+      <%= search_field_tag :company_name, nil, placeholder: "Find Company Name", class: "search-field" %>
+    </li>
+    <li>
+      <%= search_field_tag :contact_name, nil, placeholder: "Find Contact Name", class: "search-field" %>
+    </li>
+    <li>
+      <%= search_field_tag :shipping_port, nil, placeholder: "Find Shipping Port", class: "search-field" %> 
+    </li>
+    <li>
+      <%= submit_tag "Apply Filter", class: "btn" %>
+    </li>
+  </ul>
+<% end %>
+
+<hr/>
+
+<% if !@manufacturers.empty? %>
+  <%= pluralize(@manufacturers.count, "manufacturer") %> found
+<% else %>
+  No manufacturers found
+<% end %>  <!-- End search functionality -->
+
+<br>
+<%= link_to 'New Manufacturer', new_manufacturer_path %>
 
 <section id='wrap'>
   <div  class="tbl-header">
@@ -34,7 +62,7 @@
         <td><%= manufacturer.shipping_port %></td>
         <td><%= manufacturer.contact_name %></td>
         <td><%= manufacturer.email %></td>
-        <td><%= manufacturer.phone_number %></td>
+        <td><%= number_to_phone(manufacturer.phone_number, area_code: true) %></td>
         <td><%= manufacturer.address.street_address_1 %> <%= manufacturer.address.street_address_2 %> <%= manufacturer.address.street_address_3 %></td>
         <!-- <td><%#= link_to 'Show', trade_event %></td> -->
         <!-- <td><%#= link_to '[Edit]', edit_trade_event_path(trade_event) %></td> -->

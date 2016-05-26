@@ -6,7 +6,23 @@ class ManufacturersController < ApplicationController
   # GET /manufacturers.json
   def index
     # Retrieve only the Manufacturers that are associated with the current user by finding the Trade Events the user interacted with the Manufacturer
-    @manufacturers = Manufacturer.includes(:trade_events).where(trade_events: {id: current_user.trade_events.pluck(:id)})
+    # See "events_attended" scope on Manufacturer model
+    @manufacturers = Manufacturer.events_attended(current_user.trade_events.pluck(:id))
+    # @manufacturers = Manufacturer.includes(:trade_events).where(trade_events: {id: current_user.trade_events.pluck(:id)})
+  end
+
+  def search
+    @manufacturers = Manufacturer.events_attended(current_user.trade_events.pluck(:id))
+    if params[:company_name]
+      @manufacturers = @manufacturers.by_company_name(params[:company_name])
+    end
+    if params[:contact_name]
+      @manufacturers = @manufacturers.by_contact_name(params[:contact_name])
+    end
+    if params[:shipping_port]
+      @manufacturers = @manufacturers.by_shipping_port(params[:shipping_port])
+    end
+    render :action => :index
   end
 
   # GET /manufacturers/1

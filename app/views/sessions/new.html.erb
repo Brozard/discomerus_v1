@@ -1,83 +1,64 @@
 
+<!-- Top content -->
+<!-- <div class="top-content"> -->
 
-<!-- <%#= form_tag sessions_path do %>
-  <div class="field center">
-    <%#= label_tag :email %><br>
-    <%#= text_field_tag :email %>
-  </div>
-  <div class="field center">
-    <%#= label_tag :password %><br>
-    <%#= password_field_tag :password %>
-  </div>
-  <div class="center">
-    <div>
-      <%#= submit_tag "Log In" %>
+
+  <!-- <div class="inner-bg"> -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 text">
+          <h1><strong>SHOW RUNNER</strong></h1>
+          <div class="description">
+          	<p>
+            	<strong>Data Management For Show Events</strong>
+          	</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 form-box">
+        	<div class="form-top">
+        		<div class="form-top-left">
+        			<h3>WELCOME</h3>
+          		<p>Enter your username and password to log on:</p>
+        		</div>
+            <div class="form-top-right">
+              <i class="fa fa-lock"></i>
+      		  </div>
+          </div>
+          <div class="form-bottom">
+            <%= form_tag sessions_path do %>
+            	<div class="form-group">
+            		<% label_tag :email %><br>
+              	<%= text_field_tag :email, nil, :placeholder => "YourName@email.com", class: "form-username form-control" %>
+              </div>
+              <div class="form-group">
+                <% label_tag :password %><br>
+              	<%= password_field_tag :password, nil, :placeholder =>"Your Password", class: "form-password form-control" %>
+              </div><br>
+              <button type="submit" class="btn">Log in!</button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 social-login">
+        	<h3>Or login with:</h3>
+        	<div class="social-login-buttons">
+          	<a class="btn btn-link-2" href="#">
+          		<i class="fa fa-facebook"></i> Facebook
+          	</a>
+          	<a class="btn btn-link-2" href="#">
+          		<i class="fa fa-twitter"></i> Twitter
+          	</a>
+          	<a class="btn btn-link-2" href="#">
+          		<i class="fa fa-google-plus"></i> Google Plus
+          	</a>
+        	</div>
+        </div>
+      </div>
     </div>
-  </div>
-<%# end %>
- -->
+  <!-- </div>
 
-
-        <!-- Top content -->
-        <!-- <div class="top-content"> -->
-
-
-            <!-- <div class="inner-bg"> -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>SHOW RUNNER</h1>
-                            <div class="description">
-                            	<p>
-	                            	<strong>Data Management For Show Events</strong>
-                            	</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3 form-box">
-                        	<div class="form-top">
-                        		<div class="form-top-left">
-                        			<h3>WELCOME</h3>
-                            		<p>Enter your username and password to log on:</p>
-                        		</div>
-                              <div class="form-top-right">
-                        			     <i class="fa fa-lock"></i>
-                        		  </div>
-                          </div>
-                            <div class="form-bottom">
-			                    <%= form_tag sessions_path do %>
-			                    	<div class="form-group">
-			                    		<% label_tag :email %><br>
-			                        	<%= text_field_tag :email, nil, :placeholder => "YourName@email.com", class: "form-username form-control" %>
-			                      </div>
-			                        <div class="form-group">
-			                        <% label_tag :password %><br>
-			                        	<%= password_field_tag :password, nil, :placeholder =>"Your Password", class: "form-password form-control" %>
-			                        </div><br>
-                              <button type="submit" class="btn">Log in!</button>
-			                           <% end %>
-		                      </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3 social-login">
-                        	<h3>Or login with:</h3>
-                        	<div class="social-login-buttons">
-	                        	<a class="btn btn-link-2" href="#">
-	                        		<i class="fa fa-facebook"></i> Facebook
-	                        	</a>
-	                        	<a class="btn btn-link-2" href="#">
-	                        		<i class="fa fa-twitter"></i> Twitter
-	                        	</a>
-	                        	<a class="btn btn-link-2" href="#">
-	                        		<i class="fa fa-google-plus"></i> Google Plus
-	                        	</a>
-                        	</div>
-                        </div>
-                    </div>
-                </div>
-            <!-- </div>
-
-        </div> -->
+</div> -->
