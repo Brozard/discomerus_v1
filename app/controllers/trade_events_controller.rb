@@ -6,7 +6,6 @@ class TradeEventsController < ApplicationController
   # GET /trade_events.json
   def index
     # Retrieve the Trade Events that are associated with the current user
-    # @trade_events = TradeEvent.where(buyer_id: current_user.id)
     @trade_events = TradeEvent.user_events(current_user.id)
   end
 

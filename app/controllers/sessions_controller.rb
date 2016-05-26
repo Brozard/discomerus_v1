@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     buyer = Buyer.find_by_email(params[:email])
     if buyer && buyer.authenticate(params[:password])
       session[:buyer_id] = buyer.id
-      redirect_to '/', notice: 'Logged in!'
+      redirect_to '/'
     else
       render :new
     end

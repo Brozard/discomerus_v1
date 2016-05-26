@@ -22,14 +22,14 @@
         <!-- <div class="top-content"> -->
 
 
-            <div class="inner-bg">
+            <!-- <div class="inner-bg"> -->
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>D I S C O M E R - U S</h1>
+                            <h1><strong>SHOW RUNNER</h1>
                             <div class="description">
                             	<p>
-	                            	<strong>Data Management Application</strong>
+	                            	<strong>Data Management For Show Events</strong>
                             	</p>
                             </div>
                         </div>
@@ -49,14 +49,13 @@
 			                    <%= form_tag sessions_path do %>
 			                    	<div class="form-group">
 			                    		<% label_tag :email %><br>
-			                        	<%= text_field_tag :email, placeholder="YouName@email.com", class: "form-username form-control" %>
+			                        	<%= text_field_tag :email, nil, :placeholder => "YourName@email.com", class: "form-username form-control" %>
 			                      </div>
 			                        <div class="form-group">
 			                        <% label_tag :password %><br>
-			                        	<%= password_field_tag :password, placeholder="Password...", class: "form-password form-control" %>
-			                        </div>
+			                        	<%= password_field_tag :password, nil, :placeholder =>"Password", class: "form-password form-control" %>
+			                        </div><br>
                               <button type="submit" class="btn">Log in!</button>
-
 			                           <% end %>
 		                      </div>
                         </div>
@@ -79,6 +78,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            <!-- </div>
 
-        </div>
+        </div> -->
