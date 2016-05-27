@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   def search
     @products = Product.user_products(current_user.id)
     if params[:name]
-      @products = @products.by_name(params[:name])
+      @products = @products.by_name(params[:name].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
     end
     if params[:price]
       @products = @products.by_price(params[:price])

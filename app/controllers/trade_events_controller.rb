@@ -12,10 +12,10 @@ class TradeEventsController < ApplicationController
   def search
     @trade_events = TradeEvent.user_events(current_user.id)
     if params[:event_name]
-      @trade_events = @trade_events.by_event_name(params[:event_name])
+      @trade_events = @trade_events.by_event_name(params[:event_name].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
     end
     if params[:city]
-      @trade_events = @trade_events.by_city(params[:city])
+      @trade_events = @trade_events.by_city(params[:city].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
     end
     render :action => :index
   end

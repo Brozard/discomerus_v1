@@ -9,6 +9,6 @@ class Product < ActiveRecord::Base
   scope :user_products, -> (user) { where buyer_id: user }
 
   scope :by_name, -> (name) { where("name LIKE ?", "%#{name}%") }
-  scope :by_price, -> (price) { where("price LIKE ?", "%#{price}%") }
+  scope :by_price, -> (price) { where("price = ?", (price.to_d * 100).to_i) }
   # scope :by_category, -> (category) { joins(:category).where("categories.category LIKE ?", "%#{category}%").references(:categories) }
 end
