@@ -1,46 +1,39 @@
-
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6 col-sm-offset-3 form-box">
-          <div class="form-bottom">
-              <h1><strong>Create New Trade Show</h1>
-
-                    <%= form_for(setup_addressable(@trade_event)) do |f| %>
-                    <% if @trade_event.errors.any? %>
-                    <div id="error_explanation">
-                      <h2><%= pluralize(@trade_event.errors.count, "error") %> prohibited this trade_event from being saved:</h2>
-
-                      <ul>
-                        <% @trade_event.errors.full_messages.each do |message| %>
-                        <li><%= message %></li>
-                        <% end %>
-                      </ul>
-                    </div>
-                    <% end %>
-
-                    <div class="field">
-                      <!-- <%= f.label :event_name %> -->
-
-                      <%= f.text_field :event_name, :placeholder=>"Show Name", size:'35px' %>
-                    </div>
-                    <div class="field">
-                      <%= f.label :start_date %><br>
-                      <%= f.date_select :start_date, size: '35px' %>
-                    </div>
-                    <div class="field">
-                      <%= f.label :end_date %><br>
-                      <%= f.date_select :end_date, size: '35px' %>
-                    </div>
-
-                    <!-- beginning of address fields -->
-                    <%= f.fields_for :address do |ff| %>
-
-                    <div class="field">
-                      <!-- <%= ff.label :street_address_1 %> -->
-                      <br>
-                      <%= ff.text_field :street_address_1, :placeholder=>"Street", size: '35px'  %>
-                    </div><br>
-                  <!-- <div class="field">
+<div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 form-box">
+        <div class="form-bottom">
+            <h1><strong>Create New Trade Show</h1>
+                  <%= form_for(setup_addressable(@trade_event)) do |f| %>
+                  <% if @trade_event.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(@trade_event.errors.count, "error") %> prohibited this trade_event from being saved:</h2>
+                    <ul>
+                      <% @trade_event.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                  <% end %>
+                  <div class="field">
+                    <!-- <%= f.label :event_name %> -->
+                    <%= f.text_field :event_name, :placeholder=>"Trade Event Name", size:'35px' %>
+                  </div>
+                  <div class="field">
+                    <%= f.label :start_date %><br>
+                    <%= f.date_select :start_date, size: '35px' %>
+                  </div>
+                  <div class="field">
+                    <%= f.label :end_date %><br>
+                    <%= f.date_select :end_date, size: '35px' %>
+                  </div>
+                  <!-- beginning of address fields -->
+                  <%= f.fields_for :address do |ff| %>
+                  <div class="field">
+                    <!-- <%= ff.label :street_address_1 %> -->
+                    <br>
+                    <%= ff.text_field :street_address_1, :placeholder=>"Street", size: '35px'  %>
+                  </div><br>
+                    <!-- <div class="field">
                     <%#= ff.label :street_address_2 %><br>
                     <%#= ff.text_field :street_address_2 %>
                   </div>
@@ -48,38 +41,33 @@
                     <%#= ff.label :street_address_3 %><br>
                     <%#= ff.text_field :street_address_3 %> -->
                   <!-- </div> -->
-                  <div class="field">
-                    <!-- <%= ff.label :city %> -->
-
-                    <%= ff.text_field :city, :placeholder=>"City", size: '35px'  %>
-                  </div><br>
-                  <div class="field">
-                    <!-- <%= ff.label :country %> -->
-
-                    <%= ff.text_field :country, :placeholder=>"Country", size: '35px'  %>
-                  </div><br>
-
-                  <!-- <div class="field">
-                    <%#= ff.label :state %><br>
-                    <%#= ff.text_field :state %>
-                  </div>
-                  <div class="field">
-                    <%#= ff.label :district %><br>
-                    <%#= ff.text_field :district %>
-                  </div> -->
-                  <!-- <div class="field">
-                    <%#= ff.label :postal_code %><br>
-                    <%#= ff.text_field :postal_code %>
-                  </div> -->
-                <% end %> <!-- end of address fields -->
-
-              <div>
-            <%= f.submit 'Create Trade Show', class:'btn btn-lg btn-success' %>
-          </div>
-          <% end %>
+                <div class="field">
+                  <!-- <%= ff.label :city %> -->
+                  <%= ff.text_field :city, :placeholder=>"City", size: '35px'  %>
+                </div><br>
+                <div class="field">
+                  <!-- <%= ff.label :country %> -->
+                  <%= ff.text_field :country, :placeholder=>"Country", size: '35px'  %>
+                </div><br>
+                <!-- <div class="field">
+                  <%#= ff.label :state %><br>
+                  <%#= ff.text_field :state %>
+                </div>
+                <div class="field">
+                  <%#= ff.label :district %><br>
+                  <%#= ff.text_field :district %>
+                </div> -->
+                <!-- <div class="field">
+                  <%#= ff.label :postal_code %><br>
+                  <%#= ff.text_field :postal_code %>
+                </div> -->
+              <% end %> <!-- end of address fields -->
+            <div>
+          <%= f.submit 'Create Trade Show', class:'btn btn-lg btn-success' %>
         </div>
-
+        <% end %>
       </div>
+
     </div>
   </div>
 </div>
