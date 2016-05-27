@@ -1,37 +1,5 @@
 
 <% if current_user %>
-  <nav class="container navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-
-        <a class="navbar-brand" href="http://wyncode.co/"><img src="https://wyncode.co/wp-content/themes/wyncode/assets/img/logo-white.png" alt="Company Logo">
-        </a>
-      </div>
-      <div id="navbar2" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li>Welcome &nbsp;&nbsp;
-            <strong style="font-size:16pt;"><%= current_user.agent_name %></strong><br>
-              <!-- &nbsp; -->
-             From:&nbsp;&nbsp;&nbsp;&nbsp;
-            <strong style="font-size:16pt;"><%= current_user.company_name %></strong>
-          </li>
-          <!-- <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Settings <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Change Email Address</a></li>
-              <li><a href="#">Change Password</a></li>
-              <li><a href="#">Change Company Name</a></li>
-                <li><a href="#">Change Name</a></li>
-            </ul>
-          </li> -->
-        </ul>
-      </div>
-      <!--/.nav-collapse -->
-    </div>
-    <!--/.container-fluid -->
-  </nav>
-
-
   <section class="enter-site">
     <div class="form-bottom col-md-6 col-md-offset-3">
       <div class="container-fix">
@@ -41,14 +9,13 @@
         <div class="collapse" id="collapseExample">
           <div class="rowz">
             <div class="select">
-              <a href="/trade_events" class="list-group-item">FIND SHOW</a>
+              <a href="/trade_events" class="list-group-item">FIND TRADE EVENT</a>
               <a href="/manufacturers" class="list-group-item">FIND MANUFACTURER</a>
               <a href="/products" class="list-group-item">FIND PRODUCT</a>
             </div>
           </div>
         </div>
       </div>
-
       <div class="container-fix">
         <button class="a-full-width btn" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
           CREATE
@@ -56,7 +23,7 @@
         <div class="collapse" id="collapseExample2">
           <div class="rowz">
             <div class="select">
-              <a href="/trade_events/new" class="list-group-item">CREATE SHOW</a>
+              <a href="/trade_events/new" class="list-group-item">CREATE TRADE EVENT</a>
               <a href="/manufacturers/new" class="list-group-item">CREATE MANUFACTURER</a>
               <a href="/products/new" class="list-group-item">CREATE PRODUCT</a>
             </div>
@@ -65,8 +32,4 @@
       </div>
     </div>
   </section>
-
-
-<% else %>
-  Please log in
 <% end %>

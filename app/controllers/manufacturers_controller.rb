@@ -14,13 +14,13 @@ class ManufacturersController < ApplicationController
   def search
     @manufacturers = Manufacturer.events_attended(current_user.trade_events.pluck(:id))
     if params[:company_name]
-      @manufacturers = @manufacturers.by_company_name(params[:company_name])
+      @manufacturers = @manufacturers.by_company_name(params[:company_name].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
     end
     if params[:contact_name]
-      @manufacturers = @manufacturers.by_contact_name(params[:contact_name])
+      @manufacturers = @manufacturers.by_contact_name(params[:contact_name].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
     end
     if params[:shipping_port]
-      @manufacturers = @manufacturers.by_shipping_port(params[:shipping_port])
+      @manufacturers = @manufacturers.by_shipping_port(params[:shipping_port].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
     end
     render :action => :index
   end

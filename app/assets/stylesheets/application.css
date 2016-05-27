@@ -65,6 +65,9 @@ img { max-width: 100%; }
 
 
 
+
+
+
 /*nav*/
 
 .nav-one .navbar-brand>img {
@@ -79,6 +82,7 @@ img { max-width: 100%; }
   padding: 5px;
   width: auto;
 }
+
 
 .enter-site{
 	margin-top: 150px;
@@ -251,6 +255,11 @@ button.btn:focus, .btn:focus { outline: 0; opacity: 0.6; background: #de615e; co
 /*button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; background: #de615e; color: #fff; }*/
 
 
+
+
+
+
+
 .form-box {
 	margin-top: 35px;
 }
@@ -388,10 +397,11 @@ table {
    text-align: center;
    font-size: 10pt;
    color: #5E4848;
-}
 
-.tbl-content {
-  height:500px;
+ }
+.tbl-content{
+  height: auto;
+  max-height:350px;
   overflow-x:auto;
   margin-top: 0px;
   border: 1px solid rgba(255,255,255,0.3);

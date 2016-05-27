@@ -1,4 +1,4 @@
-
+/*
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -374,15 +374,16 @@ button.btn:active:focus, .btn.active:focus { outline: 0; opacity: 0.6; backgroun
   margin-bottom: 2em;
 }
 
-#product-form {
+
+/*#product-form {
   width: 400px;
   margin-bottom: 1em;
-}
+}*/
 
-ul#product-index li {
+/*ul#product-index li {
 display:inline;
 
-}
+}*/
 
 /***** end *****/
 
@@ -404,4 +405,4 @@ display:inline;
 
 	h1, h2 { font-size: 32px; }
 
-}
+}*/

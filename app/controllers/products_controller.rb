@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
     # @products = Product.user_products(current_user.id).by_price(params[:min_price], params[:max_price])
     @products = Product.user_products(current_user.id).by_price(@min_p, @max_p)
     if params[:name]
-      @products = @products.by_name(params[:name])
+      @products = @products.by_name(params[:name].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
     end
     # if params[:min_price] &&
     #   @products = @products.by_price(params[:price])

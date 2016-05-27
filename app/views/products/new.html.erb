@@ -26,28 +26,34 @@
                   <%= f.collection_select :manufacturer_id, Manufacturer.events_attended(current_user.trade_events.pluck(:id)), :id, :company_name, {prompt: "Manufacturer (required)"}, {class: "search-field force-black-text"} %>
                 </div>
                 <div class="field bottom-buffer">
-                  <%= f.label :name %><br>
+                  <br>
                   <%= f.text_field :name, size:'30px', placeholder:"Name (required)", class: "search-field" %>
                 </div>
                 <div class="field bottom-buffer">
-                  <%= f.label :price %><br>
+                  <br>
+                  <%= f.text_field :item_number, size:"30px", placeholder:"Item Number" %><!-- , class: "search-field" %> -->
+                </div>
+                <div class="field bottom-buffer">
+                  <br>
+                  <%= f.text_field :min_order_quantity, size:"30px", placeholder:"Minimum Order Quantity" %><!-- , class: "search-field" %> -->
+                </div>
+              </div>
+
+              <div class="spacing">
+              </div>
+
+              <div>
+                <div class="field bottom-buffer">
+                  <br>
                   <%= f.number_field :price, {in: 0..9999.99, step: "0.01", placeholder: "Price (req'd)", class: "search-field"} %>
                 </div>
                 <div class="field bottom-buffer">
-                  <%= f.label :item_number %><br>
-                  <%= f.text_field :item_number, size:'30px', class: "search-field" %>
+                  <br>
+                  <%= f.text_field :price, size:"30px", placeholder:"Category" %><!-- , class: "search-field"} %> -->
                 </div>
-                <div class="field bottom-buffer">
-                  <%= f.label :min_order_quantity %><br>
-                  <%= f.text_field :min_order_quantity, size:'30px', class: "search-field" %>
-                </div>
-              </div>
-              <div class="spacing">
-              </div>
-              <div>
                 <div class="field">
-                  <%= f.label :description %><br>
-                  <%= f.text_area :description, size:'30px', style:"height:100px;" %>
+                  <br>
+                  <%= f.text_area :description, size:'30px', placeholder:"Description", style:"height:100px;" %>
                 </div>
               </div>
             </div>

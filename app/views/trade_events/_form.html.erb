@@ -18,8 +18,8 @@
             <% end %>
 
             <div class="field">
-              <%= f.label :event_name %><br>
-              <%= f.text_field :event_name, size:'35px' %>
+              <br>
+              <%= f.text_field :event_name, placeholder: "Event Name (required)", size:'35px' %>
             </div><br>
             <div class="field">
               <%= f.label :start_date %><br>
@@ -41,8 +41,7 @@
             <%= f.fields_for :address do |ff| %>
 
               <div class="field">
-                <%= ff.label :street_address_1 %><br>
-                <%= ff.text_field :street_address_1, size: '35px'  %>
+                <%= ff.text_field :street_address_1, placeholder: "Street", size: '35px'  %>
               </div><br>
               <!-- <div class="field">
                 <%#= ff.label :street_address_2 %><br>
@@ -53,12 +52,10 @@
                 <%#= ff.text_field :street_address_3 %>
               </div> -->
               <div class="field">
-                <%= ff.label :city %><br>
-                <%= ff.text_field :city, size: '35px'  %>
+                <%= ff.text_field :city, placeholder: "City", size: '35px'  %>
               </div><br>
               <div class="field">
-                <%= ff.label :country %><br>
-                <%= ff.text_field :country, size: '35px'  %>
+                <%= ff.text_field :country, placeholder: "Country", size: '35px'  %>
               </div><br>
               <!-- <div class="field">
                 <%#= ff.label :state %><br>
