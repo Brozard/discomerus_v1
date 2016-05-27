@@ -10,13 +10,17 @@ class TradeEventsController < ApplicationController
   end
 
   def search
-    @trade_events = TradeEvent.user_events(current_user.id)
+    @trade_events = TradeEvent.user_events(current_user.id)#.in_date_range(params[:start_date], params[:end_date])
     if params[:event_name]
       @trade_events = @trade_events.by_event_name(params[:event_name])
     end
     if params[:city]
       @trade_events = @trade_events.by_city(params[:city])
     end
+    # if params[:start_date] && params[:end_date]
+    # elsif params[:start_date]
+    # elsif params[:end_date]
+    # end
     render :action => :index
   end
 

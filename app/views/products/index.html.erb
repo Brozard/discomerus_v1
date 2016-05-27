@@ -12,7 +12,10 @@
       <%= search_field_tag :name, nil, placeholder: "Find Product Name", class: "search-field" %>
     </li>
     <li>
-      <%= search_field_tag :price, nil, placeholder: "Find Unit Price", class: "search-field" %>
+      <%= number_field :min_price, nil, in: 0..9999.99, step: "0.01", placeholder: "Min $", class: "search-field" %>
+    </li>
+    <li>
+      <%= number_field :max_price, nil, in: 0..9999.99, step: "0.01", placeholder: "Max $", class: "search-field" %>
     </li>
     <!-- <li>
       <%#= search_field_tag :category, nil, placeholder: "Find Category", class: "search-field" %>
@@ -22,8 +25,6 @@
     </li>
   </ul>
 <% end %>
-
-<hr/>
 
 <% if !@products.empty? %>
   <%= pluralize(@products.count, "product") %> found
