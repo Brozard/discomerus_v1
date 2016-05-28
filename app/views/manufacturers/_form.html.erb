@@ -20,50 +20,43 @@
             <%= f.fields_for :attending_manufacturer do |ff| %>
               <div class="field">
                 <%= ff.label :trade_event_id %><br>
-                <%= ff.collection_select :trade_event_id, TradeEvent.where(buyer_id: current_user.id), :id, :event_name, prompt: true %>
+                <%= ff.collection_select :trade_event_id, TradeEvent.where(buyer_id: current_user.id), :id, :event_name, {prompt: true},
+                {:class => "search-field force-black-text"} %>
               </div>
             <% end %>
 
             <div class="field">
-              <!-- <%= f.label :company_name %> -->
               <br>
               <%= f.text_field :company_name, :placeholder=>"Company Name", size:'35px' %>
             </div>
             <div class="field">
-              <!-- <%= f.label :shipping_port %> -->
               <br>
               <%= f.text_field :shipping_port, :placeholder=>"Shipping Port", size:'35px' %>
             </div>
             <div class="field">
-              <!-- <%= f.label :contact_name %> -->
               <br>
               <%= f.text_field :contact_name, :placeholder=>"Name", size:'35px' %>
             </div>
             <div class="field">
-              <!-- <%= f.label :email %> -->
               <br>
               <%= f.text_field :email, :placeholder=>"Email", size:'35px' %>
             </div>
             <div class="field">
-              <!-- <%= f.label :phone_number %> -->
               <br>
               <%= f.text_field :phone_number, :placeholder=>"Phone Number", size:'35px' %>
             </div>
 
             <!-- beginning of address fields -->
             <%= f.fields_for :address do |ff| %>
-            <div class="field">
-              <!-- <%= ff.label :street_address_1 %> -->
-              <br>
-              <%= ff.text_field :street_address_1, :placeholder=>"Address",size:'35px' %>
-            </div>
-            <div class="field">
-              <!-- <%= ff.label :city %> -->
-              <br>
-              <%= ff.text_field :city, :placeholder=>"City", size:'35px' %>
-            </div>
               <div class="field">
-                <!-- <%= ff.label :country %> -->
+                <br>
+                <%= ff.text_field :street_address_1, :placeholder=>"Address",size:'35px' %>
+              </div>
+              <div class="field">
+                <br>
+                <%= ff.text_field :city, :placeholder=>"City", size:'35px' %>
+              </div>
+              <div class="field">
                 <br>
                 <%= ff.text_field :country, :placeholder=>"Country", size:'35px' %>
               </div>

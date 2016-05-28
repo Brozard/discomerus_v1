@@ -6,7 +6,8 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.order_by_product_name.user_products(current_user.id)
-    # @products = Product.where(buyer_id: current_user.id)
+
+    # @products_report  = ProductReport.new(product: @products)
   end
 
   def search
@@ -23,6 +24,9 @@ class ProductsController < ApplicationController
     if !@cat.nil?
       @products = @products.by_category(@cat)
     end
+
+    # @products_report  = ProductReport.new(product: @products)
+
     render :action => :index
   end
 
