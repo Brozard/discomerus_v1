@@ -360,7 +360,7 @@ button.btn:focus, .btn:focus { outline: 0; opacity: 0.6; background: #de615e; co
 }
 
 .force-black-text, .force-black-text>option {
-  color: #000 !important;
+  color: #888 !important;
 }
 
 

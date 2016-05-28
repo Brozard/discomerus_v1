@@ -5,26 +5,24 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.user_products(current_user.id)
+    @products = Product.order_by_product_name.user_products(current_user.id)
     # @products = Product.where(buyer_id: current_user.id)
   end
 
   def search
-    
-    @min_p = params[:min_price].first == "" ? 0 : params[:min_price].first# : nil
-    @max_p = params[:max_price].first == "" ? 999999 : params[:max_price].first# : nil
-      
-    # @products = Product.user_products(current_user.id).by_price(params[:min_price], params[:max_price])
-    @products = Product.user_products(current_user.id).by_price(@min_p, @max_p)
+    # Define instance min/max price variables so that we can validate if anything was searched for
+    # and send either the sanitized or default parameter to the "by_price" function
+    @min_p = extract_from_search(params[:min_price]) || 0
+    @max_p = extract_from_search(params[:max_price]) || 10000
+    @cat = extract_from_search(params[:category])
+
+    @products = Product.order_by_product_name.user_products(current_user.id).by_price(@min_p, @max_p)
     if params[:name]
       @products = @products.by_name(params[:name].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
     end
-    # if params[:min_price] &&
-    #   @products = @products.by_price(params[:price])
-    # end
-    # if params[:category]
-    #   @products = @products.by_category(params[:category])
-    # end
+    if !@cat.nil?
+      @products = @products.by_category(@cat)
+    end
     render :action => :index
   end
 
@@ -46,7 +44,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = current_user.products.build(product_params)
-
+    @product.price = (params[:product][:price].to_d * 100).to_i
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }

@@ -20,7 +20,7 @@
               <div>
                 <div class="field">
                   <%= f.label :manufacturer_id %><br>
-                  <%= f.collection_select :manufacturer_id, Manufacturer.events_attended(current_user.trade_events.pluck(:id)), :id, :company_name, {prompt: "Manufacturer (required)"}, {class: "search-field force-black-text"} %>
+                  <%= f.collection_select :manufacturer_id, Manufacturer.order_by_company_name.events_attended(current_user.trade_events.pluck(:id)), :id, :company_name, {prompt: "Manufacturer (required)"}, {class: "search-field force-black-text"} %>
                 </div>
                 <div class="field bottom-buffer">
                   <br>
@@ -44,7 +44,11 @@
                 </div>
                 <div class="field bottom-buffer">
                   <br>
+<<<<<<< HEAD
                   <%= f.text_field :category, size:"30px", placeholder:"Category" %><!-- , class: "search-field"} %> -->
+=======
+                  <%= f.collection_select :category, Category.all, :id, :category_name, {prompt: "Category"}, {class: "search-field force-black-text"} %>
+>>>>>>> 14c080d4ed0318fbe96b70f58be44a36ed3a7874
                 </div>
                 <div class="field">
                   <br>
