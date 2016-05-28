@@ -4,7 +4,7 @@
       <div class="form-bottomx", style='border-radius:4px; margin-left:4em;'>
         <strong><h3 style="color:#fff; font-size:38px; margin-left:5em; font-family:inherit;">
           CREATE NEW PRODUCT</h3></strong><br>
-        <%= form_for(@product) do |f| %>
+        <%= form_for(@product, multipart: true) do |f| %>
           <% if @product.errors.any? %>
             <div id="error_explanation">
               <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -18,10 +18,10 @@
           <div class="center-nested-divs">
             <div class="row-div-display">
               <div>
-                <div class="field">
-                  <%= f.label :manufacturer_id %><br>
-                  <%= f.collection_select :manufacturer_id, Manufacturer.order_by_company_name.events_attended(current_user.trade_events.pluck(:id)), :id, :company_name, {prompt: "Manufacturer (required)"}, {class: "search-field force-black-text"} %>
-                </div>
+                <div class="field"><br>
+                  <!-- <%= f.label :manufacturer_id %><br> -->
+                  <%= f.collection_select :manufacturer_id, Manufacturer.order_by_company_name.events_attended(current_user.trade_events.pluck(:id)), :id, :company_name, {prompt: "Manufacturer (required)"}, {class: "search-field force-black-text"}%>
+                </div><br>
                 <div class="field bottom-buffer">
                   <br>
                   <%= f.text_field :name, size:'30px', placeholder:"Product Name (required)", class: "search-field" %>
@@ -40,22 +40,21 @@
               <div>
                 <div class="field bottom-buffer">
                   <br>
-                  <%= f.number_field :price, {in: 0..9999.99, step: "0.01", placeholder: "Price (req'd)", class: "search-field"} %>
-                </div>
+                  <%= f.number_field :price, {in: 0..10000.00, step: "0.01", placeholder: "Price (req'd)", class: "search-field"} %>
+                </div><br>
                 <div class="field bottom-buffer">
-                  <br>
-
                   <%= f.collection_select :category, Category.all, :id, :category_name, {prompt: "Category"}, {class: "search-field force-black-text"} %>
-
-                </div>
+                </div><br>
                 <div class="field">
-                  <br>
-                  <%= f.text_area :description, size:'30px', placeholder:"Description", style:"height:100px;" %>
+                  <%= f.text_area :description, size:'28px', placeholder:"Description", style:"height:100px;" %>
+                </div><br>
+                <div class="field">
+                  <%= f.label :photo %>
+                  <%= file_field_tag "photos[]", type: :file, multiple: true %>
                 </div>
               </div>
             </div>
           </div>
-          <br>
           <div>
             <%= f.submit class:'btn btn-lg btn-success', style:'margin-left:1em; width:25%;'%>
           </div>

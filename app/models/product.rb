@@ -4,6 +4,9 @@ class Product < ActiveRecord::Base
   belongs_to :category
   has_many :pictures
 
+  
+
+
   def show_category
     category_id == nil ? "" : category.category_name
   end
@@ -17,4 +20,5 @@ class Product < ActiveRecord::Base
   scope :by_name, -> (name) { where("name LIKE ?", "%#{name}%") }
   scope :by_price, -> (min_price, max_price) { where("price >= ? AND price <= ?", (min_price.to_d * 100).to_i, (max_price.to_d * 100).to_i) }
   scope :by_category, -> (category) { where("category_id = ?", category.to_i) }
+
 end

@@ -21,16 +21,16 @@
   </ul>
   <ul class="search-list-render">
     <li>
-      Between <%= date_select :start_date, :start_date, 
-                {:order => [:month, :day, :year], :start_year => 2000, :end_year => (Date.current.year + 5), prompt: true}, 
-                {:class => "search-field force-black-text"} 
+      Between <%= date_select :start_date, :start_date,
+                {:order => [:month, :day, :year], :start_year => 2000, :end_year => (Date.current.year + 5), prompt: true},
+                {:class => "search-field force-black-text1"}
               %>
-      and <%= date_select :end_date, :end_date, 
-                {:order => [:month, :day, :year], :start_year => 2000, :end_year => (Date.current.year + 5), prompt: true}, 
-                {:class => "search-field force-black-text"} 
+      and <%= date_select :end_date, :end_date,
+                {:order => [:month, :day, :year], :start_year => 2000, :end_year => (Date.current.year + 5), prompt: true},
+                {:class => "search-field force-black-text1"}
               %>
     </li>
-    
+
   </ul>
 <% end %>
 
@@ -79,6 +79,7 @@
     </table>
 
   </div>
+
 </section>
 
 

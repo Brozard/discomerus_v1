@@ -18,7 +18,7 @@
             <% end %>
 
             <%= f.fields_for :attending_manufacturer do |ff| %>
-              <div class="field">
+              <div class="field" >
                 <%= ff.label :trade_event_id %><br>
                 <%= ff.collection_select :trade_event_id, TradeEvent.where(buyer_id: current_user.id), :id, :event_name, prompt: true %>
               </div>
@@ -37,7 +37,7 @@
             <div class="field">
               <!-- <%= f.label :contact_name %> -->
               <br>
-              <%= f.text_field :contact_name, :placeholder=>"Name", size:'35px' %>
+              <%= f.text_field :contact_name, :placeholder=>"ContaName", size:'35px' %>
             </div>
             <div class="field">
               <!-- <%= f.label :email %> -->
@@ -67,10 +67,6 @@
                 <br>
                 <%= ff.text_field :country, :placeholder=>"Country", size:'35px' %>
               </div>
-
-
-
-
               <!-- <div class="field">
                 <%#= ff.label :street_address_2 %><br>
                 <%#= ff.text_field :street_address_2 %>
@@ -93,16 +89,13 @@
                 <%#= ff.text_field :postal_code %>
               </div> -->
             <% end %> <br> <!-- end of address fields -->
-
             <div>
               <%= f.submit class:'btn btn-lg btn-success' %>
             </div>
           <% end %>
-
         </div>
+        <br>
+        <br>
       </div>
     </div>
   </div>
-</div>
-<br>
-<br>

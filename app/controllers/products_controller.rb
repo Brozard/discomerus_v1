@@ -34,6 +34,7 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+
   end
 
   # GET /products/1/edit
@@ -47,6 +48,11 @@ class ProductsController < ApplicationController
     @product.price = (params[:product][:price].to_d * 100).to_i
     respond_to do |format|
       if @product.save
+        if params[:photos]
+          params[:photos].each do |photo|
+            @product.pictures.create(photo: photo)
+          end
+        end
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
@@ -81,6 +87,8 @@ class ProductsController < ApplicationController
   end
 
   private
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
@@ -88,7 +96,7 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:description, :item_number, :min_order_quantity, :name, :price, :buyer_id, :manufacturer_id)
+      params.require(:product).permit(:description, :item_number, :min_order_quantity, :name, :price, :buyer_id, :manufacturer_id, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at)
     end
 
     def authorize

@@ -7,7 +7,9 @@ class Manufacturer < ActiveRecord::Base
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :attending_manufacturers, allow_destroy: true
   validates_presence_of :company_name
+
   
+
   # default_scope { order('manufacturers.id ASC')}
   default_scope { order('id ASC')}
 
