@@ -79,13 +79,10 @@
 </div>
 </section>
 
+<!-- Create local variable to store the id of all Products returned -->
 <% ids = @products.pluck(:id) %>
 
-<%= p ids.first.class %>
-
-<%= link_to "Download as CSV", "../reports/product.csv?options[id]=#{ids}" %><!-- , html_option: {id_group: 1} %>@products.pluck(:id)} %> -->
-
-<%#= render template: 'dossier/reports/show', locals: {report: @product_report.run} %>
+<%= link_to "Download as CSV", "../reports/product.csv?options[id]=#{ids}" %>
 
 <script>
 $(window).on("load resize ", function() {
