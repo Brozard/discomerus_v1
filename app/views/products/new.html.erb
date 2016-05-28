@@ -44,11 +44,9 @@
                 </div>
                 <div class="field bottom-buffer">
                   <br>
-<<<<<<< HEAD
-                  <%= f.text_field :category, size:"30px", placeholder:"Category" %><!-- , class: "search-field"} %> -->
-=======
+
                   <%= f.collection_select :category, Category.all, :id, :category_name, {prompt: "Category"}, {class: "search-field force-black-text"} %>
->>>>>>> 14c080d4ed0318fbe96b70f58be44a36ed3a7874
+
                 </div>
                 <div class="field">
                   <br>
