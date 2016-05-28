@@ -23,15 +23,13 @@ body {
     color: #fff;
     line-height: 30px;
     text-align: center;
-    background: rgba(36,27,34,1);
-      background: -moz-linear-gradient(-45deg, rgba(36,27,34,1) 0%, rgba(36,27,34,1) 2%, rgba(199,77,173,1) 89%, rgba(84,3,62,1) 100%);
-      background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(36,27,34,1)), color-stop(2%, rgba(36,27,34,1)), color-stop(89%, rgba(199,77,173,1)), color-stop(100%, rgba(84,3,62,1)));
-      background: -webkit-linear-gradient(-45deg, rgba(36,27,34,1) 0%, rgba(36,27,34,1) 2%, rgba(199,77,173,1) 89%, rgba(84,3,62,1) 100%);
-      background: -o-linear-gradient(-45deg, rgba(36,27,34,1) 0%, rgba(36,27,34,1) 2%, rgba(199,77,173,1) 89%, rgba(84,3,62,1) 100%);
-      background: -ms-linear-gradient(-45deg, rgba(36,27,34,1) 0%, rgba(36,27,34,1) 2%, rgba(199,77,173,1) 89%, rgba(84,3,62,1) 100%);
-      background: linear-gradient(135deg, rgba(36,27,34,1) 0%, rgba(36,27,34,1) 2%, rgba(199,77,173,1) 89%, rgba(84,3,62,1) 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#241b22', endColorstr='#54033e', GradientType=1 );
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(135deg, hsla(280,100%,10%,1) 0%, rgba(178,140,182,0.85) 30%, rgba(178,140,182,0.85) 70%, hsla(280,100%,10%,1) 100%), url("trade.jpg");
 }
+
+
 
 strong { font-weight: 500; }
 
@@ -52,7 +50,7 @@ h1, h2 {
 h3 {
 	font-size: 22px;
     font-weight: 300;
-    color: #555;
+    color: #fff;
     line-height: 30px;
 }
 
@@ -326,10 +324,6 @@ button.btn:focus, .btn:focus { outline: 0; opacity: 0.6; background: #de615e; co
 	margin-top: 35px;
 }
 
-.social-login h3 {
-	color: #fff;
-}
-
 .social-login-buttons {
 	margin-top: 25px;
 }
@@ -342,6 +336,7 @@ button.btn:focus, .btn:focus { outline: 0; opacity: 0.6; background: #de615e; co
 .navbar-brand>img {
   padding: 5px;
 }
+
 .navbar-default .navbar-nav>li>a {
   color: #fff;
 }
@@ -364,6 +359,10 @@ button.btn:focus, .btn:focus { outline: 0; opacity: 0.6; background: #de615e; co
   margin: 0 15px;
 }
 
+.force-black-text, .force-black-text>option {
+  color: #000 !important;
+}
+
 
 /***** Media queries *****/
 
@@ -383,28 +382,20 @@ button.btn:focus, .btn:focus { outline: 0; opacity: 0.6; background: #de615e; co
 
 }
 
-/*This css code is related to the Table Trade_events*/
-/*.search-list{
-  font-size:30pt;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 300;
-  text-align: center;
-  margin-bottom: 15px;
-  font-family: 'Roboto', sans-serif;
-}*/
-
-table{
+table {
   width:100%;
   table-layout: fixed;
 }
-.tbl-header{
+
+.tbl-header {
   background-color: rgba(255,255,255,0.3);
- }
- .tbl-header th{
+}
+
+.tbl-header th {
    text-align: center;
    font-size: 10pt;
    color: #5E4848;
+
  }
 .tbl-content{
   height: auto;
@@ -412,13 +403,13 @@ table{
   overflow-x:auto;
   margin-top: 0px;
   border: 1px solid rgba(255,255,255,0.3);
-
 }
-.tbl-content td{
+
+.tbl-content td {
   text-align: center;
-
 }
-th{
+
+th {
   padding: 20px 15px;
   text-align: left;
   font-weight: 500;
@@ -426,7 +417,8 @@ th{
   color: #fff;
   text-transform: uppercase;
 }
-td{
+
+td {
   padding: 15px;
   text-align: left;
   vertical-align:middle;
@@ -438,15 +430,17 @@ td{
 }
 
 ul.search-list-render li {
-  display:inline;
+  display: inline;
 }
 
 ::-webkit-scrollbar {
     width: 6px;
 }
+
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
+
 ::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }

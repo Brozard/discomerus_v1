@@ -19,9 +19,20 @@
       <%= submit_tag "Apply Filter", class: "btn" %>
     </li>
   </ul>
+  <ul class="search-list-render">
+    <li>
+      Between <%= date_select :start_date, :start_date, 
+                {:order => [:month, :day, :year], :start_year => 2000, :end_year => (Date.current.year + 5), include_blank: true}, 
+                {:class => "search-field force-black-text"} 
+              %>
+      and <%= date_select :end_date, :end_date, 
+                {:order => [:month, :day, :year], :start_year => 2000, :end_year => (Date.current.year + 5), prompt: true}, 
+                {:class => "search-field force-black-text"} 
+              %>
+    </li>
+    
+  </ul>
 <% end %>
-
-<hr/>
 
 <% if !@trade_events.empty? %>
   <%= pluralize(@trade_events.count, "trade event") %> found

@@ -2,55 +2,53 @@
   <div class="row">
     <div class="col-sm-6 col-sm-offset-1 form-box">
       <div class="form-bottomx", style='border-radius:4px; margin-left:4em;'>
-          <strong><h3 style="color:#fff; font-size:38px; margin-left:5em; font-family:inherit;">
-            CREATE NEW PRODUCT</h3></strong><br>
-            <%= form_for(@product) do |f| %>
-            <% if @product.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
-            <ul>
-              <% @product.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
+        <strong><h3 style="color:#fff; font-size:38px; margin-left:5em; font-family:inherit;">
+          CREATE NEW PRODUCT</h3></strong><br>
+        <%= form_for(@product) do |f| %>
+          <% if @product.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+              <ul>
+                <% @product.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
           <% end %>
           <div class="center-nested-divs">
             <div class="row-div-display">
               <div>
-                <div class="field bottom-buffer">
-                  <!-- <%= f.label :name %> -->
-                  <br>
-                  <%= f.text_field :name, size:'30px', placeholder:"Product Name" %>
+                <div class="field">
+                  <%= f.label :manufacturer_id %><br>
+                  <%= f.collection_select :manufacturer_id, Manufacturer.events_attended(current_user.trade_events.pluck(:id)), :id, :company_name, {prompt: "Manufacturer (required)"}, {class: "search-field force-black-text"} %>
                 </div>
                 <div class="field bottom-buffer">
-                  <!-- <%= f.label :item_number %> -->
                   <br>
-                  <%= f.text_field :item_number, placeholder:"Item Number",size:'30px'  %>
+                  <%= f.text_field :name, size:'30px', placeholder:"Product Name (required)", class: "search-field" %>
                 </div>
                 <div class="field bottom-buffer">
-                  <!-- <%= f.label :min_order_quantity %> -->
                   <br>
-                  <%= f.text_field :min_order_quantity, placeholder: "Qty Order", size:'30px'  %>
+                  <%= f.text_field :item_number, size:"30px", placeholder:"Item Number" %><!-- , class: "search-field" %> -->
+                </div>
+                <div class="field bottom-buffer">
+                  <br>
+                  <%= f.text_field :min_order_quantity, size:"30px", placeholder:"Minimum Order Quantity" %><!-- , class: "search-field" %> -->
                 </div>
               </div>
               <div class="spacing">
               </div>
               <div>
                 <div class="field bottom-buffer">
-                  <!-- <%= f.label :price %> -->
                   <br>
-                  <%= f.text_field :price, size:'30px', placeholder:"Price"  %>
+                  <%= f.number_field :price, {in: 0..9999.99, step: "0.01", placeholder: "Price (req'd)", class: "search-field"} %>
                 </div>
                 <div class="field bottom-buffer">
-                  <!-- <%= f.label :category %> -->
                   <br>
-                  <%= f.text_field :price, placeholder:"Category",size:'30px' %>
+                  <%= f.text_field :category, size:"30px", placeholder:"Category" %><!-- , class: "search-field"} %> -->
                 </div>
                 <div class="field">
-                  <!-- <%= f.label :description %> -->
                   <br>
-                  <%= f.text_area :description, placeholder:"Description",size:'30px', style:"height:100px;" %>
+                  <%= f.text_area :description, size:'30px', placeholder:"Description", style:"height:100px;" %>
                 </div>
               </div>
             </div>
@@ -59,10 +57,10 @@
           <div>
             <%= f.submit class:'btn btn-lg btn-success', style:'margin-left:1em; width:25%;'%>
           </div>
-          <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
-  <br>
+</div>
+<br>
 <%= link_to 'Back', products_path %>

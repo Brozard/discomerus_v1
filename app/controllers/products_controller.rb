@@ -10,13 +10,18 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.user_products(current_user.id)
+    
+    @min_p = params[:min_price].first == "" ? 0 : params[:min_price].first# : nil
+    @max_p = params[:max_price].first == "" ? 999999 : params[:max_price].first# : nil
+      
+    # @products = Product.user_products(current_user.id).by_price(params[:min_price], params[:max_price])
+    @products = Product.user_products(current_user.id).by_price(@min_p, @max_p)
     if params[:name]
       @products = @products.by_name(params[:name].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
     end
-    if params[:price]
-      @products = @products.by_price(params[:price])
-    end
+    # if params[:min_price] &&
+    #   @products = @products.by_price(params[:price])
+    # end
     # if params[:category]
     #   @products = @products.by_category(params[:category])
     # end

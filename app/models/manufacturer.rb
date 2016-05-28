@@ -7,7 +7,9 @@ class Manufacturer < ActiveRecord::Base
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :attending_manufacturers, allow_destroy: true
   validates_presence_of :company_name
-  default_scope { order('manufacturers.id ASC')}
+  
+  # default_scope { order('manufacturers.id ASC')}
+  default_scope { order('manufacturers.company_name ASC')}
 
   # This scope takes in the Trade Event ids associated with the current user, and is used by the controller to return all Manufacturer records associated with that user
   scope :events_attended, -> (ids_of_user) { includes(:trade_events).where(trade_events: {id: (ids_of_user)}) }

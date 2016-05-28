@@ -44,13 +44,13 @@ class ManufacturersController < ApplicationController
   def create
     # Creates a new Manufacturer record using the data entered the form fields
     @manufacturer = Manufacturer.new(manufacturer_params)
-
-    # Creates a new Attending Manufacturer join record matching the new Manufacturer record with the selected Trade Event
-    @manufacturer.attending_manufacturers.build(manufacturer_id: @manufacturer.id, trade_event_id: params["manufacturer"]["attending_manufacturer"]["trade_event_id"].to_i)
-    # End of experimental code
-
+    # @manufacturer.attending_manufacturers.build(manufacturer_id: @manufacturer.id, trade_event_id: params["manufacturer"]["attending_manufacturer"]["trade_event_id"].to_i)
+    
     respond_to do |format|
       if @manufacturer.save
+        # Creates a new Attending Manufacturer join record matching the new Manufacturer record with the selected Trade Event
+        @manufacturer.attending_manufacturers.build(manufacturer_id: @manufacturer.id, trade_event_id: params["manufacturer"]["attending_manufacturer"]["trade_event_id"].to_i)
+
         format.html { redirect_to @manufacturer, notice: 'Manufacturer was successfully created.' }
         format.json { render :show, status: :created, location: @manufacturer }
       else
