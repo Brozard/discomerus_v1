@@ -20,11 +20,10 @@
             </div><br>
             <div class="field">
               <%= f.label :start_date %><br>
-
               <%= f.date_select :start_date,
                 {:order => [:month, :day, :year], :start_year => 2000, :end_year => (Date.current.year + 5), prompt: true},
-                {:class => "search-field force-black-text2"}
 
+                {:class => "search-field force-black-text"}
 
               %>
             </div>
@@ -32,7 +31,7 @@
               <%= f.label :end_date %><br>
               <%= f.date_select :end_date,
                 {:order => [:month, :day, :year], :start_year => 2000, :end_year => (Date.current.year + 5), prompt: true},
-                {:class => "search-field force-black-text2"}
+                {:class => "search-field force-black-text"}
               %>
             </div><br>
             <!-- beginning of address fields -->

@@ -10,12 +10,17 @@ class ApplicationController < ActionController::Base
   # Instead, I'm only testing whether or not the string inside the array is empty. If it is, nil is returned; if it isn't, I'm returning the first array element.
   # For this project, these arrays only have one element. If I encounter params that return multi-element arrays, this helper will not work.
   def extract_from_search(param)
-    param.first != "" ? param.first : nil
+    if param != nil
+      param.first != "" ? param.first : nil
+    else
+      return
+    end
   end
 
   def current_user
     Buyer.where(id: session[:buyer_id]).first
   end
+
   helper_method :extract_from_search
   helper_method :current_user
 end

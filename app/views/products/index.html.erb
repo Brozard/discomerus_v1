@@ -79,6 +79,11 @@
 </div>
 </section>
 
+<!-- Create local variable to store the id of all Products returned -->
+<% ids = @products.pluck(:id) %>
+
+<%= link_to "Download as CSV", "../reports/product.csv?options[id]=#{ids}" %>
+
 <script>
 $(window).on("load resize ", function() {
   var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
