@@ -1,8 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3 form-box">
-      <div class="form-bottom">
-        <strong><h1>Create New Trade Event</h1></strong>
+    <div class="col-sm-6 col-sm-offset-1 form-box">
+      <div class="form-bottom",  style='border-radius:4px; margin-left:3em;width:165%'>
+        <strong><h3 style="color:#fff; font-size:38px; margin-left:5em; font-family:inherit;">
+          CREATE NEW TRADE EVENT</h3></strong><br>
           <%= form_for(setup_addressable(@trade_event)) do |f| %>
             <% if @trade_event.errors.any? %>
               <div id="error_explanation">
@@ -14,6 +15,9 @@
                 </ul>
               </div>
             <% end %>
+            <div class="center-nested-divs">
+              <div class="row-div-display">
+                <div>
             <div class="field">
               <br>
               <%= f.text_field :event_name, placeholder: "Event Name (required)", size:'35px' %>
@@ -34,6 +38,12 @@
                 {:class => "search-field force-black-text"}
               %>
             </div><br>
+          </div>
+            <div class="spacing">
+            </div>
+            <div>
+              <br>
+
             <!-- beginning of address fields -->
             <%= f.fields_for :address do |ff| %>
               <div class="field">
@@ -47,6 +57,11 @@
                 <%#= ff.label :street_address_3 %><br>
                 <%#= ff.text_field :street_address_3 %>
               </div> -->
+
+
+
+              <div>
+
               <div class="field">
                 <%= ff.text_field :city, placeholder: "City", size: '35px'  %>
               </div><br>
@@ -66,13 +81,17 @@
                 <%#= ff.text_field :postal_code %>
               </div> -->
             <% end %> <!-- end of address fields -->
+          </div>
+          </div>
+          </div>
+        </div>
+        <br>
             <div>
-              <%= f.submit 'Create Trade Event', class:'btn btn-lg btn-success' %>
+              <%= f.submit 'Create Trade Event', class:'btn btn-lg btn-success', style:'margin-left:2em; width:25%;' %>
             </div>
           <% end %>
         </div>
       </div>
     </div>
   </div>
-</div>
 <br>

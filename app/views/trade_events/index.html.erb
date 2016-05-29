@@ -1,108 +1,86 @@
 <div>
-  <p>
-
-    <strong><h1>TRADE EVENT INDEX</h1></strong>
-  </p>
+    <p>
+      <strong><h1>TRADE EVENT INDEX</h1></strong>
+    </p>
 </div>
-
-<!-- Begin search functionality -->
-
-<%= form_tag search_trade_events_path do %>
-  <ul class="search-list-render">
-    <li>
-      <%= search_field_tag :event_name, nil, placeholder: "Find Event Name", class: "search-field" %>
-    </li>
-    <li>
-      <%= search_field_tag :city, nil, placeholder: "Find Event City", class: "search-field" %>
-    </li>
-    <li>
-      <%= submit_tag "Apply Filter", class: "btn" %>
-    </li>
-  </ul>
-  <ul class="search-list-render">
-    <li>
-      Between <%= date_select :start_date, :start_date,
-                {:order => [:month, :day, :year], :start_year => 2000, :end_year => (Date.current.year + 5), prompt: true},
-                {:class => "search-field force-black-text1"}
-              %>
-      and <%= date_select :end_date, :end_date,
-                {:order => [:month, :day, :year], :start_year => 2000, :end_year => (Date.current.year + 5), prompt: true},
-                {:class => "search-field force-black-text1"}
-              %>
-    </li>
-
-  </ul>
-<% end %>
-
-<% if !@trade_events.empty? %>
-  <%= pluralize(@trade_events.count, "trade event") %> found
-<% else %>
-  No trade events found
-<% end %>  <!-- End search functionality -->
-
-<br>
-<%= link_to 'New Trade Event', new_trade_event_path %>
-
-<section id='wrap'>
-  <div class="tbl-header">
-    <table cellpadding="0" cellspacing="0" border="0">
-      <thead class='tbl-header'>
-        <!-- <th colspan="1"></th> -->
-        <th>Trade Events</th>
-        <th>Start Date</th>
-        <th>End Date</th>
-        <th>City</th>
-        <th>Country</th>
-
-      </thead>
-    </table>
-  </div>
-
-  <div  class="tbl-content">
-
-    <table cellpadding="0" cellspacing="0" border="0">
-      <tbody>
-        <% @trade_events.each do |trade_event| %>
-          <tr>
-            <!-- <td><%#= link_to '[Edit]', edit_trade_event_path(trade_event) %></td> -->
-            <td><%= link_to trade_event.event_name, trade_event%></td>
-            <td><%= trade_event.start_date %></td>
-            <td><%= trade_event.end_date %></td>
-            <td><%= trade_event.address.city %></td>
-            <td><%= trade_event.address.country %></td>
-            <!-- <td><%#= link_to 'Show', trade_event %></td> -->
-            <!-- <td><%#= link_to '[Edit]', edit_trade_event_path(trade_event) %></td> -->
-            <!-- <td><%#= link_to 'Destroy', trade_event, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-  </div>
-
-</section>
-
-
-<!--Internal table scrolling jquery script-->
-<script>
-  $(window).on("load resize ", function() {
-    var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
-    $('.tbl-header').css({'padding-right':scrollWidth});
-  }).resize();
-</script>
-
-
-<!-- Testing script for pagination -->
-<script>
-$(document).ready(function() {
-    $('#example').DataTable( {
-        "pagingType": "full_numbers"
-    } );
-} );
-</script>
-
-
-
-<br>
-
-<%= link_to 'New Trade Event', new_trade_event_path %>
+    <!-- Begin search functionality -->
+      <%= form_tag search_trade_events_path do %>
+      <ul class="search-list-render">
+        <li>
+          <%= search_field_tag :event_name, nil, placeholder: "Find Event Name", class: "search-field" %>
+        </li>
+        <li>
+          <%= search_field_tag :city, nil, placeholder: "Find Event City", class: "search-field" %>
+        </li>
+        <li>
+          <%= submit_tag "Apply Filter", class: "btn" %>
+        </li>
+      </ul>
+      <ul class="search-list-render">
+        <li>
+          Between <%= date_select :start_date, :start_date,
+                  {:order => [:month, :day, :year], :start_year => 2000, :end_year => (Date.current.year + 5), prompt: true},
+                  {:class => "force-black-text"} %>
+                  and <%= date_select :end_date, :end_date,
+                  {:order => [:month, :day, :year], :start_year => 2000, :end_year => (Date.current.year + 5), prompt: true},
+                  {:class => "force-black-text"} %>
+        </li>
+      </ul>
+      <% end %>
+      <% if !@trade_events.empty? %>
+        <%= pluralize(@trade_events.count, "trade event") %> found
+      <% else %>
+        No trade events found
+      <% end %>  <!-- End search functionality -->
+      <br>
+      <%= link_to 'New Trade Event', new_trade_event_path %>
+      <section id='wrap'>
+        <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <thead class='tbl-header'>
+              <!-- <th colspan="1"></th> -->
+              <th>Trade Events</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>City</th>
+              <th>Country</th>
+            </thead>
+          </table>
+        </div>
+        <div  class="tbl-content">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+              <% @trade_events.each do |trade_event| %>
+                <tr>
+                  <!-- <td><%#= link_to '[Edit]', edit_trade_event_path(trade_event) %></td> -->
+                  <td><%= link_to trade_event.event_name, trade_event%></td>
+                  <td><%= trade_event.start_date %></td>
+                  <td><%= trade_event.end_date %></td>
+                  <td><%= trade_event.address.city %></td>
+                  <td><%= trade_event.address.country %></td>
+                  <!-- <td><%#= link_to 'Show', trade_event %></td> -->
+                  <!-- <td><%#= link_to '[Edit]', edit_trade_event_path(trade_event) %></td> -->
+                  <!-- <td><%#= link_to 'Destroy', trade_event, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+                </tr>
+              <% end %>
+            </tbody>
+        </table>
+      </div>
+    </section>
+    <!--Internal table scrolling jquery script-->
+    <script>
+      $(window).on("load resize ", function() {
+        var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+        $('.tbl-header').css({'padding-right':scrollWidth});
+      }).resize();
+    </script>
+    <!-- Testing script for pagination -->
+    <script>
+    $(document).ready(function() {
+        $('#example').DataTable( {
+            "pagingType": "full_numbers"
+        });
+    });
+    </script>
+    <br>
+    
