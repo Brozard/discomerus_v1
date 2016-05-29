@@ -39,6 +39,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
 
+
   end
 
   # GET /products/1/edit
@@ -50,13 +51,29 @@ class ProductsController < ApplicationController
   def create
     @product = current_user.products.build(product_params)
     @product.price = (params[:product][:price].to_d * 100).to_i
+
+    @pictures = []
+    params[:product][:photo].each do |pix|
+      @pictures << Picture.create(photo:pix)
+    end
+
+
     respond_to do |format|
       if @product.save
-        if params[:photos]
-          params[:photos].each do |photo|
-            @product.pictures.create(photo: photo)
-          end
+
+        @pictures.each do |pix|
+          pix.product_id = @product.id
+          pix.save
         end
+
+      #   if params[:photos]
+      #     params[:photos].each do |photo|
+      #       @product.pictures.create(photo: photo)
+      #   end
+      # end
+
+
+
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
@@ -68,6 +85,7 @@ class ProductsController < ApplicationController
 
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
+
   def update
     respond_to do |format|
       if @product.update(product_params)

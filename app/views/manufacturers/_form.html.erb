@@ -3,12 +3,10 @@
     <div class="col-sm-6 col-sm-offset-3 form-box">
       <div class="form-bottom">
         <h1><strong>Create New Manufacturer</strong></h1>
-
           <%= form_for(setup_addressable(@manufacturer)) do |f| %>
             <% if @manufacturer.errors.any? %>
               <div id="error_explanation">
                 <h2><%= pluralize(@manufacturer.errors.count, "error") %> prohibited this manufacturer from being saved:</h2>
-
                 <ul>
                 <% @manufacturer.errors.full_messages.each do |message| %>
                   <li><%= message %></li>
@@ -16,15 +14,13 @@
                 </ul>
               </div>
             <% end %>
-
             <%= f.fields_for :attending_manufacturer do |ff| %>
               <div class="field" >
                 <%= ff.label :trade_event_id %><br>
                 <%= ff.collection_select :trade_event_id, TradeEvent.where(buyer_id: current_user.id), :id, :event_name, {prompt: true},
-                {:class => "search-field force-black-text"} %>
+                {:class => "search-field perfect-button-size"} %>
               </div>
             <% end %>
-
             <div class="field">
               <br>
               <%= f.text_field :company_name, :placeholder=>"Company Name", size:'35px' %>
@@ -45,7 +41,6 @@
               <br>
               <%= f.text_field :phone_number, :placeholder=>"Phone Number", size:'35px' %>
             </div>
-
             <!-- beginning of address fields -->
             <%= f.fields_for :address do |ff| %>
               <div class="field">
@@ -68,7 +63,6 @@
                 <%#= ff.label :street_address_3 %><br>
                 <%#= ff.text_field :street_address_3 %> -->
               <!-- </div> -->
-
               <!-- <div class="field">
                 <%#= ff.label :state %><br>
                 <%#= ff.text_field :state %>
@@ -83,7 +77,7 @@
               </div> -->
             <% end %> <br> <!-- end of address fields -->
             <div>
-              <%= f.submit class:'btn btn-lg btn-success' %>
+              <%= f.submit class:'btn btn-lg btn-success perfect-button-size' %>
             </div>
           <% end %>
         </div>
