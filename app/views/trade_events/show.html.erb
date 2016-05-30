@@ -55,7 +55,7 @@
         <% @trade_event.manufacturers.each do |manufacturer| %>
           <tr><strong>
             <!-- <td><%#= link_to 'Edit', edit_manufacturer_path(manufacturer) %></td> -->
-            <td><%= link_to manufacturer.company_name, manufacturer %></td>
+            <td><%= link_to manufacturer.company_name, manufacturer, class: "btn-link-table-entry" %></td>
             <td><%= manufacturer.contact_name %></td>
             <td><%= manufacturer.email %></td>
             <td><%= number_to_phone(manufacturer.phone_number, area_code: true) %></td>

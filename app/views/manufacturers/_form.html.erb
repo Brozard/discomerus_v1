@@ -2,8 +2,7 @@
   <div class="row">
     <div class="col-sm-6 col-sm-offset-1 form-box">
       <div class="form-bottomx", style='border-radius:4px; margin-left:3em; width:160%;'>
-        <strong><h3 style="color:#fff; font-size:38px; margin-left:4em; font-family:inherit;">
-          CREATE NEW MANUFACTURER</h3></strong><br>
+        <strong><h1 class="center-text">CREATE NEW MANUFACTURER</h1></strong><br>
           <%= form_for(setup_addressable(@manufacturer)) do |f| %>
             <% if @manufacturer.errors.any? %>
               <div id="error_explanation">
@@ -21,14 +20,13 @@
                   <%= f.fields_for :attending_manufacturer do |ff| %>
                     <div class="field">
                       <br>
-                      <!-- <%#= ff.label :trade_event_id, {stlye:"color:black"} %><br> -->
-                      <%= ff.collection_select :trade_event_id, TradeEvent.where(buyer_id: current_user.id), :id, :event_name, {prompt: 'Select Trade Event'},
+                      <%= ff.collection_select :trade_event_id, TradeEvent.where(buyer_id: current_user.id), :id, :event_name, {prompt: 'Select Trade Event (required)'},
                       {class: "search-field perfect-button-size"} %>
                     </div>
                   <% end %>
                   <div class="field">
                     <br>
-                    <%= f.text_field :company_name, {:placeholder=>"Company Name", class: "search-field perfect-button-size force-black-text"}  %>
+                    <%= f.text_field :company_name, {:placeholder=>"Company Name (required)", class: "search-field perfect-button-size force-black-text"}  %>
                   </div>
                   <div class="field">
                     <br>
@@ -38,10 +36,6 @@
                     <br>
                     <%= f.text_field :contact_name, {:placeholder=>"Contact Name", class: "search-field force-black-text perfect-button-size"} %>
                   </div>
-                </div>
-                <div class="spacing">
-                </div>
-                <div>
                   <div class="field">
                     <br>
                     <%= f.text_field :email, {:placeholder=>"Email", class: "search-field force-black-text perfect-button-size"} %>
@@ -50,6 +44,10 @@
                     <br>
                     <%= f.text_field :phone_number, {:placeholder=>"Phone Number", class: "search-field force-black-text perfect-button-size"} %>
                   </div>
+                </div>
+                <div class="spacing">
+                </div>
+                <div>
                   <!-- beginning of address fields -->
                   <%= f.fields_for :address do |ff| %>
                     <div class="field">
@@ -62,7 +60,19 @@
                     </div>
                     <div class="field">
                       <br>
+                      <%= ff.text_field :state, {:placeholder=>"State", class: "search-field force-black-text perfect-button-size"} %>
+                    </div>
+                    <div class="field">
+                      <br>
+                      <%= ff.text_field :postal_code, {:placeholder=>"Zip Code", class: "search-field force-black-text perfect-button-size"} %>
+                    </div>
+                    <div class="field">
+                      <br>
                       <%= ff.text_field :country, {:placeholder=>"Country", class: "search-field force-black-text perfect-button-size"} %>
+                    </div>
+                    <div>
+                      <br>
+                      <%= f.submit class:'btn btn-lg btn-success perfect-button-size' %>
                     </div>
                   </div>
                 </div>
@@ -75,22 +85,12 @@
                 <%#= ff.label :street_address_3 %><br>
                 <%#= ff.text_field :street_address_3 %> -->
               <!-- </div> -->
+              
               <!-- <div class="field">
-                <%#= ff.label :state %><br>
-                <%#= ff.text_field :state %>
-              </div>
-              <div class="field">
                 <%#= ff.label :district %><br>
                 <%#= ff.text_field :district %>
-              </div>
-              <div class="field">
-                <%#= ff.label :postal_code %><br>
-                <%#= ff.text_field :postal_code %>
               </div> -->
             <% end %>  <!-- end of address fields -->
-            <div>
-              <%= f.submit class:'btn btn-lg btn-success', style:'margin-left:1em; width:25%;' %>
-            </div>
           <% end %>
         </div>
       </div>

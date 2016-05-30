@@ -44,7 +44,7 @@
       <th>Category</th>
       <th>Item Number</th>
       <th>Minimum Order</th>
-      <th>Description</th>
+      <th class="description-width">Description</th>
       <!-- <th>Pictures</th> -->
       <!-- <th>Show</th>
       <th>Edit</th>
@@ -64,7 +64,7 @@
           <td><%= product.show_category %></td>
           <td><%= product.item_number %></td>
           <td><%= product.min_order_quantity %></td>
-          <td><%= product.description %></td>
+          <td class="description-width"><%= product.description %></td>
           <!-- <td></td> -->
           <!-- <td><%#= link_to 'Show', product %></td> -->
           <!-- <td><%#= link_to 'Edit', edit_product_path(product) %></td> -->
@@ -78,7 +78,7 @@
 </section>
 <!-- Create local variable to store the id of all Products returned -->
 <% ids = @products.pluck(:id) %>
-<%= link_to "Download as CSV", "../reports/product.csv?options[id]=#{ids}" %>
+<%= link_to "Download as CSV", "../reports/product.csv?options[id]=#{ids}", class: "btn" %>
 <script>
   $(window).on("load resize ", function() {
     var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();

@@ -1,35 +1,29 @@
 <div >
   <div>
-    <p>
-
-      <strong><h5 class="search-list"><%= @manufacturer.company_name %></h5></strong>
-
-    </p>
-    <p>
-      <h4>Contact Info:</h4>
-      <%= @manufacturer.contact_name %><br>
-      <!-- <%#= number_to_phone(@manufacturer.phone_number, area_code: true) %><br> -->
-      <%= @manufacturer.email %><br>
-    </p>
-  </div>
-
-  <div>
-    <h4>Port City:</h4>
-    <%= @manufacturer.shipping_port %>
-  </div>
-
-  <div>
-    <!-- <h4>Manufacturer Address:</h4> -->
-    <%= @manufacturer.address.street_address_1 %><br>
-
-    <!-- <%= @manufacturer.address.city %>, <%= @manufacturer.address.state %> <%= @manufacturer.address.postal_code %><br> -->
-    <%= @manufacturer.address.country %>
-    <%#= @manufacturer.address.district %>
+    <strong><h1 class="search-list"><%= @manufacturer.company_name %></h1></strong>
+    <div class="center-nested-divs">
+      <div>
+        <% unless @manufacturer.contact_name.nil? && @manufacturer.phone_number.nil? && @manufacturer.email.nil? %>
+          <h4>Contact Info:</h4>
+          <%= @manufacturer.contact_name %><br>
+          <%= number_to_phone(@manufacturer.phone_number, area_code: true) %><br>
+          <%= @manufacturer.email %><br>
+        <% end %>
+      </div>
+      <div>
+        <h4>Port City:</h4>
+        <%= @manufacturer.shipping_port %>
+      </div>
+      <div>
+        <h4>Manufacturer Address:</h4>
+        <%= @manufacturer.address.street_address_1 %><br>
+        <%= @manufacturer.address.city %>, <%= @manufacturer.address.state %> <%= @manufacturer.address.postal_code %><br>
+        <%= @manufacturer.address.country %>
+        <%= @manufacturer.address.district %>
+      </div>
+    </div>
   </div>
 </div>
-
-
-
 <section id='wrap'>
   <div  class="tbl-header">
     <table cellpadding="0" cellspacing="0" border="0">
@@ -52,7 +46,7 @@
         <% @manufacturer.products.each do |product| %>
         <tr><strong>
           <!-- <td><%#= link_to 'Edit', edit_product_path(product) %></td> -->
-          <td><%= link_to product.name, product %></td>
+          <td><%= link_to product.name, product, class: "btn-link-table-entry" %></td>
           <td><%= product.item_number %></td>
           <td><%= product.min_order_quantity %></td>
           <td><%= number_to_currency((product.price * 0.01), precision: 2) %></td>
@@ -71,10 +65,10 @@ $(window).on("load resize ", function() {
 }).resize();
 </script>
 
-<%= link_to 'New Product', new_manufacturer_product_path(@manufacturer) %>
+<%= link_to 'New Product', new_manufacturer_product_path(@manufacturer), class: "btn-link-2" %>
 
 <br>
 
 
-<%= link_to 'Edit', edit_manufacturer_path(@manufacturer) %> |
-<%= link_to 'Back', manufacturers_path %>
+<%= link_to 'Edit', edit_manufacturer_path(@manufacturer), class: "btn-link-2" %> |
+<%= link_to 'Back', manufacturers_path, class: "btn-link-2" %>
