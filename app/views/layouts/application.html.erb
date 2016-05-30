@@ -15,23 +15,23 @@
           <%= csrf_meta_tags %>
       </head>
       <body>
-        <nav class="container navbar navbar-default">
+        <nav class="container navbar navbar-default" style="height:120px; border-radius:5px;">
           <div class="container-fluid">
             <div class="navbar-header">
               <a class="navbar-brand" href="http://wyncode.co/"><img src="https://wyncode.co/wp-content/themes/wyncode/assets/img/logo-white.png" alt="Company Logo">
               </a>
             </div>
             <div id="navbar2" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav navbar-right">
+              <ul class="nav navbar-right">
                 <% if current_user %>
                 <li>Welcome &nbsp;&nbsp;
-                  <strong style="font-size:16pt;"><%= current_user.agent_name %></strong><br>
+                  <%= current_user.agent_name %><br>
                   <!-- &nbsp; -->
-                  From:&nbsp;&nbsp;&nbsp;&nbsp;
-                  <strong style="font-size:16pt;"><%= current_user.company_name %></strong>
+                  From:&nbsp;&nbsp;
+                <%= current_user.company_name %>
                 </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bars" aria-hidden="true"></i>Menu <span class="caret"></span></a>
+                <li class="dropdown" style="background:rgb(222,140,140); border-radius:5px;">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="color:white;"><i class="fa fa-bars" aria-hidden="true" style="color:white;"></i> Menu <span class="caret", style="color:white;"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><%= link_to "Home", root_path %></a></li>
                     <li><%= link_to "Trade Events", trade_events_path %></li>
@@ -39,8 +39,8 @@
                     <li><%= link_to "Products", products_path %> </li>
                     <!-- Logged in as <%= current_user.email %> -->
                     <li><%= link_to "Log Out", logout_path %></li>
-                    <% else %>
-                    <li><%= link_to "Sign Up", signup_path %> or <%= link_to "Log In", login_path %></li>
+                    <!-- <%# else %>
+                    <li><%#= link_to "Sign Up", signup_path %> <%#= link_to "Log In", login_path %></li> -->
                     <% end %>
                 </ul>
               </li>
