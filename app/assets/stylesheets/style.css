@@ -136,7 +136,7 @@ img { max-width: 100%; }
 
 /***** Top content *****/
 
-.inner-bg {
+/*.inner-bg {
     padding: 100px 0 170px 0;
 }
 
@@ -156,10 +156,11 @@ img { max-width: 100%; }
 	color: #fff;
 }
 .top-content .description a:hover,
-.top-content .description a:focus { border-bottom: 1px dotted #fff; }
+.top-content .description a:focus { border-bottom: 1px dotted #fff; }*/
+
 /*inputs*/
 
-input[type="text"],
+/*input[type="text"],
 input[type="password"],
 textarea,
 textarea.form-control {
@@ -203,29 +204,12 @@ input[type="text"]:-ms-input-placeholder, input[type="password"]:-ms-input-place
 textarea:-ms-input-placeholder, textarea.form-control:-ms-input-placeholder { color: #888; }
 
 input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeholder { color: #888; }
+textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeholder { color: #888; }*/
 
 
 /* logging power */
 
-.company-name {
-    width: 400px;
-  }
-
-.agent-name {
-    width: 400px;
-}
-
-.email-address-please {
-    width: 400px;
-}
-
-.password-please {
-    width: 400px;
-}
-
-
-.btnx {
+/*.btnx {
     width: 400px;
 	  height: 50px;
     margin: 0;
@@ -340,39 +324,16 @@ button.btn:active:focus, .btn.active:focus { outline: 0; opacity: 0.6; backgroun
 .navbar-default {
   background-color: rgba(0, 0, 0, 0.3);
   border-color: rgba(0, 0, 0, 0.3);
-}
+}*/
 
 
 
 
 /***** Added by Brian *****/
 
-.description-width {
-  width: 55%;
-}
 
-.row-div-display {
-  display: flex;
-  flex-direction: row;
-}
 
-.description-entry {
-  height: 25em;
-  width: 50em;
-}
 
-.spacing {
-  padding: 0 5em;
-}
-
-.center-nested-divs {
-  display: flex;
-  justify-content: center;
-}
-
-.bottom-buffer {
-  margin-bottom: 2em;
-}
 
 
 /*#product-form {

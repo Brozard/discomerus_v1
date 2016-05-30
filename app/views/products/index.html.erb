@@ -9,13 +9,13 @@
 <%= form_tag search_products_path do %>
   <ul class="search-list-render">
     <li>
-      <%= search_field_tag :name, nil, placeholder: "Find by Product Name", class: "search-field" %>
+      <%= search_field_tag :name, nil, placeholder: "Find by Product Name", class: "search-field force-black-text" %>
     </li>
     <li>
-      <%= number_field :min_price, nil, in: 0..10000.00, step: "0.01", placeholder: "Min $", class: "search-field" %>
+      <%= number_field :min_price, nil, in: 0..10000.00, step: "0.01", placeholder: "Min $", class: "search-field force-black-text" %>
     </li>
     <li>
-      <%= number_field :max_price, nil, in: 0..10000.00, step: "0.01", placeholder: "Max $", class: "search-field" %>
+      <%= number_field :max_price, nil, in: 0..10000.00, step: "0.01", placeholder: "Max $", class: "search-field force-black-text" %>
     </li>
     <li>
       <%= collection_select :category, nil, Category.all, :id, :category_name, {prompt: "Find by Category"}, {class: "search-field force-black-text"} %>
@@ -33,7 +33,7 @@
 <% end %>  <!-- End search functionality -->
 
 <br>
-<%= link_to 'New Product', new_product_path %>
+<%= link_to 'New Product', new_product_path, class: "btn-link-2" %>
 <section id='wrap'>
   <div  class="tbl-header">
   <table cellpadding="0" cellspacing="0" border="0">
@@ -59,7 +59,7 @@
     <tbody>
       <% @products.each do |product| %>
         <tr>
-          <td><%= link_to product.name, product %></td>
+          <td><%= link_to product.name, product, class: "btn-link-table-entry" %></td>
           <td><%= number_to_currency((product.price * 0.01), precision: 2) %></td>
           <td><%= product.show_category %></td>
           <td><%= product.item_number %></td>

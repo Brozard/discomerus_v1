@@ -13,4 +13,6 @@ class TradeEvent < ActiveRecord::Base
   scope :by_city, -> (city) { joins(:address).where("addresses.city LIKE ?", "%#{city}%").references(:addresses) }
   # scope :in_date_range, lambda { |start_date, end_date| where("(status_date >= ?) AND (status_date <= ?)", start_date, end_date) }
   # scope :in_date_range, ->(start_date = Date.ordinal(1900, 1), end_date = Date.ordinal(2999,365)) { where("end_date >= ? AND start_date <= ?", start_date, end_date) }
+  scope :on_or_after, -> (start_date) { where("end_date >= ?", start_date) }
+  scope :on_or_before, -> (end_date) { where("start_date <= ?", end_date) }
 end

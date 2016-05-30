@@ -1,60 +1,58 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <title>SHOW RUNNER</title>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-        <!-- Latest compiled JavaScript -->
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-          <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-          <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-          <%= csrf_meta_tags %>
-      </head>
-      <body>
-        <nav class="container navbar navbar-default" style="height:120px; border-radius:5px;">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="http://wyncode.co/"><img src="https://wyncode.co/wp-content/themes/wyncode/assets/img/logo-white.png" alt="Company Logo">
-              </a>
-            </div>
-            <div id="navbar2" class="navbar-collapse collapse">
-              <ul class="nav navbar-right">
-                <% if current_user %>
-                <li>Welcome &nbsp;&nbsp;
-                  <%= current_user.agent_name %><br>
-                  <!-- &nbsp; -->
-                  From:&nbsp;&nbsp;
-                <%= current_user.company_name %>
-                </li>
-                <li class="dropdown" style="background:rgb(222,140,140); border-radius:5px;">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="color:white;"><i class="fa fa-bars" aria-hidden="true" style="color:white;"></i> Menu <span class="caret", style="color:white;"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><%= link_to "Home", root_path %></a></li>
-                    <li><%= link_to "Trade Events", trade_events_path %></li>
-                    <li><%= link_to "Manufacturers", manufacturers_path %></li>
-                    <li><%= link_to "Products", products_path %> </li>
-                    <!-- Logged in as <%= current_user.email %> -->
-                    <li><%= link_to "Log Out", logout_path %></li>
-                    <!-- <%# else %>
-                    <li><%#= link_to "Sign Up", signup_path %> <%#= link_to "Log In", login_path %></li> -->
-                    <% end %>
+<html>
+  <head>
+    <title>SHOW RUNNER</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <nav class="container navbar navbar-default" style="height:120px; border-radius:5px;">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="http://wyncode.co/">
+            <img src="https://wyncode.co/wp-content/themes/wyncode/assets/img/logo-white.png" alt="Company Logo">
+          </a>
+        </div>
+        <div id="navbar2" class="navbar-collapse collapse">
+          <ul class="nav navbar-right">
+            <% if current_user %>
+              <li>
+                <!-- Welcome &nbsp;&nbsp; <%#= current_user.agent_name %><br> -->
+                <!-- From: &nbsp;&nbsp; <%#= current_user.company_name %> -->
+                Signed in as <%= current_user.agent_name %><br>
+                (<%= current_user.company_name %>)
+              </li>
+              <li class="dropdown main-menu-style">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="color:white;">
+                  <i class="fa fa-bars" aria-hidden="true"></i> Menu <span class="caret", style="color:white;"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><%= link_to "Home", root_path %></li>
+                  <li><%= link_to "Trade Events", trade_events_path %></li>
+                  <li><%= link_to "Manufacturers", manufacturers_path %></li>
+                  <li><%= link_to "Products", products_path %> </li>
+                  <li><%= link_to "Log Out", logout_path %></li>
                 </ul>
               </li>
-            </ul>
-          </div>
-          <!--/.nav-collapse -->
+            <% end %>
+          </ul>
         </div>
-        <!--/.container-fluid -->
-      </nav>
-      <% flash.each do |key, value| %>
-      <%= content_tag(:div, class: "alert alert#{key}") do %>
-        <p><%= value %></p>
-        <% end %>
-        <% end %>
-        <%= yield %>
-      </body>
-  </html>
+      </div>
+    </nav>
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, class: "alert alert#{key}") do %>
+      <p><%= value %></p>
+    <% end %>
+  <% end %>
+  <%= yield %>
+  </body>
+</html>

@@ -58,7 +58,7 @@
             <td><%= link_to manufacturer.company_name, manufacturer %></td>
             <td><%= manufacturer.contact_name %></td>
             <td><%= manufacturer.email %></td>
-            <td><%= manufacturer.phone_number %></td>
+            <td><%= number_to_phone(manufacturer.phone_number, area_code: true) %></td>
             <td><%= manufacturer.shipping_port %></td>
             <td><%= manufacturer.address.street_address_1 %>
               <% if @trade_event.address.street_address_2 %>
@@ -86,12 +86,12 @@
   }).resize();
 </script>
 
-<%= link_to 'New Manufacturer', new_trade_event_manufacturer_path(@trade_event) %>
+<%= link_to 'New Manufacturer', new_trade_event_manufacturer_path(@trade_event), class: "btn-link-2" %>
 
 <br>
 
 
 
-<%= link_to 'Edit', edit_trade_event_path(@trade_event) %>
+<%= link_to 'Edit', edit_trade_event_path(@trade_event), class: "btn-link-2" %>
 
-<%= link_to 'Back', trade_events_path %>
+<%= link_to 'Back', trade_events_path, class: "btn-link-2" %>

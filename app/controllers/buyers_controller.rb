@@ -1,5 +1,6 @@
 class BuyersController < ApplicationController
   before_action :set_buyer, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :user_timeout
 
   # GET /buyers
   # GET /buyers.json

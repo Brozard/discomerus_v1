@@ -3,59 +3,57 @@
     <div id="error_explanation">
       <h2><%= pluralize(@buyer.errors.count, "error") %> prohibited this buyer from being saved:</h2>
       <ul>
-      <% @buyer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @buyer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-  <!-- <div class="inner-bg"> -->
-    <div class="container">
-          <h1><strong>SHOW RUNNER</h1>
-              <p>
-                <strong>Data Management For Show Events</strong>
-              </p>
-        <div class="col-sm-6 col-sm-offset-3 form-box">
-          <div class="form-top">
-            <div class="form-top-left">
-              <h3>Welcome, Please Signin</h3>
-          </div>
-            <div class="form-top-right">
-                 <i class="fa fa-lock"></i>
-            </div>
-            <div class="field center">
-              <%= f.text_field :company_name, :placeholder => "Your Company Name", :class => 'company-name' %>
-            </div><br>
-            <div class="field center">
-              <%= f.text_field :agent_name, :placeholder=> "Your Name", :class => 'agent-name' %>
-            </div><br>
-            <div class="field center">
-              <%= f.text_field :email, :placeholder => "yourName@email.com",:class => 'email-address-please' %>
-            </div><br>
-            <div class="field center">
-              <%= f.password_field :password, :placeholder => "Your password",:class => 'password-please' %>
-            </div>
-            <div>
-              <br>
-              <%= f.submit 'Signin', :class => 'btnx' %>
-            </div>
-            <br>
-          </div>
+  <div class="container">
+    <h1><strong>SHOW RUNNER</strong></h1>
+    <p>
+      <strong>Data Management For Show Events</strong>
+    </p>
+    <div class="col-sm-6 col-sm-offset-3 form-box">
+      <div class="form-top">
+        <div class="form-top-left">
+          <h3>Welcome, Please Sign In</h3>
         </div>
-  <!-- </div> -->
-        <div class="col-sm-6 col-sm-offset-3 social-login">
-          <h3>or Signin with:</h3>
-          <div class="social-login-buttons">
-            <a class="btn btn-link-2" href="#" style="background:rgba(0, 0, 0, 0.3)">
-              <i class="fa fa-facebook"></i> Facebook
-            </a>
-            <a class="btn btn-link-2" href="#" style="background:rgba(0, 0, 0, 0.3)">
-              <i class="fa fa-twitter"></i> Twitter
-            </a>
-            <a class="btn btn-link-2" href="#" style="background:rgba(0, 0, 0, 0.3)">
-              <i class="fa fa-google-plus"></i> Google Plus
-            </a>
-          </div>
+        <div class="form-top-right">
+          <i class="fa fa-lock"></i>
         </div>
+        <div class="field center">
+          <%= f.text_field :company_name, :placeholder => "Your Company Name", :class => 'signup-width' %>
+        </div><br>
+        <div class="field center">
+          <%= f.text_field :agent_name, :placeholder=> "Your Name", :class => 'signup-width' %>
+        </div><br>
+        <div class="field center">
+          <%= f.text_field :email, :placeholder => "yourName@email.com",:class => 'signup-width' %>
+        </div><br>
+        <div class="field center">
+          <%= f.password_field :password, :placeholder => "Your password",:class => 'signup-width' %>
+        </div>
+        <div>
+          <br>
+          <%= f.submit 'Sign Up', :class => 'btn signup-width' %>
+        </div>
+        <br>
       </div>
-    <% end %>
+    </div>
+    <!-- <div class="col-sm-6 col-sm-offset-3 social-login">
+      <h3>or Signin with:</h3>
+      <div class="social-login-buttons">
+        <a class="btn btn-link-2" href="#" style="background:rgba(0, 0, 0, 0.3)">
+          <i class="fa fa-facebook"></i> Facebook
+        </a>
+        <a class="btn btn-link-2" href="#" style="background:rgba(0, 0, 0, 0.3)">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+        <a class="btn btn-link-2" href="#" style="background:rgba(0, 0, 0, 0.3)">
+          <i class="fa fa-google-plus"></i> Google Plus
+        </a>
+      </div>
+    </div> -->
+  </div>
+<% end %>

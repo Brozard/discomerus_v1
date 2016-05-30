@@ -60,12 +60,6 @@ img { max-width: 100%; }
 ::selection { background: #de615e; color: #fff; text-shadow: none; }
 
 
-
-
-
-
-
-
 /*nav*/
 
 .nav-one .navbar-brand>img {
@@ -148,8 +142,24 @@ img { max-width: 100%; }
     color: #fff;
     -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
 }
+
+.btn-link-table-entry {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #fff;
+  font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
+    color: #fff;
+    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+}
+
 .btn-link-2:hover, .btn-link-2:focus,
-.btn-link-2:active, .btn-link-2:active:focus { outline: 0; opacity: 0.6; background: rgba(0, 0, 0, 0.3); color: #fff; }
+.btn-link-2:active, .btn-link-2:active:focus,
+.btn-link-table-entry:hover, .btn-link-table-entry:focus,
+.btn-link-table-entry:active, .btn-link-table-entry:active:focus { outline: 0; opacity: 0.6; background: rgba(0, 0, 0, 0.3); color: #fff; }
 
 
 /***** Top content *****/
@@ -198,12 +208,9 @@ textarea.form-control,
     -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
 }
 
-
-
 .perfect-button-size {
   width: 325px;
 }
-
 
 textarea,
 textarea.form-control {
@@ -231,8 +238,6 @@ textarea:-ms-input-placeholder, textarea.form-control:-ms-input-placeholder { co
 input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeholder { color: #444; }
 
-
-
 button.btn, .btn {
 	height: 50px;
     margin: 0;
@@ -258,11 +263,6 @@ button.btn:active, .btn:active { outline: 0; opacity: 0.6; color: #fff; -moz-box
 button.btn:focus, .btn:focus { outline: 0; opacity: 0.6; background: #de615e; color: #fff; }
 
 /*button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; background: #de615e; color: #fff; }*/
-
-
-
-
-
 
 
 .form-box {
@@ -351,6 +351,9 @@ button.btn:focus, .btn:focus { outline: 0; opacity: 0.6; background: #de615e; co
 
 /*** Brian's Edits ***/
 
+.description-width {
+  width: 40%;
+}
 
 .a-full-width {
   width: 100%;
@@ -370,11 +373,52 @@ button.btn:focus, .btn:focus { outline: 0; opacity: 0.6; background: #de615e; co
   color: #444 !important;
 }
 
+::-webkit-input-placeholder {
+  color: #444;
+}
+::-moz-placeholder {
+  color: #444;
+}
+:-ms-input-placeholder {
+  color: #444;
+}
+:-moz-placeholder {
+  color: #444;
+}
 
 
+.signup-width {
+  width: 400px;
+}
 
+.main-menu-style, .main-menu-style * {
+  /*background: rgb(222,140,140);*/
+  border-radius: 5px;
+  color: white;
+}
 
+.row-div-display {
+  display: flex;
+  flex-direction: row;
+}
 
+.description-entry {
+  height: 25em;
+  width: 50em;
+}
+
+.spacing {
+  padding: 0 5em;
+}
+
+.center-nested-divs {
+  display: flex;
+  justify-content: center;
+}
+
+.bottom-buffer {
+  margin-bottom: 2em;
+}
 
 
 /***** Media queries *****/

@@ -9,13 +9,13 @@
 <%= form_tag search_manufacturers_path do %>
   <ul class="search-list-render">
     <li>
-      <%= search_field_tag :company_name, nil, placeholder: "Find Company Name", class: "search-field" %>
+      <%= search_field_tag :company_name, nil, placeholder: "Find Company Name", class: "search-field force-black-text" %>
     </li>
     <li>
-      <%= search_field_tag :contact_name, nil, placeholder: "Find Contact Name", class: "search-field" %>
+      <%= search_field_tag :contact_name, nil, placeholder: "Find Contact Name", class: "search-field force-black-text" %>
     </li>
     <li>
-      <%= search_field_tag :shipping_port, nil, placeholder: "Find Shipping Port", class: "search-field" %> 
+      <%= search_field_tag :shipping_port, nil, placeholder: "Find Shipping Port", class: "search-field force-black-text" %> 
     </li>
     <li>
       <%= submit_tag "Apply Filter", class: "btn" %>
@@ -30,7 +30,7 @@
 <% end %>  <!-- End search functionality -->
 
 <br>
-<%= link_to 'New Manufacturer', new_manufacturer_path %>
+<%= link_to 'New Manufacturer', new_manufacturer_path, class: "btn-link-2" %>
 
 <section id='wrap'>
   <div  class="tbl-header">
@@ -56,7 +56,7 @@
     <%  @manufacturers.each do |manufacturer|  %>
       <tr><strong>
         <!-- <td><%#= link_to '[Edit]', edit_trade_event_path(trade_event) %></td> -->
-        <td><%= link_to manufacturer.company_name, manufacturer %></td>
+        <td><%= link_to manufacturer.company_name, manufacturer, class: "btn-link-table-entry" %></td>
         <td><%= manufacturer.shipping_port %></td>
         <td><%= manufacturer.contact_name %></td>
         <td><%= manufacturer.email %></td>
@@ -82,4 +82,4 @@ $(window).on("load resize ", function() {
 
 <br>
 
-<!-- <%= link_to 'New Manufacturer', new_manufacturer_path %> -->
+<!-- <%#= link_to 'New Manufacturer', new_manufacturer_path %> -->

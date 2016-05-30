@@ -2,19 +2,20 @@ Rails.application.routes.draw do
 
   root 'static#welcome'
 
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:create] #[:new, :create, :destroy]
 
   get 'products/search', to: 'products#search'
 
   get 'signup', to: 'buyers#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
+  get 'timeout', to: 'sessions#timeout', as: 'timeout'
 
-  get 'static/about'
+  get 'about', to: 'static#about'
 
-  resources :static
+  # resources :static
 
-  resources :buyers
+  resources :buyers, only: [:new, :create, :destroy]
   resources :trade_events do
     resources :manufacturers, shallow: false
     collection do

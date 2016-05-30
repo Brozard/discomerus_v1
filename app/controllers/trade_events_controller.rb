@@ -6,21 +6,12 @@ class TradeEventsController < ApplicationController
   # GET /trade_events.json
   def index
     # Retrieve the Trade Events that are associated with the current user
-    @trade_events = TradeEvent.user_events(current_user.id)
+    set_index
   end
 
   def search
-    @trade_events = TradeEvent.user_events(current_user.id)#.in_date_range(params[:start_date], params[:end_date])
-    if params[:event_name]
-      @trade_events = @trade_events.by_event_name(params[:event_name].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
-    end
-    if params[:city]
-      @trade_events = @trade_events.by_city(params[:city].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
-    end
-    # if params[:start_date] && params[:end_date]
-    # elsif params[:start_date]
-    # elsif params[:end_date]
-    # end
+    set_filter
+    set_index
     render :action => :index
   end
 
@@ -96,6 +87,33 @@ class TradeEventsController < ApplicationController
         if @trade_event && @trade_event.buyer != current_user
           redirect_to root_path, alert: "You are not authorized to access this trade event."
         end
+      end
+    end
+
+    def set_filter
+      param_fields = [:event_name, :city, :start_date, :end_date]
+      param_fields.each do |param|
+        if params[param] == nil || params[param] == ""
+          session[param] = nil
+        else
+          session[param] = params[param]
+        end
+      end
+    end
+
+    def set_index
+      @trade_events = TradeEvent.user_events(current_user.id)
+      if session[:start_date]
+        @trade_events = @trade_events.on_or_after(session[:start_date])
+      end
+      if session[:end_date]
+        @trade_events = @trade_events.on_or_before(session[:end_date])
+      end
+      if session[:event_name]
+        @trade_events = @trade_events.by_event_name(session[:event_name].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
+      end
+      if session[:city]
+        @trade_events = @trade_events.by_city(session[:city].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
       end
     end
 end
