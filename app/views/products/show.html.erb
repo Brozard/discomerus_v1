@@ -1,83 +1,82 @@
-<div>
-  <p>
-    <strong><h5 class="search-list">Product: <%= @product.name %></h5></strong>
-  </p>
-</div>
-<div class="row-div-display">
-  <div>
-    <p>
-      <strong>Item Number:</strong>
-      <%= @product.item_number %>
-    </p>
-    <p>
-      <strong>Minimum Order Quantity:</strong>
-      <%= @product.min_order_quantity %> units
-    </p>
-    <p>
-      <strong>Price:</strong>
-      <%= number_to_currency((@product.price * 0.01), precision: 2) %>
-    </p>
-  </div>
-  <div>
-    <p>
-      <strong>Description:</strong>
-      <%= @product.description %>
-    </p>
-  </div>
-  <div>
-    <p>
-      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" height:"60px">
-   <!-- Indicators -->
-   <ol class="carousel-indicators">
-     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-   </ol>
-
-   <!-- Wrapper for slides -->
-   <div class="carousel-inner" role="listbox">
-     <div class="item active">
-       <%= image_tag @product.pictures.first.photo %>
-     </div>
-       <% if !@product.pictures[1].nil? %>
-         <% @product.pictures.drop(1).each do |pic|%>
-           <div class="item">
-             <%= image_tag pic.photo %>
+   <!-- Page Content -->
+   <div class="container">
+       <div class="row">
+           <div class="col-md-9">
+               <div class="thumbnail">
+                 <!-- Carousel  -->
+                 <% if @product.pictures.first != nil %>
+                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style= "height:300px; width:800px;">
+                <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                  </ol>
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                      <%= image_tag @product.pictures.first.photo %>
+                    </div>
+                      <% if !@product.pictures[1].nil? %>
+                        <% @product.pictures.drop(1).each do |pic|%>
+                          <div class="item">
+                            <%= image_tag pic.photo %>
+                          </div>
+                        <% end %>
+                      <% end %>
+                  </div>
+                  <!-- Controls -->
+                  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+              </div>
+            <% end %>
+             <!-- Carousel  -->
+                   <div class="caption-full">
+                     <div>
+                       <p>
+                         <strong><h5 class="search-list">Product: <%= @product.name %></h5></strong>
+                       </p>
+                     </div>
+                     <div class="row-div-display" style="background:blue;">
+                       <div>
+                         <p>
+                           <strong>Item Number:</strong>
+                           <%= @product.item_number %>
+                         </p>
+                         <p>
+                           <strong>Minimum Order Quantity:</strong>
+                           <%= @product.min_order_quantity %> units
+                         </p>
+                         <p>
+                           <strong>Price:</strong>
+                           <%= number_to_currency((@product.price * 0.01), precision: 2) %>
+                         </p>
+                       </div>
+                       <div>
+                         <p>
+                           <strong>Description:</strong>
+                           <%= @product.description %>
+                         </p>
+                       </div>
+                       <div>
+                         <p>
+                         </p>
+                       </div>
+                     </div>
+                   </div>
+               </div>
+               <!--thumbnail-->
            </div>
-         <% end %>
-       <% end %>
+           <!--col-md-9-->
+       </div>
+       <!--/.row-->
    </div>
-
-   <!-- Controls -->
-   <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-     <span class="sr-only">Previous</span>
-   </a>
-   <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-     <span class="sr-only">Next</span>
-   </a>
- </div>
-    </p>
-  </div>
-</div>
-
-  <!-- <%# @product.pictures.each do |picture| %>
-    <%#= image_tag picture.photo.url %>
-  <%# end %> -->
-
-
-<!--Script associated to the internal scrolling of the table-->
-<script>
-  $(window).on("load resize ", function() {
-    var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
-    $('.tbl-header').css({'padding-right':scrollWidth});
-  }).resize();
-</script>
-
-
-
-
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+   <!-- /.container -->
+   <%= link_to 'Edit', edit_product_path(@product) %> |
+   <%= link_to 'Back', products_path %>
