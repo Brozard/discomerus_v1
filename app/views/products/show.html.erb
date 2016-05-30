@@ -1,83 +1,63 @@
-<div>
-  <p>
-    <strong><h5 class="search-list">Product: <%= @product.name %></h5></strong>
-  </p>
-</div>
-<div class="row-div-display">
-  <div>
-    <p>
-      <strong>Item Number:</strong>
-      <%= @product.item_number %>
-    </p>
-    <p>
-      <strong>Minimum Order Quantity:</strong>
-      <%= @product.min_order_quantity %> units
-    </p>
-    <p>
-      <strong>Price:</strong>
-      <%= number_to_currency((@product.price * 0.01), precision: 2) %>
-    </p>
-  </div>
-  <div>
-    <p>
-      <strong>Description:</strong>
-      <%= @product.description %>
-    </p>
-  </div>
-  <div>
-    <p>
-      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" height:"60px">
-   <!-- Indicators -->
-   <ol class="carousel-indicators">
-     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-   </ol>
 
-   <!-- Wrapper for slides -->
-   <div class="carousel-inner" role="listbox">
-     <div class="item active">
-       <%= image_tag @product.pictures.first.photo %>
-     </div>
-       <% if !@product.pictures[1].nil? %>
-         <% @product.pictures.drop(1).each do |pic|%>
-           <div class="item">
-             <%= image_tag pic.photo %>
+   <div class="container form-bottom headert">
+     <!-- <div class="row"> -->
+            <% if !@product.pictures[0].nil? %>
+              <% @product.pictures.each do |pic|%>
+                  <%= image_tag pic.photo, class:"img-show"%>
+              <% end %>
+            <%end%>
+          </div>
+           <%#= form_tag sessions_path do %>
+          <br>
+           <div class="container form-bottom">
+               <p>
+                 <strong>Item Number:</strong>
+                 <%= @product.item_number %>
+               </p>
+               <p>
+                 <strong>Minimum Order Quantity:</strong>
+                 <%= @product.min_order_quantity %> units
+               </p>
+               <p>
+                 <strong>Price:</strong>
+                 <%= number_to_currency((@product.price * 0.01), precision: 2) %>
+               </p>
+
+             <div>
+               <p>
+                 <strong>Description:</strong>
+                 <%= @product.description %>
+               </p>
+             </div>
            </div>
-         <% end %>
-       <% end %>
+             <br>
+             <%= link_to 'Edit', edit_product_path(@product) %> |
+             <%= link_to 'Back', products_path %>
+             <br>
+             <br>
+       </div>
+     <!-- </div> -->
+     <!-- <div class="row"> -->
+       <div class="col-sm-6 col-sm-offset-3">
+       </div>
+     <!-- </div> -->
    </div>
 
-   <!-- Controls -->
-   <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-     <span class="sr-only">Previous</span>
-   </a>
-   <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-     <span class="sr-only">Next</span>
-   </a>
- </div>
-    </p>
-  </div>
-</div>
 
-  <!-- <%# @product.pictures.each do |picture| %>
-    <%#= image_tag picture.photo.url %>
-  <%# end %> -->
+<style>
+.headert {
+  flex-flow: row wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0px;
 
+}
+.img-show{
 
-<!--Script associated to the internal scrolling of the table-->
-<script>
-  $(window).on("load resize ", function() {
-    var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
-    $('.tbl-header').css({'padding-right':scrollWidth});
-  }).resize();
-</script>
+  margin: 5px 5px;
+  height:300px;
+  width: 300px;
+}
 
-
-
-
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<style>

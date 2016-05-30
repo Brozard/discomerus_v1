@@ -52,28 +52,20 @@ class ProductsController < ApplicationController
     @product = current_user.products.build(product_params)
     @product.price = (params[:product][:price].to_d * 100).to_i
 
-    @pictures = []
-    params[:product][:photo].each do |pix|
-      @pictures << Picture.create(photo:pix)
+    if !params[:product][:photo].nil?
+      @pictures = []
+      params[:product][:photo].each do |pix|
+        @pictures << Picture.create(photo:pix)
+      end
     end
-
-
     respond_to do |format|
       if @product.save
-
-        @pictures.each do |pix|
-          pix.product_id = @product.id
-          pix.save
+        if !params[:product][:photo].nil?
+          @pictures.each do |pix|
+            pix.product_id = @product.id
+            pix.save
+          end
         end
-
-      #   if params[:photos]
-      #     params[:photos].each do |photo|
-      #       @product.pictures.create(photo: photo)
-      #   end
-      # end
-
-
-
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
@@ -85,8 +77,17 @@ class ProductsController < ApplicationController
 
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
-
   def update
+    if !params[:product][:photo].nil?
+      @pictures = []
+      params[:product][:photo].each do |pix|
+        @pictures << Picture.create(photo:pix)
+      end
+      @pictures.each do |pix|
+        pix.product_id = @product.id
+        pix.save
+      end
+    end
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
