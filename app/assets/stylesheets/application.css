@@ -459,6 +459,10 @@ button.btn:focus, .btn:focus { outline: 0; opacity: 0.6; background: #de615e; co
   margin-top: 10px;
 }
 
+.photo-num {
+  width: 6%;
+}
+
 /***** Media queries *****/
 
 @media (min-width: 992px) and (max-width: 1199px) {}
