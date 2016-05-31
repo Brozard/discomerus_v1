@@ -1,30 +1,38 @@
-<div >
-  <div>
-    <strong><h1 class="search-list"><%= @manufacturer.company_name %></h1></strong>
-    <div class="center-nested-divs">
-      <div>
-        <% unless @manufacturer.contact_name.nil? && @manufacturer.phone_number.nil? && @manufacturer.email.nil? %>
-          <h4><strong>Contact Info:</strong></h4>
-          <%= @manufacturer.contact_name %><br>
-          <%= number_to_phone(@manufacturer.phone_number, area_code: true) %><br>
-          <%= @manufacturer.email %><br>
-        <% end %>
-      </div>
-      <div class="spacing">
-      </div>
-      <div>
-        <h4><strong>Port City:</strong></h4>
-        <%= @manufacturer.shipping_port %>
-      </div>
-      <div class="spacing">
-      </div>
-      <div>
-        <h4><strong>Manufacturer Address:</strong></h4>
+<div>
+  <strong><h1 class="search-list"><%= @manufacturer.company_name %></h1></strong>
+  <div class="center-nested-divs">
+    <div>
+      <% unless @manufacturer.contact_name.nil? && @manufacturer.phone_number.nil? && @manufacturer.email.nil? %>
+        <h4><strong>Contact Info:</strong></h4>
+        <%= @manufacturer.contact_name %><br>
+        <%= number_to_phone(@manufacturer.phone_number, area_code: true) %><br>
+        <%= @manufacturer.email %><br>
+      <% end %>
+    </div>
+    <div class="spacing">
+    </div>
+    <div>
+      <h4><strong>Port City:</strong></h4>
+      <%= @manufacturer.shipping_port %>
+    </div>
+    <div class="spacing">
+    </div>
+    <div>
+      <h4><strong>Manufacturer Address:</strong></h4>
+      <% unless @manufacturer.address.street_address_1.nil? %>
         <%= @manufacturer.address.street_address_1 %><br>
-        <%= @manufacturer.address.city %>, <%= @manufacturer.address.state %> <%= @manufacturer.address.postal_code %><br>
-        <%= @manufacturer.address.country %>
-        <%#= @manufacturer.address.district %>
-      </div>
+      <% end %>
+      <% unless @manufacturer.address.city.nil? && @manufacturer.address.state.nil? && @manufacturer.address.postal_code.nil? %>
+        <% if !@manufacturer.address.city.nil? && !@manufacturer.address.state.nil? %>
+          <%= @manufacturer.address.city %>, <%= @manufacturer.address.state %>
+        <% else %>
+          <%= @manufacturer.address.city unless @manufacturer.address.city.nil? %> 
+          <%= @manufacturer.address.state unless @manufacturer.address.state.nil? %> 
+        <% end %>
+        <%= @manufacturer.address.postal_code unless @manufacturer.address.postal_code.nil? %><br>
+      <% end %>
+      <%= @manufacturer.address.country unless @manufacturer.address.country.nil? %>
+      <%#= @manufacturer.address.district %>
     </div>
   </div>
 </div>

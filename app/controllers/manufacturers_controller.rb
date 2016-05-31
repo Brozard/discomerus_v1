@@ -7,21 +7,12 @@ class ManufacturersController < ApplicationController
   def index
     # Retrieve only the Manufacturers that are associated with the current user by finding the Trade Events the user interacted with the Manufacturer
     # See "events_attended" scope on Manufacturer model
-    @manufacturers = Manufacturer.order_by_company_name.events_attended(current_user.trade_events.pluck(:id))
-    # @manufacturers = Manufacturer.includes(:trade_events).where(trade_events: {id: current_user.trade_events.pluck(:id)})
+    set_index
   end
 
   def search
-    @manufacturers = Manufacturer.order_by_company_name.events_attended(current_user.trade_events.pluck(:id))
-    if params[:company_name]
-      @manufacturers = @manufacturers.by_company_name(params[:company_name].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
-    end
-    if params[:contact_name]
-      @manufacturers = @manufacturers.by_contact_name(params[:contact_name].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
-    end
-    if params[:shipping_port]
-      @manufacturers = @manufacturers.by_shipping_port(params[:shipping_port].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
-    end
+    set_filter
+    set_index
     render :action => :index
   end
 
@@ -101,6 +92,33 @@ class ManufacturersController < ApplicationController
         if @manufacturer && @manufacturer.trade_events.first.buyer != current_user
           redirect_to root_path, alert: "You are not authorized to access this trade event."
         end
+      end
+    end
+
+    def set_filter
+      param_fields = [:company_name, :contact_name, :shipping_port]
+      param_fields.each do |param|
+        if params[param] == nil || params[param] == ""
+          session[param] = nil
+        else
+          session[param] = params[param]
+        end
+      end
+    end
+
+    def set_index
+      # Retrieve only the Manufacturers that are associated with the current user by finding the Trade Events the user interacted with the Manufacturer
+      # See "events_attended" scope on Manufacturer model
+      @manufacturers = Manufacturer.order_by_company_name.events_attended(current_user.trade_events.pluck(:id))
+      # Run collected Manufacturers through each filter
+      if session[:company_name]
+        @manufacturers = @manufacturers.by_company_name(session[:company_name].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
+      end
+      if session[:contact_name]
+        @manufacturers = @manufacturers.by_contact_name(session[:contact_name].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
+      end
+      if session[:shipping_port]
+        @manufacturers = @manufacturers.by_shipping_port(session[:shipping_port].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
       end
     end
 end

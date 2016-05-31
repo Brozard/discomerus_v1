@@ -102,7 +102,9 @@ class TradeEventsController < ApplicationController
     end
 
     def set_index
+      # Retrieve the Trade Events that are associated with the current user
       @trade_events = TradeEvent.user_events(current_user.id)
+      # Run collected Trade Events through each filter
       if session[:start_date]
         @trade_events = @trade_events.on_or_after(session[:start_date])
       end
