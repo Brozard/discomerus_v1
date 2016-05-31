@@ -1,99 +1,90 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-1 form-box">
-      <div class="form-bottomx form-border-4px", style='width:160%;'>
-        <strong><h1 class="center-text">CREATE NEW MANUFACTURER</h1></strong><br>
-          <%= form_for(setup_addressable(@manufacturer)) do |f| %>
-            <% if @manufacturer.errors.any? %>
-              <div id="error_explanation">
-                <h2><%= pluralize(@manufacturer.errors.count, "error") %> prohibited this manufacturer from being saved:</h2>
-                <ul>
-                <% @manufacturer.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-                </ul>
-              </div>
-            <% end %>
-            <div class="center-nested-divs">
-              <div class="row-div-display">
-                <div>
-                  <%= f.fields_for :attending_manufacturer do |ff| %>
-                    <div class="field">
-                      <br>
-                      <%= ff.collection_select :trade_event_id, TradeEvent.where(buyer_id: current_user.id), :id, :event_name, {prompt: 'Select Trade Event (required)'},
-                      {class: "search-field perfect-button-size"} %>
-                    </div>
-                  <% end %>
-                  <div class="field">
-                    <br>
-                    <%= f.text_field :company_name, {:placeholder=>"Company Name (required)", class: "search-field perfect-button-size force-black-text"}  %>
-                  </div>
-                  <div class="field">
-                    <br>
-                    <%= f.text_field :shipping_port, {:placeholder=>"Shipping Port",class: "search-field force-black-text perfect-button-size"}%>
-                  </div>
-                  <div class="field">
-                    <br>
-                    <%= f.text_field :contact_name, {:placeholder=>"Contact Name", class: "search-field force-black-text perfect-button-size"} %>
-                  </div>
-                  <div class="field">
-                    <br>
-                    <%= f.text_field :email, {:placeholder=>"Email", class: "search-field force-black-text perfect-button-size"} %>
-                  </div>
-                  <div class="field">
-                    <br>
-                    <%= f.text_field :phone_number, {:placeholder=>"Phone Number", class: "search-field force-black-text perfect-button-size"} %>
-                  </div>
-                </div>
-                <div class="spacing">
-                </div>
-                <div>
-                  <!-- beginning of address fields -->
-                  <%= f.fields_for :address do |ff| %>
-                    <div class="field">
-                      <br>
-                      <%= ff.text_field :street_address_1, {:placeholder=>"Address", class: "search-field force-black-text perfect-button-size"} %>
-                    </div>
-                    <div class="field">
-                      <br>
-                      <%= ff.text_field :city, {:placeholder=>"City", class: "search-field force-black-text perfect-button-size"}%>
-                    </div>
-                    <div class="field">
-                      <br>
-                      <%= ff.text_field :state, {:placeholder=>"State", class: "search-field force-black-text perfect-button-size"} %>
-                    </div>
-                    <div class="field">
-                      <br>
-                      <%= ff.text_field :postal_code, {:placeholder=>"Zip Code", class: "search-field force-black-text perfect-button-size"} %>
-                    </div>
-                    <div class="field">
-                      <br>
-                      <%= ff.text_field :country, {:placeholder=>"Country", class: "search-field force-black-text perfect-button-size"} %>
-                    </div>
-                    <div>
-                      <br>
-                      <%= f.submit class:'btn btn-lg btn-success perfect-button-size' %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- <div class="field">
-                <%#= ff.label :street_address_2 %><br>
-                <%#= ff.text_field :street_address_2 %>
-              </div>
-              <div class="field">
-                <%#= ff.label :street_address_3 %><br>
-                <%#= ff.text_field :street_address_3 %> -->
-              <!-- </div> -->
-              
-              <!-- <div class="field">
-                <%#= ff.label :district %><br>
-                <%#= ff.text_field :district %>
-              </div> -->
-            <% end %>  <!-- end of address fields -->
-          <% end %>
+
+<%= form_for(setup_addressable(@manufacturer)) do |f| %>
+  <% if @manufacturer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@manufacturer.errors.count, "error") %> prohibited this manufacturer from being saved:</h2>
+      <ul>
+      <% @manufacturer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="center-nested-divs">
+    <div class="row-div-display">
+      <div>
+        <%= f.fields_for :attending_manufacturer do |ff| %>
+          <div class="field">
+            <br>
+            <%= ff.collection_select :trade_event_id, TradeEvent.where(buyer_id: current_user.id), :id, :event_name, {prompt: 'Select Trade Event (required)'},
+            {class: "search-field perfect-button-size"} %>
+          </div>
+        <% end %>
+        <div class="field">
+          <br>
+          <%= f.text_field :company_name, {:placeholder=>"Company Name (required)", class: "search-field perfect-button-size force-black-text"}  %>
+        </div>
+        <div class="field">
+          <br>
+          <%= f.text_field :shipping_port, {:placeholder=>"Shipping Port",class: "search-field force-black-text perfect-button-size"}%>
+        </div>
+        <div class="field">
+          <br>
+          <%= f.text_field :contact_name, {:placeholder=>"Contact Name", class: "search-field force-black-text perfect-button-size"} %>
+        </div>
+        <div class="field">
+          <br>
+          <%= f.text_field :email, {:placeholder=>"Email", class: "search-field force-black-text perfect-button-size"} %>
+        </div>
+        <div class="field">
+          <br>
+          <%= f.text_field :phone_number, {:placeholder=>"Phone Number", class: "search-field force-black-text perfect-button-size"} %>
+        </div>
+      </div>
+      <div class="spacing">
+      </div>
+      <div>
+        <!-- beginning of address fields -->
+        <%= f.fields_for :address do |ff| %>
+          <div class="field">
+            <br>
+            <%= ff.text_field :street_address_1, {:placeholder=>"Address", class: "search-field force-black-text perfect-button-size"} %>
+          </div>
+          <div class="field">
+            <br>
+            <%= ff.text_field :city, {:placeholder=>"City", class: "search-field force-black-text perfect-button-size"}%>
+          </div>
+          <div class="field">
+            <br>
+            <%= ff.text_field :state, {:placeholder=>"State", class: "search-field force-black-text perfect-button-size"} %>
+          </div>
+          <div class="field">
+            <br>
+            <%= ff.text_field :postal_code, {:placeholder=>"Zip Code", class: "search-field force-black-text perfect-button-size"} %>
+          </div>
+          <div class="field">
+            <br>
+            <%= ff.text_field :country, {:placeholder=>"Country", class: "search-field force-black-text perfect-button-size"} %>
+          </div>
+          <div>
+            <br>
+            <%= f.submit class:'btn btn-lg btn-success perfect-button-size' %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <br>
+    <!-- <div class="field">
+      <%#= ff.label :street_address_2 %><br>
+      <%#= ff.text_field :street_address_2 %>
+    </div>
+    <div class="field">
+      <%#= ff.label :street_address_3 %><br>
+      <%#= ff.text_field :street_address_3 %> -->
+    <!-- </div> -->
+    
+    <!-- <div class="field">
+      <%#= ff.label :district %><br>
+      <%#= ff.text_field :district %>
+    </div> -->
+  <% end %>  <!-- end of address fields -->
+<% end %>
