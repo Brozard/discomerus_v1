@@ -1,64 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-1 form-box">
-      <div class="form-bottomx", style='border-radius:4px; margin-left:4em;'>
-        <h1 class="center-text" style="text-align:center;">CREATE NEW PRODUCT</h1><br>
-        <%= form_for(@product) do |f| %>
-          <% if @product.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
-              <ul>
-                <% @product.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
-          <div class="center-nested-divs">
-            <div class="row-div-display">
-              <div>
-                <div class="field"><br>
-                  <%= f.collection_select :manufacturer_id, Manufacturer.order_by_company_name.events_attended(current_user.trade_events.pluck(:id)),
-                    :id, :company_name, {prompt: "Select Manufacturer (req)"}, {class: "search-field force-black-text"}
-                  %>
-                </div><br>
-                <div class="field bottom-buffer">
-                  <br>
-                  <%= f.text_field :name, size:'30px', placeholder:"Product Name (required)", class: "search-field" %>
-                </div>
-                <div class="field bottom-buffer">
-                  <br>
-                  <%= f.text_field :item_number, size:"30px", placeholder:"Item Number" %><!-- , class: "search-field" %> -->
-                </div>
-                <div class="field bottom-buffer">
-                  <br>
-                  <%= f.text_field :min_order_quantity, size:"30px", placeholder:"Minimum Order Quantity" %><!-- , class: "search-field" %> -->
-                </div>
-                <div class="field">
-                  <%= f.label :Add_photos %>
-                  <%= f.file_field :photo, multiple: true %>
-                </div>
-              </div>
-              <div class="spacing">
-              </div>
-              <div>
-                <div class="field bottom-buffer">
-                  <br>
-                  <%= f.number_field :price, {in: 0..10000.00, step: "0.01", placeholder: "Price (required)", class: "search-field perfect-button-size force-black-text"} %>
-                </div><br>
-                <div class="field bottom-buffer">
-                  <%= f.collection_select :category, Category.all, :id, :category_name, {prompt: "Category"}, {class: "search-field force-black-text perfect-button-size"} %>
-                </div><br>
-                <div class="field">
-                  <%= f.text_area :description, size:'28px', placeholder:"Description", style:"height:140px;", class: "perfect-button-size" %>
-                </div><br>
-                <div><br>
-                  <%= f.submit class:'btn btn-lg btn-success', style:'margin-left:1em; width:90%;'%>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
+      <div class="form-bottomx form-border-4px">
+        <h1 class="center-text">CREATE NEW PRODUCT</h1><br>
+        <%= render 'form' %>
       </div>
     </div>
   </div>
