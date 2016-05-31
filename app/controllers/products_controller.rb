@@ -5,28 +5,14 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.order_by_product_name.user_products(current_user.id)
-
-    # @products_report  = ProductReport.new(product: @products)
+    set_index
   end
 
   def search
     # Define instance min/max price variables so that we can validate if anything was searched for
     # and send either the sanitized or default parameter to the "by_price" function
-    @min_p = extract_from_search(params[:min_price]) || 0
-    @max_p = extract_from_search(params[:max_price]) || 10000
-    @cat = extract_from_search(params[:category])
-
-    @products = Product.order_by_product_name.user_products(current_user.id).by_price(@min_p, @max_p)
-    if params[:name]
-      @products = @products.by_name(params[:name].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
-    end
-    if !@cat.nil?
-      @products = @products.by_category(@cat)
-    end
-
-    # @products_report  = ProductReport.new(product: @products)
-
+    set_filter
+    set_index
     render :action => :index
   end
 
@@ -131,4 +117,66 @@ class ProductsController < ApplicationController
         end
       end
     end
+
+    def set_filter
+      if params[:name] == nil || params[:name] == ""
+        session[:name] = nil
+      else
+        session[:name] = params[:name]
+      end
+      
+      param_fields = [:min_price, :max_price]
+      param_fields.each do |param|
+        if params[param] == ""
+          session[param] = nil
+        else
+          session[param] = params[param]
+        end
+      end
+      session[:category] = params[:category][:id]
+      
+    end
+
+    def set_index
+      # Define instance min/max price variables so that we can validate if anything was searched for
+      # and send either the sanitized or default parameter to the "by_price" function
+
+      # @min_p = extract_from_search(params[:min_price]) || 0
+      @min_p = session[:min_price] || 0
+      @max_p = session[:max_price] || 10000
+      @cat = extract_from_search(session[:category])
+
+      @products = Product.order_by_product_name.user_products(current_user.id).by_price(@min_p, @max_p)
+      if session[:name]
+        @products = @products.by_name(session[:name].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
+      end
+      if !@cat.nil?
+        @products = @products.by_category(@cat)
+      end
+
+      # @min_p = extract_from_search(session[:min_price]) || 0
+      # @max_p = extract_from_search(session[:max_price]) || 10000
+      # @cat = extract_from_search(session[:category])
+
+      # @products = Product.order_by_product_name.user_products(current_user.id).by_price(@min_p, @max_p)
+      # if session[:name]
+      #   @products = @products.by_name(session[:name].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
+      # end
+      # if !@cat.nil?
+      #   @products = @products.by_category(@cat)
+      # end
+    end
 end
+
+
+    # @min_p = extract_from_search(session[:min_price]) || 0
+    # @max_p = extract_from_search(session[:max_price]) || 10000
+    # @cat = extract_from_search(session[:category])
+
+    # @products = Product.order_by_product_name.user_products(current_user.id).by_price(@min_p, @max_p)
+    # if session[:name]
+    #   @products = @products.by_name(session[:name].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
+    # end
+    # if !@cat.nil?
+    #   @products = @products.by_category(@cat)
+    # end

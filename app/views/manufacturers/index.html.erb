@@ -9,13 +9,13 @@
 <%= form_tag search_manufacturers_path do %>
   <ul class="search-list-render">
     <li>
-      <%= search_field_tag :company_name, nil, placeholder: "Find Company Name", class: "search-field force-black-text" %>
+      <%= search_field_tag :company_name, session[:company_name], placeholder: "Find Company Name", class: "search-field force-black-text" %>
     </li>
     <li>
-      <%= search_field_tag :contact_name, nil, placeholder: "Find Contact Name", class: "search-field force-black-text" %>
+      <%= search_field_tag :contact_name, session[:contact_name], placeholder: "Find Contact Name", class: "search-field force-black-text" %>
     </li>
     <li>
-      <%= search_field_tag :shipping_port, nil, placeholder: "Find Shipping Port", class: "search-field force-black-text" %> 
+      <%= search_field_tag :shipping_port, session[:shipping_port], placeholder: "Find Shipping Port", class: "search-field force-black-text" %> 
     </li>
     <li>
       <%= submit_tag "Apply Filter", class: "btn" %>
