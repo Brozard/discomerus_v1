@@ -4,26 +4,31 @@
     <div class="center-nested-divs">
       <div>
         <% unless @manufacturer.contact_name.nil? && @manufacturer.phone_number.nil? && @manufacturer.email.nil? %>
-          <h4>Contact Info:</h4>
+          <h4><strong>Contact Info:</strong></h4>
           <%= @manufacturer.contact_name %><br>
           <%= number_to_phone(@manufacturer.phone_number, area_code: true) %><br>
           <%= @manufacturer.email %><br>
         <% end %>
       </div>
-      <div>
-        <h4>Port City:</h4>
-        <%= @manufacturer.shipping_port %>
+      <div class="spacing">
       </div>
       <div>
-        <h4>Manufacturer Address:</h4>
+        <h4><strong>Port City:</strong></h4>
+        <%= @manufacturer.shipping_port %>
+      </div>
+      <div class="spacing">
+      </div>
+      <div>
+        <h4><strong>Manufacturer Address:</strong></h4>
         <%= @manufacturer.address.street_address_1 %><br>
         <%= @manufacturer.address.city %>, <%= @manufacturer.address.state %> <%= @manufacturer.address.postal_code %><br>
         <%= @manufacturer.address.country %>
-        <%= @manufacturer.address.district %>
+        <%#= @manufacturer.address.district %>
       </div>
     </div>
   </div>
 </div>
+<br>
 <section id='wrap'>
   <div  class="tbl-header">
     <table cellpadding="0" cellspacing="0" border="0">
@@ -65,10 +70,11 @@ $(window).on("load resize ", function() {
 }).resize();
 </script>
 
-<%= link_to 'New Product', new_manufacturer_product_path(@manufacturer), class: "btn-link-2" %>
+
 
 <br>
 
 
-<%= link_to 'Edit', edit_manufacturer_path(@manufacturer), class: "btn-link-2" %> |
+<%= link_to 'Edit', edit_manufacturer_path(@manufacturer), class: "btn-link-2" %> 
+<%= link_to 'New Product', new_manufacturer_product_path(@manufacturer), class: "btn-link-2" %> 
 <%= link_to 'Back', manufacturers_path, class: "btn-link-2" %>

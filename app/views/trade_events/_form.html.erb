@@ -1,9 +1,4 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-1 form-box">
-      <div class="form-bottom",  style='border-radius:4px; margin-left:3em;width:165%'>
-        <strong><h3 style="color:#fff; font-size:38px; margin-left:5em; font-family:inherit;">
-          CREATE NEW TRADE EVENT</h3></strong><br>
+
           <%= form_for(setup_addressable(@trade_event)) do |f| %>
             <% if @trade_event.errors.any? %>
               <div id="error_explanation">
@@ -20,7 +15,7 @@
                 <div>
             <div class="field">
               <br>
-              <%= f.text_field :event_name, placeholder: "Event Name (required)", size:'35px' %>
+              <%= f.text_field :event_name, {placeholder: "Event Name (required)", class:"search-field close-button-size force-black-text"} %>
             </div><br>
             <div class="field">
               <%= f.label :start_date %><br>
@@ -28,7 +23,7 @@
                 {:order => [:month, :day, :year], :start_year => 2000, :end_year => (Date.current.year + 5), prompt: true},
                 {:class => "search-field force-black-text"}
               %>
-            </div>
+            </div><br>
             <div class="field">
               <%= f.label :end_date %><br>
               <%= f.date_select :end_date,
@@ -36,6 +31,9 @@
                 {:class => "search-field force-black-text"}
               %>
             </div><br>
+            <div>
+              <%= f.submit 'Create Trade Event', class:'btn btn-lg btn-success close-button-size custom_button-margin' %>
+            </div>
           </div>
             <div class="spacing">
             </div>
@@ -45,7 +43,7 @@
             <!-- beginning of address fields -->
             <%= f.fields_for :address do |ff| %>
               <div class="field">
-                <%= ff.text_field :street_address_1, placeholder: "Street", size: '35px'  %>
+                <%= ff.text_field :street_address_1, {placeholder: "Street", class: "search-field perfect-button-size force-black-text"} %>
               </div><br>
               <!-- <div class="field">
                 <%#= ff.label :street_address_2 %><br>
@@ -59,35 +57,27 @@
               <div>
 
               <div class="field">
-                <%= ff.text_field :city, placeholder: "City", size: '35px'  %>
+                <%= ff.text_field :city, {placeholder: "City", class: "search-field perfect-button-size force-black-text"} %>
               </div><br>
               <div class="field">
-                <%= ff.text_field :country, placeholder: "Country", size: '35px'  %>
+                <%= ff.text_field :country, {placeholder: "Country", class: "search-field perfect-button-size force-black-text"} %>
+              </div><br>
+              <div class="field">
+                <%= ff.text_field :state, {placeholder: "State", class: "search-field perfect-button-size force-black-text"} %>
               </div><br>
               <!-- <div class="field">
-                <%#= ff.label :state %><br>
-                <%#= ff.text_field :state %>
-              </div>
+                <%#= ff.text_field :district, {placeholder: "District", class: "search-field perfect-button-size force-black-text"} %>
+              </div><br> -->
               <div class="field">
-                <%#= ff.label :district %><br>
-                <%#= ff.text_field :district %>
+                <%= ff.text_field :postal_code, {placeholder: "Postal Code", class: "search-field perfect-button-size force-black-text"} %>
               </div>
-              <div class="field">
-                <%#= ff.label :postal_code %><br>
-                <%#= ff.text_field :postal_code %>
-              </div> -->
             <% end %> <!-- end of address fields -->
+            
           </div>
           </div>
           </div>
         </div>
-        <br>
-            <div>
-              <%= f.submit 'Create Trade Event', class:'btn btn-lg btn-success' %><!-- , style:'margin-left:2em; width:25%;' %> -->
-            </div>
+        <!-- <br> -->
+            
           <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-<br>
+

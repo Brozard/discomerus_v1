@@ -208,10 +208,6 @@ textarea.form-control,
     -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
 }
 
-.perfect-button-size {
-  width: 325px;
-}
-
 textarea,
 textarea.form-control {
 	padding-top: 10px;
@@ -393,7 +389,7 @@ button.btn:focus, .btn:focus { outline: 0; opacity: 0.6; background: #de615e; co
 
 .main-menu-style, .main-menu-style * {
   /*background: rgb(222,140,140);*/
-  border-radius: 5px;
+  border-radius: 4px;
   color: white;
 }
 
@@ -432,6 +428,11 @@ button.btn:focus, .btn:focus { outline: 0; opacity: 0.6; background: #de615e; co
   text-align: left;
 }
 
+.form-border-4px {
+  -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+  margin: 0 auto;
+}
+
 .headert {
   flex-flow: row wrap;
   display: flex;
@@ -446,6 +447,17 @@ button.btn:focus, .btn:focus { outline: 0; opacity: 0.6; background: #de615e; co
   width: 300px;
 }
 
+.perfect-button-size {
+  width: 325px;
+}
+
+.close-button-size {
+  width: 357px;
+}
+
+.custom_button-margin {
+  margin-top: 10px;
+}
 
 /***** Media queries *****/
 
