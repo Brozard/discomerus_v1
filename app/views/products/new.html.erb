@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-6 col-sm-offset-1 form-box">
       <div class="form-bottomx", style='border-radius:4px; margin-left:4em;'>
-        <h1 class="center-text">CREATE NEW PRODUCT</h1><br>
+        <h1 class="center-text" style="text-align:center;">CREATE NEW PRODUCT</h1><br>
         <%= form_for(@product) do |f| %>
           <% if @product.errors.any? %>
             <div id="error_explanation">
@@ -18,8 +18,8 @@
             <div class="row-div-display">
               <div>
                 <div class="field"><br>
-                  <%= f.collection_select :manufacturer_id, Manufacturer.order_by_company_name.events_attended(current_user.trade_events.pluck(:id)), 
-                    :id, :company_name, {prompt: "Select Manufacturer (req)"}, {class: "search-field force-black-text"} 
+                  <%= f.collection_select :manufacturer_id, Manufacturer.order_by_company_name.events_attended(current_user.trade_events.pluck(:id)),
+                    :id, :company_name, {prompt: "Select Manufacturer (req)"}, {class: "search-field force-black-text"}
                   %>
                 </div><br>
                 <div class="field bottom-buffer">
@@ -34,6 +34,10 @@
                   <br>
                   <%= f.text_field :min_order_quantity, size:"30px", placeholder:"Minimum Order Quantity" %><!-- , class: "search-field" %> -->
                 </div>
+                <div class="field">
+                  <%= f.label :Add_photos %>
+                  <%= f.file_field :photo, multiple: true %>
+                </div>
               </div>
               <div class="spacing">
               </div>
@@ -46,17 +50,13 @@
                   <%= f.collection_select :category, Category.all, :id, :category_name, {prompt: "Category"}, {class: "search-field force-black-text perfect-button-size"} %>
                 </div><br>
                 <div class="field">
-                  <%= f.text_area :description, size:'28px', placeholder:"Description", style:"height:100px;", class: "perfect-button-size" %>
+                  <%= f.text_area :description, size:'28px', placeholder:"Description", style:"height:140px;", class: "perfect-button-size" %>
                 </div><br>
-                <div class="field">
-                  <%= f.label :Add_photos %>
-                  <%= f.file_field :photo, multiple: true %>
+                <div><br>
+                  <%= f.submit class:'btn btn-lg btn-success', style:'margin-left:1em; width:90%;'%>
                 </div>
               </div>
             </div>
-          </div>
-          <div><br>
-            <%= f.submit class:'btn btn-lg btn-success', style:'margin-left:1em; width:25%;'%>
           </div>
         <% end %>
       </div>
