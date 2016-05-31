@@ -14,7 +14,7 @@
     <div class="row-div-display">
       <div>
         <div class="field">
-          <%= f.text_field :event_name, {placeholder: "Event Name (required)", class:"search-field close-button-size force-black-text"} %>
+          <%= f.text_field :event_name, {placeholder: "*** Event Name (required) ***", class:"search-field close-button-size force-black-text"} %>
         </div><br>
         <div class="field">
           <%= f.label :start_date %><br>
@@ -31,7 +31,7 @@
           %>
         </div><br>
         <div>
-          <%= f.submit 'Create Trade Event', class:'btn btn-lg btn-success close-button-size custom_button-margin' %>
+          <%= f.submit 'Save Trade Event', class:'btn btn-lg btn-success close-button-size custom_button-margin' %>
         </div>
       </div>
       <div class="spacing">
@@ -40,30 +40,22 @@
         <!-- beginning of address fields -->
         <%= f.fields_for :address do |ff| %>
           <div class="field">
-            <%= ff.text_field :street_address_1, {placeholder: "Street", class: "search-field perfect-button-size force-black-text"} %>
+            <%= ff.text_field :street_address_1, {placeholder: "*** Street ***", class: "search-field perfect-button-size force-black-text"} %>
+          </div><br>
+          <div class="field">
+            <%= ff.text_field :city, {placeholder: "*** City ***", class: "search-field perfect-button-size force-black-text"} %>
+          </div><br>
+          <div class="field">
+            <%= ff.text_field :country, {placeholder: "*** Country ***", class: "search-field perfect-button-size force-black-text"} %>
+          </div><br>
+          <div class="field">
+            <%= ff.text_field :state, {placeholder: "*** State ***", class: "search-field perfect-button-size force-black-text"} %>
           </div><br>
           <!-- <div class="field">
-            <%#= ff.label :street_address_2 %><br>
-            <%#= ff.text_field :street_address_2 %>
-          </div>
-          <div class="field">
-            <%#= ff.label :street_address_3 %><br>
-            <%#= ff.text_field :street_address_3 %>
-          </div> -->
-          <div class="field">
-            <%= ff.text_field :city, {placeholder: "City", class: "search-field perfect-button-size force-black-text"} %>
-          </div><br>
-          <div class="field">
-            <%= ff.text_field :country, {placeholder: "Country", class: "search-field perfect-button-size force-black-text"} %>
-          </div><br>
-          <div class="field">
-            <%= ff.text_field :state, {placeholder: "State", class: "search-field perfect-button-size force-black-text"} %>
-          </div><br>
-          <!-- <div class="field">
-            <%#= ff.text_field :district, {placeholder: "District", class: "search-field perfect-button-size force-black-text"} %>
+            <%#= ff.text_field :district, {placeholder: "*** District ***", class: "search-field perfect-button-size force-black-text"} %>
           </div><br> -->
           <div class="field">
-            <%= ff.text_field :postal_code, {placeholder: "Postal Code", class: "search-field perfect-button-size force-black-text"} %>
+            <%= ff.text_field :postal_code, {placeholder: "*** Postal Code ***", class: "search-field perfect-button-size force-black-text"} %>
           </div>
         <% end %> <!-- end of address fields -->
       </div>

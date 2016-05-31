@@ -16,29 +16,29 @@
         <%= f.fields_for :attending_manufacturer do |ff| %>
           <div class="field">
             <br>
-            <%= ff.collection_select :trade_event_id, TradeEvent.where(buyer_id: current_user.id), :id, :event_name, {prompt: 'Select Trade Event (required)'},
+            <%= ff.collection_select :trade_event_id, TradeEvent.where(buyer_id: current_user.id), :id, :event_name, {prompt: '*** Select Trade Event (required) ***'},
             {class: "search-field perfect-button-size"} %>
           </div>
         <% end %>
         <div class="field">
           <br>
-          <%= f.text_field :company_name, {:placeholder=>"Company Name (required)", class: "search-field perfect-button-size force-black-text"}  %>
+          <%= f.text_field :company_name, {:placeholder=>"*** Company Name (required) ***", class: "search-field perfect-button-size force-black-text"}  %>
         </div>
         <div class="field">
           <br>
-          <%= f.text_field :shipping_port, {:placeholder=>"Shipping Port",class: "search-field force-black-text perfect-button-size"}%>
+          <%= f.text_field :shipping_port, {:placeholder=>"*** Shipping Port ***",class: "search-field force-black-text perfect-button-size"}%>
         </div>
         <div class="field">
           <br>
-          <%= f.text_field :contact_name, {:placeholder=>"Contact Name", class: "search-field force-black-text perfect-button-size"} %>
+          <%= f.text_field :contact_name, {:placeholder=>"*** Contact Name ***", class: "search-field force-black-text perfect-button-size"} %>
         </div>
         <div class="field">
           <br>
-          <%= f.text_field :email, {:placeholder=>"Email", class: "search-field force-black-text perfect-button-size"} %>
+          <%= f.text_field :email, {:placeholder=>"*** Email ***", class: "search-field force-black-text perfect-button-size"} %>
         </div>
         <div class="field">
           <br>
-          <%= f.text_field :phone_number, {:placeholder=>"Phone Number", class: "search-field force-black-text perfect-button-size"} %>
+          <%= f.text_field :phone_number, {:placeholder=>"*** Phone Number ***", class: "search-field force-black-text perfect-button-size"} %>
         </div>
       </div>
       <div class="spacing">
@@ -48,27 +48,27 @@
         <%= f.fields_for :address do |ff| %>
           <div class="field">
             <br>
-            <%= ff.text_field :street_address_1, {:placeholder=>"Address", class: "search-field force-black-text perfect-button-size"} %>
+            <%= ff.text_field :street_address_1, {:placeholder=>"*** Address ***", class: "search-field force-black-text perfect-button-size"} %>
           </div>
           <div class="field">
             <br>
-            <%= ff.text_field :city, {:placeholder=>"City", class: "search-field force-black-text perfect-button-size"}%>
+            <%= ff.text_field :city, {:placeholder=>"*** City ***", class: "search-field force-black-text perfect-button-size"}%>
           </div>
           <div class="field">
             <br>
-            <%= ff.text_field :state, {:placeholder=>"State", class: "search-field force-black-text perfect-button-size"} %>
+            <%= ff.text_field :state, {:placeholder=>"*** State ***", class: "search-field force-black-text perfect-button-size"} %>
           </div>
           <div class="field">
             <br>
-            <%= ff.text_field :postal_code, {:placeholder=>"Zip Code", class: "search-field force-black-text perfect-button-size"} %>
+            <%= ff.text_field :postal_code, {:placeholder=>"*** Zip Code ***", class: "search-field force-black-text perfect-button-size"} %>
           </div>
           <div class="field">
             <br>
-            <%= ff.text_field :country, {:placeholder=>"Country", class: "search-field force-black-text perfect-button-size"} %>
+            <%= ff.text_field :country, {:placeholder=>"*** Country ***", class: "search-field force-black-text perfect-button-size"} %>
           </div>
           <div>
             <br>
-            <%= f.submit class:'btn btn-lg btn-success perfect-button-size' %>
+            <%= f.submit "Save Manufacturer", class:'btn btn-lg btn-success perfect-button-size' %>
           </div>
         </div>
       </div>

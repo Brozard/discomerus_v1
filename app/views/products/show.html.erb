@@ -1,37 +1,34 @@
+<% if !@product.pictures[0].nil? %>
+  <div class="container form-bottom headert">
+    <% @product.pictures.each do |pic|%>
+      <%= image_tag pic.photo, class:"img-show"%>
+    <% end %>
+  </div>
+<%end%>
 
-   <div class="container form-bottom headert">
-     <!-- <div class="row"> -->
-            <% if !@product.pictures[0].nil? %>
-              <% @product.pictures.each do |pic|%>
-                <%= image_tag pic.photo, class:"img-show"%>
-              <% end %>
-            <%end%>
-          </div>
-           <%#= form_tag sessions_path do %>
-          <br>
-          <div class="container form-bottom center-nested-divs">
-            <div>
-              <div><strong>Product: </strong><%= @product.name %></div>
-              <div><strong>Category: </strong><%= @product.show_category %></div>
-              <div><strong>Item Number: </strong><%= @product.item_number %></div>
-              <div><strong>Minimum Order Quantity: </strong><%= @product.min_order_quantity %> units</div>
-              <div><strong>Price: </strong><%= number_to_currency((@product.price * 0.01), precision: 2) %></div>
-            </div>
-            <div class="spacing">
-            </div>
-            <div class="description-width">
-              <div><strong>Description: </strong><%= @product.description %></div>
-            </div>
-          </div>
-            <br>
-            <%= link_to 'Edit', edit_product_path(@product), class: "btn-link-2" %> |
-            <%= link_to 'Back', products_path, class: "btn-link-2" %>
-            <br>
-            <br>
-       </div>
-     <!-- </div> -->
-     <!-- <div class="row"> -->
-       <div class="col-sm-6 col-sm-offset-3">
-       </div>
-     <!-- </div> -->
-   </div>
+<br>
+<div class="container form-bottom center-nested-divs">
+  <div>
+    <div><strong>Manufacturer: </strong><%= @product.manufacturer.company_name %></div>
+    <div><strong>Shipping Port: </strong><%= @product.manufacturer.shipping_port %>, <%= @product.manufacturer.address.country %></div>
+    <div><strong>Contact Name: </strong><%= @product.manufacturer.contact_name %></div>
+    <div><strong>Email: </strong><%= @product.manufacturer.email %></div>
+  </div>
+  <div>
+    <div><strong>Product: </strong><%= @product.name %></div>
+    <div><strong>Category: </strong><%= @product.show_category %></div>
+    <div><strong>Item Number: </strong><%= @product.item_number %></div>
+    <div><strong>Minimum Order Quantity: </strong><%= @product.min_order_quantity %> units</div>
+    <div><strong>Price: </strong><%= number_to_currency((@product.price * 0.01), precision: 2) %></div>
+  </div>
+  <div class="spacing">
+  </div>
+  <div class="description-width">
+    <div><strong>Description: </strong><%= @product.description %></div>
+  </div>
+</div>
+<br>
+<%= link_to 'Edit', edit_product_path(@product), class: "btn-link-2" %> 
+<%= link_to 'Back', products_path, class: "btn-link-2" %>
+<br>
+<br>
