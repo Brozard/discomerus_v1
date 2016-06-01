@@ -37,6 +37,9 @@ class ProductsController < ApplicationController
   def create
     @product = current_user.products.build(product_params)
     @product.price = (params[:product][:price].to_d * 100).to_i
+    unless (params[:product][:category_id]).to_i.nil?
+      @product.category_id = (params[:product][:category_id]).to_i
+    end
 
     if !params[:product][:photo].nil?
       @pictures = []
@@ -64,6 +67,7 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    # @product.category_id = (params[:product][:category_id]).to_i
     if !params[:product][:photo].nil?
       @pictures = []
       params[:product][:photo].each do |pix|
@@ -74,8 +78,15 @@ class ProductsController < ApplicationController
         pix.save
       end
     end
+    unless (params[:product][:category_id]).to_i.nil?
+      if @product.category_id != (params[:product][:category_id]).to_i
+        @product.category_id = (params[:product][:category_id]).to_i
+      end 
+    end
     respond_to do |format|
       if @product.update(product_params)
+        @product.price = (params[:product][:price].to_d * 100).to_i
+        # @product.category_id = (params[:product][:category_id]).to_i
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else
@@ -148,7 +159,7 @@ class ProductsController < ApplicationController
 
       @products = Product.order_by_product_name.user_products(current_user.id).by_price(@min_p, @max_p)
       if session[:name]
-        @products = @products.by_name(session[:name].downcase.split(" ").map! {|x| x.capitalize}.join(" "))
+        @products = @products.by_name(session[:name].downcase.split(" ").map! {|x| x}.join(" "))
       end
       if !@cat.nil?
         @products = @products.by_category(@cat)

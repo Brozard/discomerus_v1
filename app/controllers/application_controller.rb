@@ -26,7 +26,9 @@ class ApplicationController < ActionController::Base
     if current_user == nil
       redirect_to login_path # unless request.fullpath == '/login'
     else
-      if session[:expires_at] < Time.current
+      if session[:expires_at].nil?
+        session[:expires_at] = Time.current + 15.minutes
+      elsif session[:expires_at] < Time.current
         redirect_to timeout_path
       else
         session[:expires_at] = Time.current + 15.minutes

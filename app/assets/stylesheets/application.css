@@ -407,6 +407,10 @@ button.btn:focus, .btn:focus { outline: 0; opacity: 0.6; background: #de615e; co
   padding: 0 2em;
 }
 
+.spacing-mini {
+  padding: 0 0.75em;
+}
+
 .center-nested-divs {
   display: flex;
   justify-content: center;
@@ -492,7 +496,7 @@ table {
 
 .tbl-header th {
    text-align: center;
-   font-size: 10pt;
+   font-size: 12pt;
    color: #5E4848;
 
  }
@@ -522,7 +526,7 @@ td {
   text-align: left;
   vertical-align:middle;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 16px;
   color: #fff;
   border-bottom: solid 1px rgba(255,255,255,0.1);
   background: rgba(0, 0, 0, 0.4);

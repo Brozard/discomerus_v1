@@ -12,10 +12,10 @@
       <%= search_field_tag :name, session[:name], placeholder: "Find by Product Name", class: "search-field force-black-text" %>
     </li>
     <li>
-      <%= number_field_tag :min_price, session[:min_price], in: 0..10000.00, step: "0.01", placeholder: "Min $", class: "search-field force-black-text" %>
+      <%= number_field_tag :min_price, session[:min_price], in: 0..50000.00, step: "0.01", placeholder: "Min $", class: "search-field force-black-text" %>
     </li>
     <li>
-      <%= number_field_tag :max_price, session[:max_price], in: 0..10000.00, step: "0.01", placeholder: "Max $", class: "search-field force-black-text" %>
+      <%= number_field_tag :max_price, session[:max_price], in: 0..50000.00, step: "0.01", placeholder: "Max $", class: "search-field force-black-text" %>
     </li>
     <li>
       <%#= collection_select :category, session[:category], Category.all, :id, :category_name, {prompt: "Find by Category"}, {class: "search-field force-black-text"} %>
@@ -27,9 +27,6 @@
     </li>
   </ul>
 <% end %>
-
-<%= p params[:min_price].class %>
-<%= p session[:min_price].class %>
 
 <% if !@products.empty? %>
   <%= pluralize(@products.count, "product") %> found

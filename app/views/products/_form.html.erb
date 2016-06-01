@@ -38,10 +38,10 @@
       <div>
         <div class="field bottom-buffer">
           <br>
-          <%= f.number_field :price, {in: 0..10000.00, step: "0.01", placeholder: "*** Price (required) ***", class: "search-field perfect-button-size force-black-text"} %>
+          <%= f.number_field :price, {in: 0..50000.00, step: "0.01", placeholder: "*** Price (required) ***", class: "search-field perfect-button-size force-black-text"} %>
         </div><br>
         <div class="field bottom-buffer">
-          <%= f.collection_select :category, Category.all, :id, :category_name, {prompt: "*** Category ***"}, {class: "search-field force-black-text perfect-button-size"} %>
+          <%= f.collection_select :category_id, Category.all, :id, :category_name, {prompt: "*** Category ***"}, {class: "search-field force-black-text perfect-button-size"} %>
         </div><br>
         <div class="field">
           <%= f.text_area :description, size:'28px', placeholder:"*** Description ***", style:"height:162px;", class: "perfect-button-size" %>

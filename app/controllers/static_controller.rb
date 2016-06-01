@@ -1,4 +1,6 @@
 class StaticController < ApplicationController
+  # skip_before_filter :user_timeout
+  
   def welcome
   end
 

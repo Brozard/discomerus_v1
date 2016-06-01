@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
   end
 
   def timeout
-    session[:buyer_id] = nil
+    reset_session
     redirect_to '/', notice: 'You have been logged out for being inactive too long.'
   end
 end

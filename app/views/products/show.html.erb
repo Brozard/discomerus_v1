@@ -14,21 +14,28 @@
     <div><strong>Contact Name: </strong><%= @product.manufacturer.contact_name %></div>
     <div><strong>Email: </strong><%= @product.manufacturer.email %></div>
   </div>
+  <div class="spacing-mini">
+  </div>
   <div>
     <div><strong>Product: </strong><%= @product.name %></div>
     <div><strong>Category: </strong><%= @product.show_category %></div>
     <div><strong>Item Number: </strong><%= @product.item_number %></div>
-    <div><strong>Minimum Order Quantity: </strong><%= @product.min_order_quantity %> units</div>
+    <div><strong>Minimum Order Quantity: <% unless @product.min_order_quantity.nil? %></strong><%= @product.min_order_quantity %> units<% end %></div>
     <div><strong>Price: </strong><%= number_to_currency((@product.price * 0.01), precision: 2) %></div>
   </div>
   <div class="spacing">
   </div>
-  <div class="description-width">
-    <div><strong>Description: </strong><%= @product.description %></div>
-  </div>
+  <% unless @product.description == nil || @product.description == "" %>
+    <!-- <div class="spacing-mini">
+    </div> -->
+    <div class="description-width">
+      <div><strong>Description: </strong><%= @product.description %></div>
+    </div>
+  <% end %>
 </div>
 <br>
 <%= link_to 'Edit', edit_product_path(@product), class: "btn-link-2" %> 
+<%= link_to 'New Product', new_product_path, class: "btn-link-2" %> 
 <%= link_to 'Back', products_path, class: "btn-link-2" %>
 <br>
 <br>
