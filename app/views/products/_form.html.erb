@@ -14,6 +14,7 @@
     <div class="row-div-display">
       <div>
         <div class="field"><br>
+          <!-- For this collection to properly select the right manufacturers, we must check if there's an AttendingManufacturer record that matches the current user's ID -->
           <%= f.collection_select :manufacturer_id, Manufacturer.order_by_company_name.events_attended(current_user.trade_events.pluck(:id)), :id, :company_name, {prompt: "*** Select Manufacturer (req) ***"}, {class: "search-field force-black-text"}%>
         </div><br>
         <div class="field bottom-buffer">

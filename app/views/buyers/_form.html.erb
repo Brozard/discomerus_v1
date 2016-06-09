@@ -1,3 +1,5 @@
+<!-- This form is for creating new users (Buyers) -->
+
 <%= form_for(@buyer) do |f| %>
   <% if @buyer.errors.any? %>
     <div id="error_explanation">
@@ -11,9 +13,7 @@
   <% end %>
   <div class="container">
     <h1><strong>SHOW RUNNER</strong></h1>
-    <p>
-      <strong>Data Management For Show Events</strong>
-    </p>
+    <p><strong>Data Management For Show Events</strong></p>
     <div class="col-sm-6 col-sm-offset-3 form-box">
       <div class="form-top">
         <div class="form-top-left">

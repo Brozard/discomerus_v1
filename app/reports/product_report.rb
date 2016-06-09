@@ -4,10 +4,13 @@ class ProductReport < Dossier::Report
     # Product.where("id IN ?", :ids_in).to_sql
   end
 
+  # If 'options[:id]' has any values, this method returns SQL query text to find all Products with ID values in the array returned by the 'ids' method. 
   def ids_in
     "p.id IN :ids" if options[:id].present?
   end
 
+  # 'options[:id]' returns a String. This function removes the array brackets,
+  # then splits the String on the comma, inserts them into an actual array, then remaps the values as integers.
   def ids
     options[:id][1..-2].split(",").map(&:to_i)
   end
